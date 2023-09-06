@@ -19,9 +19,13 @@ config/icon="res://art/icon.svg"
 
 window/size/viewport_width=256
 window/size/viewport_height=256
-window/size/window_width_override=512
-window/size/window_height_override=512
-window/stretch/mode="canvas_items"
+window/size/window_width_override=1024
+window/size/window_height_override=1024
+window/stretch/mode="viewport"
+
+[dotnet]
+
+project/assembly_name="lospec1"
 
 [gui]
 

@@ -1,7 +1,7 @@
 extends Node2D
 
 class_name FishingLine
-const segmentCount: int = 15
+const segmentCount: int = 3
 const maxLength = 128
 const sagAmount = 50
 const lineWidth = 1.5
@@ -23,10 +23,15 @@ func _ready():
 
 func _draw():
 	if isLineActive:
+		var points = Util._quadratic_bezier(Vector2(0,0),lerp(Vector2(0,sagAmount),lineEnd.position,0.5),lineEnd.position,segmentCount)
 		for i in range(segmentCount - 1):
-			var points = Util._quadratic_bezier(Vector2(0,0),lerp(Vector2(0,sagAmount),lineEnd.position,0.5),lineEnd.position,segmentCount)
+			var line = Util.makeLine(points[i][0],points[i][1],points[i+1][0],points[i+1][1])
 			var color = Color(0, 0, 1) if segments[i].position.y > 256 - get_node('/root/main').waterLevel else Color("#dfcbbf")
-			draw_line(points[i], points[i + 1], color, lineWidth)
+			#draw_line(points[i], points[i + 1], color, lineWidth)
+			for p in line:
+				var ps = PackedVector2Array(p)
+				var c = PackedColorArray([color])
+				draw_primitive(ps,c,PackedVector2Array())
 	pass
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):

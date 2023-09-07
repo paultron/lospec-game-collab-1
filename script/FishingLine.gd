@@ -1,8 +1,10 @@
 extends Node2D
 
 class_name FishingLine
-const segmentCount: int = 10
+const segmentCount: int = 15
 const maxLength = 128
+const sagAmount = 50
+const lineWidth = 1.5
 
 var segments: Array[Segment] = []
 var isLineActive := true
@@ -10,7 +12,7 @@ var isLineActive := true
 
 var hookUnderwater: bool:
 	get:
-		return lineEnd.global_position.y > 256 - get_tree().root.get_child(0).waterLevel
+		return lineEnd.global_position.y > 256 - get_node('/root/main').waterLevel
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	#Instantiate segments
@@ -22,8 +24,9 @@ func _ready():
 func _draw():
 	if isLineActive:
 		for i in range(segmentCount - 1):
-			var color = Color(0, 0, 1) if segments[i].position.y > 256 - get_tree().root.get_child(0).waterLevel else Color("#dfcbbf")
-			draw_line(segments[i].position, segments[i + 1].position, color, 1.5)
+			var points = Util._quadratic_bezier(Vector2(0,0),lerp(Vector2(0,sagAmount),lineEnd.position,0.5),lineEnd.position,segmentCount)
+			var color = Color(0, 0, 1) if segments[i].position.y > 256 - get_node('/root/main').waterLevel else Color("#dfcbbf")
+			draw_line(points[i], points[i + 1], color, lineWidth)
 	pass
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):

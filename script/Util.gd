@@ -1,9 +1,5 @@
 extends Node
 
-func pee(x):
-	for n in range(5):
-		print(n)
-
 func _quadratic_bezier(p0: Vector2, p1: Vector2, p2: Vector2, segments:int):
 	var points: Array[Vector2] = []
 	for n in range(segments):

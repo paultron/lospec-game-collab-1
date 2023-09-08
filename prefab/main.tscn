@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://script/Player.gd" id="1_ger0m"]
 [ext_resource type="Script" path="res://script/Main.gd" id="1_lfam6"]
-[ext_resource type="Texture2D" uid="uid://dr4lokfuhf0mi" path="res://art/bg.png" id="2_3d2v2"]
+[ext_resource type="Texture2D" uid="uid://c3qk0gscbhr00" path="res://art/bg.png" id="2_3d2v2"]
 [ext_resource type="PackedScene" uid="uid://irpcwbq21fdh" path="res://prefab/fishingLine.tscn" id="2_mysdv"]
 [ext_resource type="Texture2D" uid="uid://b3looy5nte1bh" path="res://art/otter.png" id="4_36rpx"]
 [ext_resource type="Texture2D" uid="uid://bg8riljcb6gh1" path="res://art/rod/rod1.png" id="5_ys22b"]
@@ -204,7 +204,7 @@ shape = SubResource("RectangleShape2D_o7kr4")
 
 [node name="fart" type="AnimatedSprite2D" parent="skeddle"]
 show_behind_parent = true
-position = Vector2(84, 196)
+position = Vector2(82, 196)
 sprite_frames = SubResource("SpriteFrames_dc8bh")
 frame = 7
 frame_progress = 1.0

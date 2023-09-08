@@ -36,7 +36,7 @@ func makeLineV0(x0, y0, x1, y1):
 			error = error + dx
 			y0 = y0 + sy
 		#end if
-		length -= 1
+		_length -= 1
 	#end while
 	return points
 

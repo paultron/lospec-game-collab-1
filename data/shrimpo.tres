@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="FishData" load_steps=3 format=3 uid="uid://bo0u103y8pwtn"]
+
+[ext_resource type="Script" path="res://script/FishData.gd" id="1_imqma"]
+[ext_resource type="Texture2D" uid="uid://cw4vawvcpfsnu" path="res://art/fish/shrimpo.png" id="2_7oguo"]
+
+[resource]
+script = ExtResource("1_imqma")
+sprite = ExtResource("2_7oguo")
+hookText = "Wow... this guy's got bad posture!"
+catchText = "This was a mistake..."
+name = "Shrimpo"
+size = 0

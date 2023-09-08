@@ -7,12 +7,12 @@ const sagAmount = 50
 const lineWidth = 1.5
 
 var segments: Array[Segment] = []
-var isLineActive := true
 @onready var lineEnd: Node2D = $LineEnd
 
 var hookUnderwater: bool:
 	get:
 		return lineEnd.global_position.y > 256 - get_node('/root/main').waterLevel
+var cast := false
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	#Instantiate segments
@@ -22,7 +22,7 @@ func _ready():
 		add_child(segment)
 
 func _draw():
-	if isLineActive:
+	if cast:
 		for i in range(segmentCount - 1):
 			var points = Util.quadratic_bezier(Vector2(0,0),lerp(Vector2(0,sagAmount),lineEnd.position,0.5),lineEnd.position,segmentCount)
 			var color = Color(0, 0, 1) if segments[i].position.y > 256 - get_node('/root/main').waterLevel else Color("#dfcbbf")
@@ -30,6 +30,8 @@ func _draw():
 	pass
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
+	if !cast:
+		return
 	#Apply gravity to the end position
 	if hookUnderwater:
 		lineEnd.position.y += delta * 10.0

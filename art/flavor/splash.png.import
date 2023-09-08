@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://djkx1cc5xlsvl"
-path="res://.godot/imported/splash.png-e9c8aa82388a258833ef26f5060a0fa6.ctex"
+path="res://.godot/imported/splash.png-3dd03d0383a9573a49359f7c99af4c21.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://art/splash.png"
-dest_files=["res://.godot/imported/splash.png-e9c8aa82388a258833ef26f5060a0fa6.ctex"]
+source_file="res://art/flavor/splash.png"
+dest_files=["res://.godot/imported/splash.png-3dd03d0383a9573a49359f7c99af4c21.ctex"]
 
 [params]
 

@@ -1,6 +1,8 @@
 extends Node2D
 
 const waterLevel: int = 34
+var birdsActive = false
+var lastBirdActivation = 0
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -21,5 +23,30 @@ func _unhandled_input(event):
 				# move to mouse position
 				splash.position = mousePos
 				z_index = -1
+
+func _process(_delta):
+	bird_anim()
+	
+
+func bird_anim():
+	if not birdsActive and Time.get_ticks_msec() - lastBirdActivation > 10000:
+		lastBirdActivation = Time.get_ticks_msec()
+		if randi_range(0, 5) < 3:
+			return
+		var birds = $bg.get_node("BirdSquad/AnimationPlayer")
+		for bird in birds.get_parent().get_children():
+			if bird is AnimatedSprite2D:
+				bird.frame = randi_range(0, 4)
+				bird.play("default")
+		birds.play("move")
+		birdsActive = true
+		birds.animation_finished.connect(
+			func(_animation):
+				birds.stop()
+				birdsActive = false
+				for bird in birds.get_parent().get_children():
+					if bird is AnimatedSprite2D:
+						bird.stop()
+		)
 			
 

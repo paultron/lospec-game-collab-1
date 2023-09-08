@@ -1,7 +1,9 @@
-[gd_scene load_steps=2 format=3 uid="uid://b23urof7kb88m"]
+[gd_scene load_steps=3 format=3 uid="uid://b23urof7kb88m"]
 
 [ext_resource type="Texture2D" uid="uid://dokajwsmd31qa" path="res://art/fish/silhouette/medium.png" id="1_h7cnc"]
+[ext_resource type="Script" path="res://script/Fish.gd" id="2_16e0u"]
 
 [node name="medium" type="Sprite2D"]
 texture = ExtResource("1_h7cnc")
 centered = false
+script = ExtResource("2_16e0u")

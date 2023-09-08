@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dporu3stct4m0"
-path="res://.godot/imported/skeddlebird.png-eb206761fc5c39c5015b90e4cae19fc8.ctex"
+uid="uid://belclk6k3ycut"
+path="res://.godot/imported/bird.png-dedd3e0e43bb669717a5b43f635e1923.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://art/skeddlebird.png"
-dest_files=["res://.godot/imported/skeddlebird.png-eb206761fc5c39c5015b90e4cae19fc8.ctex"]
+source_file="res://art/flavor/bird.png"
+dest_files=["res://.godot/imported/bird.png-dedd3e0e43bb669717a5b43f635e1923.ctex"]
 
 [params]
 

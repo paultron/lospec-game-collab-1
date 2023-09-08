@@ -30,11 +30,13 @@ func _process(delta):
 					state = State.swimLeft
 					sprite.flip_h = true
 					$fart.flip_h = true
+					$fart.position.x = 14
 					sprite.play("move")
 				elif randf() < 0.5 && position.x < 180:
 					state = State.swimRight
 					sprite.flip_h = false
 					$fart.flip_h = false
+					$fart.position.x = -7
 					sprite.play("move")
 				elif randf() < 0.1:
 					fart()

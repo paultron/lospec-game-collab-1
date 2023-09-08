@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://7kqeevyjhvnj"
-path="res://.godot/imported/skeddles_angry.png-65191fb466e9b10b5557715ee852c91e.ctex"
+uid="uid://308uau5upppc"
+path="res://.godot/imported/skidle.png-3b4bbbb77ff273d57354c9d8ad8ed53f.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://art/skeddles_angry.png"
-dest_files=["res://.godot/imported/skeddles_angry.png-65191fb466e9b10b5557715ee852c91e.ctex"]
+source_file="res://art/skeddle/skidle.png"
+dest_files=["res://.godot/imported/skidle.png-3b4bbbb77ff273d57354c9d8ad8ed53f.ctex"]
 
 [params]
 

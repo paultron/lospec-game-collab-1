@@ -1,12 +1,14 @@
 extends Node2D
 
 class_name FishingLine
-const segmentCount: int = 3
+const segmentCount: int = 10
 const maxLength = 128
 const sagAmount = 50
 const lineWidth = 1.5
 
 var segments: Array[Segment] = []
+var line: Array[Vector2] = []
+var points: Array[Vector2] = []
 var isLineActive := true
 @onready var lineEnd: Node2D = $LineEnd
 
@@ -23,15 +25,15 @@ func _ready():
 
 func _draw():
 	if isLineActive:
-		var points = Util._quadratic_bezier(Vector2(0,0),lerp(Vector2(0,sagAmount),lineEnd.position,0.5),lineEnd.position,segmentCount)
+		points = Util._quadratic_bezier(Vector2(0,0),lerp(Vector2(0,sagAmount),lineEnd.position,0.5),lineEnd.position,segmentCount)
 		for i in range(segmentCount - 1):
-			var line = Util.makeLine(points[i][0],points[i][1],points[i+1][0],points[i+1][1])
+			#line = Util.makeLine(points[i].x,points[i].y,points[i+1].x,points[i+1].y)
 			var color = Color(0, 0, 1) if segments[i].position.y > 256 - get_node('/root/main').waterLevel else Color("#dfcbbf")
 			#draw_line(points[i], points[i + 1], color, lineWidth)
+			line = Util.plotLine(points[i].x, points[i].y, points[i + 1].x,points[i + 1].y)
 			for p in line:
-				var ps = PackedVector2Array(p)
-				var c = PackedColorArray([color])
-				draw_primitive(ps,c,PackedVector2Array())
+				#pass
+				draw_rect(Rect2(p,Vector2(1,1)),color)
 	pass
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):

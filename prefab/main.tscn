@@ -1,4 +1,4 @@
-[gd_scene load_steps=37 format=3 uid="uid://les7xuur0g8p"]
+[gd_scene load_steps=38 format=3 uid="uid://les7xuur0g8p"]
 
 [ext_resource type="Script" path="res://script/Player.gd" id="1_ger0m"]
 [ext_resource type="Script" path="res://script/Main.gd" id="1_lfam6"]
@@ -11,6 +11,7 @@
 [ext_resource type="Script" path="res://script/skeddle.gd" id="7_mgtrt"]
 [ext_resource type="Texture2D" uid="uid://dporu3stct4m0" path="res://art/skeddlebird.png" id="8_oce5f"]
 [ext_resource type="Texture2D" uid="uid://308uau5upppc" path="res://art/skidle.png" id="8_wi08w"]
+[ext_resource type="Script" path="res://script/FishSpawner.gd" id="12_lg32k"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_jyjxr"]
 atlas = ExtResource("8_wi08w")
@@ -277,3 +278,7 @@ anchor_mode = 0
 libraries = {
 "": SubResource("AnimationLibrary_3mby8")
 }
+
+[node name="FishSpawner" type="Node2D" parent="."]
+position = Vector2(0, 239)
+script = ExtResource("12_lg32k")

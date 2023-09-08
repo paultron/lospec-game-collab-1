@@ -27,7 +27,7 @@ func _ready():
 
 func _draw():
 	if cast:
-		points = Util._quadratic_bezier(Vector2(0,0),lerp(Vector2(0,sagAmount),lineEnd.position,0.5),lineEnd.position,segmentCount)
+		points = Util.quadratic_bezier(Vector2(0,0),lerp(Vector2(0,sagAmount),lineEnd.position,0.5),lineEnd.position,segmentCount)
 		for i in range(segmentCount - 1):
 			#line = Util.makeLine(points[i].x,points[i].y,points[i+1].x,points[i+1].y)
 			var color = Color(0, 0, 1) if segments[i].position.y > 256 - get_node('/root/main').waterLevel else Color("#dfcbbf")

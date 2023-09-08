@@ -1,7 +1,6 @@
 extends Node2D
 
-class_name Util
-static func quadratic_bezier(p0: Vector2, p1: Vector2, p2: Vector2, segments:int):
+func quadratic_bezier(p0: Vector2, p1: Vector2, p2: Vector2, segments:int):
 	var points: Array[Vector2] = []
 	for n in range(segments):
 		var t = float(n)/(float(n)+1)
@@ -19,7 +18,7 @@ func makeLineV0(x0, y0, x1, y1):
 	var error = dx + dy
 	var e2 = 0
 	var points: Array[Vector2] = []
-	var length = 127
+	var _length = 127
 	while true:
 		points.append(Vector2(x0,y0))
 		if x0 == x1 and y0 == y1:

@@ -1,6 +1,7 @@
 extends Node2D
 
-func _quadratic_bezier(p0: Vector2, p1: Vector2, p2: Vector2, segments:int):
+class_name Util
+static func quadratic_bezier(p0: Vector2, p1: Vector2, p2: Vector2, segments:int):
 	var points: Array[Vector2] = []
 	for n in range(segments):
 		var t = float(n)/(float(n)+1)

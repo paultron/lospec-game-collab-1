@@ -2,14 +2,16 @@ extends Node2D
 
 class_name FishingLine
 const segmentCount: int = 10
-const maxLength = 128
 const sagAmount = 50
 const lineWidth = 1.5
 
 var segments: Array[Segment] = []
-
 var line: Array[Vector2] = []
 var points: Array[Vector2] = []
+
+@export var data: LineData
+@export var rodData: RodData
+@onready var letOut: float = data.length
 
 @onready var lineEnd: Node2D = $LineEnd
 
@@ -46,14 +48,23 @@ func _process(delta):
 		lineEnd.position.y += delta * 10.0
 	else:
 		lineEnd.position.y += delta * 100.0
-	lineEnd.position.y = clamp(lineEnd.position.y, 0, 256)
+	#clamp line length to the data length
 	if hookUnderwater:
-		lineEnd.position += sin(Time.get_ticks_msec() / 1000.0) * Vector2(0.5, 0)
-		lineEnd.position.x = clamp(lineEnd.position.x, 0, maxLength)
+		lineEnd.position += sin(Time.get_ticks_msec() / 1000.0) * Vector2(0.1, 0)
 	# Update segment x positions to divide the line into equal parts
+	var distance = lineEnd.position.distance_to(Vector2(0, 0))
+	if distance > int(letOut):
+		lineEnd.position = lineEnd.position.normalized() * int(letOut)
 	var segmentLength = lineEnd.position.x / segmentCount
 	for i in range(segmentCount):
 		segments[i].position.x = segmentLength * i
 		segments[i].position.y = lineEnd.position.y / segmentCount * i
+
 	queue_redraw()
-	pass
+
+func reel(amount):
+	letOut -= amount * rodData.reelingSpeed
+	if letOut < 0:
+		letOut = 0
+	elif letOut > data.length:
+		letOut = data.length

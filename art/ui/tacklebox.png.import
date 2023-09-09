@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cso1ms0ysnhwa"
-path="res://.godot/imported/rodInv.png-d5148cfb0d0b41504ac709d4d6fea743.ctex"
+uid="uid://clniae2tm0oq1"
+path="res://.godot/imported/tacklebox.png-a5ff55ab6134b09d70372ce63145ef89.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://art/rodInv.png"
-dest_files=["res://.godot/imported/rodInv.png-d5148cfb0d0b41504ac709d4d6fea743.ctex"]
+source_file="res://art/ui/tacklebox.png"
+dest_files=["res://.godot/imported/tacklebox.png-a5ff55ab6134b09d70372ce63145ef89.ctex"]
 
 [params]
 

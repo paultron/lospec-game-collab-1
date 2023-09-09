@@ -6,7 +6,10 @@ var lastBirdActivation = 0
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	pass # Replace with function body.
+	$loadingScreen.play("default")
+	# wait 3 seconds
+	await get_tree().create_timer(3).timeout
+	$loadingScreen.queue_free()
 
 func _unhandled_input(event):
 	# If the user clicks on the water

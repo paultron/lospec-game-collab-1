@@ -1,0 +1,7 @@
+[gd_resource type="LabelSettings" load_steps=2 format=3 uid="uid://4ux3mhrsr1i4"]
+
+[ext_resource type="FontFile" uid="uid://c8cwbrwvceqbx" path="res://font/04B.TTF" id="1_8brje"]
+
+[resource]
+font = ExtResource("1_8brje")
+font_size = 8

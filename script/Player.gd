@@ -9,6 +9,7 @@ func _unhandled_input(event):
 	if event is InputEventKey:
 		if event.keycode == KEY_SPACE and !line.cast:
 			line.cast = true
+			line.populate_line()
 			get_tree().root.get_node("main/Camera2D/AnimationPlayer").play("pan")
 		if event.keycode == KEY_Z and line.cast:
 			reeling = event.pressed

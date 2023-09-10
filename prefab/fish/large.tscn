@@ -1,11 +1,22 @@
-[gd_scene load_steps=4 format=3 uid="uid://bsbwhyatq87g4"]
+[gd_scene load_steps=5 format=3 uid="uid://bsbwhyatq87g4"]
 
 [ext_resource type="Texture2D" uid="uid://by7x6e7cwcq2u" path="res://art/fish/silhouette/large.png" id="1_01mn6"]
 [ext_resource type="Script" path="res://script/Fish.gd" id="2_42mp0"]
 [ext_resource type="Resource" uid="uid://bo0u103y8pwtn" path="res://data/shrimpo.tres" id="3_38nb4"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_8roca"]
+radius = 31.0161
 
 [node name="large" type="Sprite2D"]
 texture = ExtResource("1_01mn6")
 centered = false
 script = ExtResource("2_42mp0")
 data = ExtResource("3_38nb4")
+
+[node name="Awareness" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Awareness"]
+position = Vector2(25, 24)
+shape = SubResource("CircleShape2D_8roca")
+
+[connection signal="area_entered" from="Awareness" to="." method="on_awareness_entered"]

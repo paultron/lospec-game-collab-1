@@ -7,6 +7,8 @@ var lastBirdActivation = 0
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	$loadingScreen.play("default")
+	if (randi_range(0, 1000) == 0):
+		$player.get_node("Sprite2D").texture = load("res://art/otter/megafrown.png")
 	# wait 3 seconds
 	await get_tree().create_timer(3).timeout
 	$loadingScreen.queue_free()

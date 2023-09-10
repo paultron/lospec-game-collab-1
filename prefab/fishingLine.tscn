@@ -1,8 +1,22 @@
-[gd_scene load_steps=2 format=3 uid="uid://irpcwbq21fdh"]
+[gd_scene load_steps=4 format=3 uid="uid://irpcwbq21fdh"]
 
 [ext_resource type="Script" path="res://script/FishingLine.gd" id="1_lauf4"]
+[ext_resource type="Texture2D" uid="uid://dpg1rgtnaowb5" path="res://art/hook.png" id="2_5uw1s"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_i4lsd"]
+size = Vector2(6, 6)
 
 [node name="Line" type="Node2D"]
 script = ExtResource("1_lauf4")
 
-[node name="LineEnd" type="Node2D" parent="."]
+[node name="LineEnd" type="Sprite2D" parent="."]
+texture = ExtResource("2_5uw1s")
+centered = false
+offset = Vector2(-7, -6)
+
+[node name="Area2D" type="Area2D" parent="LineEnd"]
+position = Vector2(4, 4)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="LineEnd/Area2D"]
+position = Vector2(-3, 1)
+shape = SubResource("RectangleShape2D_i4lsd")

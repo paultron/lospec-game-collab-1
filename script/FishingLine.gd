@@ -9,11 +9,13 @@ var segments: Array[Segment] = []
 var line: Array[Vector2] = []
 var points: Array[Vector2] = []
 
+var hooked: Fish = null
+
 @export var data: LineData
 @export var rodData: RodData
 @onready var letOut: float = data.length
 
-@onready var lineEnd: Node2D = $LineEnd
+@onready var lineEnd: Sprite2D = $LineEnd
 
 var hookUnderwater: bool:
 	get:
@@ -21,11 +23,7 @@ var hookUnderwater: bool:
 var cast := false
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	#Instantiate segments
-	for i in range(segmentCount):
-		var segment = load("res://prefab/segment.tscn").instantiate()
-		segments.append(segment)
-		add_child(segment)
+	pass
 
 func _draw():
 	if cast:
@@ -38,7 +36,8 @@ func _draw():
 			for p in line:
 				#pass
 				draw_rect(Rect2(p,Vector2(1,1)),color)
-	pass
+	if !cast:
+		pass
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	if !cast:
@@ -65,6 +64,17 @@ func _process(delta):
 func reel(amount):
 	letOut -= amount * rodData.reelingSpeed
 	if letOut < 0:
+		cast = false
+		for i in segments.size():
+			segments[i].queue_free()
+		segments.clear()
 		letOut = 0
+		queue_redraw()
 	elif letOut > data.length:
 		letOut = data.length
+
+func populate_line():
+	for i in range(segmentCount):
+		var segment = load("res://prefab/segment.tscn").instantiate()
+		segments.append(segment)
+		add_child(segment)

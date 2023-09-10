@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://b3looy5nte1bh"
-path="res://.godot/imported/otter.png-eb221198e6246a3209cc36ad1629cefe.ctex"
+uid="uid://dpg1rgtnaowb5"
+path="res://.godot/imported/hook.png-2c14a535698c73cc177d101c2798806f.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://art/otter.png"
-dest_files=["res://.godot/imported/otter.png-eb221198e6246a3209cc36ad1629cefe.ctex"]
+source_file="res://art/hook.png"
+dest_files=["res://.godot/imported/hook.png-2c14a535698c73cc177d101c2798806f.ctex"]
 
 [params]
 

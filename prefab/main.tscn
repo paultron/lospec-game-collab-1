@@ -384,7 +384,7 @@ strength = 10
 
 [sub_resource type="Resource" id="Resource_e7872"]
 script = ExtResource("16_4p6su")
-reelingSpeed = 15
+reelingSpeed = 25
 
 [sub_resource type="Animation" id="Animation_bmu2q"]
 length = 0.001

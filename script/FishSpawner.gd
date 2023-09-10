@@ -7,7 +7,7 @@ var lastSpawnedType: FishData.Size
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	for i in range(0, 10):
+	for i in range(0, 5):
 		spawnFish(i, i)
 
 func spawnFish(depth_hint: int, x_hint: int = 0):
@@ -27,9 +27,15 @@ func spawnFish(depth_hint: int, x_hint: int = 0):
 		lastSpawnedType = FishData.Size.LARGE
 		fish = load("res://prefab/fish/large.tscn").instantiate()
 		fish.data = load("res://data/shrimpo.tres")
-	fish.position = Vector2((256 / 10) * x_hint + randi_range(0, 10), (bottomY / 10 ) * depth_hint + randi_range(0, 10))
+	fish.position = Vector2((256 / 5) * x_hint + randi_range(0, 10), (bottomY / 5) * depth_hint + randi_range(0, 10))
 	# Clamp position to at least 48 pixels above the bottom
 	fish.position.y = min(fish.position.y, bottomY - 48)
+	# Clamp position to at least 48 pixels from the left
+	fish.position.x = max(fish.position.x, 48)
+	# Clamp position to at least 48 pixels from the right
+	fish.position.x = min(fish.position.x, 256 - 48)
+	# Clamp position to at least 48 pixels from the top
+	fish.position.y = max(fish.position.y, 48)
 	add_child(fish)
 
 

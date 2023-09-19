@@ -561,7 +561,6 @@ centered = false
 
 [node name="rod" type="Sprite2D" parent="player"]
 position = Vector2(34, 18)
-scale = Vector2(1e-05, 1e-05)
 texture = ExtResource("5_ys22b")
 centered = false
 
@@ -575,7 +574,7 @@ position = Vector2(32.5, 40)
 shape = SubResource("RectangleShape2D_oon0p")
 
 [node name="Line" parent="player" instance=ExtResource("2_mysdv")]
-position = Vector2(37, 40)
+position = Vector2(57, 29)
 data = SubResource("Resource_a7d1s")
 rodData = SubResource("Resource_e7872")
 

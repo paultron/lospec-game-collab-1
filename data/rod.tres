@@ -1,0 +1,11 @@
+[resource]
+
+curve = SubResource( [ 
+    Vector2(0, 0),  
+    Vector2(100, 50),
+    Vector2(200, 100)
+], Curve2DData )
+
+
+loop_wrap = 1  
+tension = 0.5  

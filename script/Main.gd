@@ -1,6 +1,6 @@
 extends Node2D
 
-const waterLevel: int = 223
+const waterLevel: int = 34
 var birdsActive = false
 var lastBirdActivation = 0
 
@@ -31,6 +31,7 @@ func _unhandled_input(event):
 
 func _process(_delta):
 	bird_anim()
+
 
 func bird_anim():
 	if not birdsActive and Time.get_ticks_msec() - lastBirdActivation > 10000:

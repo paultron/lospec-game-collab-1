@@ -4,6 +4,8 @@ const waterLevel: int = 34
 var birdsActive = false
 var lastBirdActivation = 0
 
+@onready var clouds = $bg.get_node("clouds")
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	$loadingScreen.play("default")
@@ -29,8 +31,9 @@ func _unhandled_input(event):
 				splash.position = mousePos
 				z_index = -1
 
-func _process(_delta):
+func _process(delta):
 	bird_anim()
+	cloud_anim(delta)
 
 
 func bird_anim():
@@ -53,5 +56,10 @@ func bird_anim():
 					if bird is AnimatedSprite2D:
 						bird.stop()
 		)
+
+func cloud_anim(delta: float):
+	clouds.position.x -= delta * 10
+	if clouds.position.x <= -768:
+		clouds.position.x = 0
 			
 

@@ -1,4 +1,4 @@
-[gd_scene load_steps=78 format=3 uid="uid://les7xuur0g8p"]
+[gd_scene load_steps=85 format=3 uid="uid://les7xuur0g8p"]
 
 [ext_resource type="Script" path="res://script/Player.gd" id="1_ger0m"]
 [ext_resource type="Script" path="res://script/Main.gd" id="1_lfam6"]
@@ -8,11 +8,18 @@
 [ext_resource type="Texture2D" uid="uid://belclk6k3ycut" path="res://art/flavor/bird.png" id="3_xttq3"]
 [ext_resource type="Texture2D" uid="uid://d1lg5ya0f8p2a" path="res://art/bg/bg.png" id="4_moga5"]
 [ext_resource type="Texture2D" uid="uid://308uau5upppc" path="res://art/skeddle/skidle.png" id="4_pab6w"]
+[ext_resource type="Texture2D" uid="uid://dr7rkewq7g73m" path="res://art/bg/sky.png" id="5_ajwgm"]
 [ext_resource type="Texture2D" uid="uid://dporu3stct4m0" path="res://art/skeddle/skeddlebird.png" id="5_uurcx"]
 [ext_resource type="Texture2D" uid="uid://bg8riljcb6gh1" path="res://art/rod/rod1.png" id="5_ys22b"]
+[ext_resource type="Texture2D" uid="uid://bro3nsuieodxu" path="res://art/bg/clouds.png" id="6_re7k2"]
 [ext_resource type="Texture2D" uid="uid://7kqeevyjhvnj" path="res://art/skeddle/skeddles_angry.png" id="6_vmkxi"]
+[ext_resource type="Texture2D" uid="uid://slhtxw3cw3j5" path="res://art/bg/lighthouse.png" id="7_34sf3"]
 [ext_resource type="Texture2D" uid="uid://cgmkwpae72ryn" path="res://art/bubble/bubbles3.png" id="7_lm5dq"]
 [ext_resource type="Script" path="res://script/skeddle.gd" id="7_mgtrt"]
+[ext_resource type="Texture2D" uid="uid://gx8gytjvbpem" path="res://art/bg/waterline.png" id="8_5t5l7"]
+[ext_resource type="Texture2D" uid="uid://dmr6drk8jma55" path="res://art/bg/pier.png" id="9_0f1o4"]
+[ext_resource type="Texture2D" uid="uid://bopb0uj0uqhkb" path="res://art/bg/floor1.png" id="10_4v3uk"]
+[ext_resource type="Texture2D" uid="uid://cps42o0lpcx5f" path="res://art/bg/floor2.png" id="11_n31q0"]
 [ext_resource type="Texture2D" uid="uid://b3looy5nte1bh" path="res://art/otter/otter.png" id="12_6atxn"]
 [ext_resource type="Script" path="res://script/FishSpawner.gd" id="12_lg32k"]
 [ext_resource type="Texture2D" uid="uid://ddvroh6c4ssam" path="res://art/otter/hand.png" id="14_vmewp"]
@@ -491,12 +498,41 @@ texture = ExtResource("4_moga5")
 centered = false
 metadata/_edit_lock_ = true
 
-[node name="birdMask" type="ColorRect" parent="bg"]
-offset_left = 85.0
-offset_top = 3.0
-offset_right = 132.0
-offset_bottom = 18.0
-color = Color(0.603922, 0.905882, 0.788235, 1)
+[node name="sky" type="Sprite2D" parent="bg"]
+position = Vector2(2.08165e-12, 2.08165e-12)
+texture = ExtResource("5_ajwgm")
+centered = false
+
+[node name="clouds" type="Sprite2D" parent="bg"]
+texture = ExtResource("6_re7k2")
+centered = false
+
+[node name="clouds" type="Sprite2D" parent="bg/clouds"]
+position = Vector2(768, 0)
+texture = ExtResource("6_re7k2")
+centered = false
+
+[node name="lighthouse" type="Sprite2D" parent="bg"]
+position = Vector2(2.08165e-12, 2.08165e-12)
+texture = ExtResource("7_34sf3")
+centered = false
+
+[node name="waterline" type="Sprite2D" parent="bg"]
+position = Vector2(2.08165e-12, 2.08165e-12)
+texture = ExtResource("8_5t5l7")
+centered = false
+
+[node name="pier" type="Sprite2D" parent="bg"]
+texture = ExtResource("9_0f1o4")
+centered = false
+
+[node name="floor" type="Sprite2D" parent="bg"]
+texture = ExtResource("10_4v3uk")
+centered = false
+
+[node name="floor" type="Sprite2D" parent="bg/floor"]
+texture = ExtResource("11_n31q0")
+centered = false
 
 [node name="BirdSquad" type="Node2D" parent="bg"]
 position = Vector2(254, 37)

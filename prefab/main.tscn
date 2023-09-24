@@ -379,7 +379,7 @@ size = Vector2(31, 40)
 
 [sub_resource type="Resource" id="Resource_a7d1s"]
 script = ExtResource("15_6s3wo")
-length = 90
+length = 100
 strength = 10
 
 [sub_resource type="Resource" id="Resource_e7872"]

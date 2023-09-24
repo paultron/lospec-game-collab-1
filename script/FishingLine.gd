@@ -17,6 +17,8 @@ var hooked: Fish = null
 @onready var letOut: float = data.length
 
 @onready var lineEnd: Sprite2D = $LineEnd
+ 
+signal reeling
 
 var rod: Curve2D
 
@@ -159,9 +161,12 @@ var sub_line_bez = BezierCurve.new(
 )
 	
 func _draw():
-	if castingPhase > 2:	
+	if castingPhase < 5 and castingPhase > 2:	
 		draw_bezier(main_line_bez)
 		draw_bezier(sub_line_bez)
+	if castingPhase == 5:
+		var pts = Util.plotLine(path_Bn.points[0].x, path_Bn.points[0].y, lineEnd.position.x - hookOffsetX, lineEnd.position.y)
+		drawPoints(pts,Color("white"))
 
 func draw_bezier(bez: BezierCurve, drawOutline: bool = false):
 	if drawOutline:
@@ -380,6 +385,7 @@ func reel(amount):
 				lineEnd.position.x = pt_B1.x + hookOffsetX
 			if (lineEnd.position.y <= waterLevel + hookOffsetY):
 				castingPhase = 5
+				emit_signal("reeling")
 				print("hook is above water... resetting")
 				#resetPhases()
 		elif (lineEnd.position.distance_to(Vector2(0,0)) < data.length):
@@ -388,9 +394,6 @@ func reel(amount):
 			lineEnd.position.y /= reelMultiplier
 		print(lineEnd.position)
 
-# func populate_line():
-# 	for i in range(segmentCount):
-# 		var segment = load("res://prefab/segment.tscn").instantiate()
-# 		segments.append(segment)
-# 		add_child(segment)
-
+func drawPoints(p, col):
+	for point in p:
+		draw_rect(Rect2(point,Vector2(1,1)),col)

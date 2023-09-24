@@ -397,3 +397,4 @@ func reel(amount):
 func drawPoints(p, col):
 	for point in p:
 		draw_rect(Rect2(point,Vector2(1,1)),col)
+

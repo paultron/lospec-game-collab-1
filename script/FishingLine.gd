@@ -22,7 +22,7 @@ var rod: Curve2D
 
 # globals that dont belong here lol
 var waterLevel = 21
-var bottomLevel = 99
+var bottomLevel = 150
 var hookOffsetX = 6 # hook offset x
 var hookOffsetY = 4 # hook offset y
 
@@ -364,8 +364,9 @@ func _process(delta):
 			phase4Ratio = 0.99
 		hookUnderwater = true
 		
-		lineEnd.position.y += delta * 10.0
-		if lineEnd.position.y > bottomLevel:
+		if (lineEnd.position.distance_to(Vector2(0,0)) < data.length):
+			lineEnd.position.y += delta * 10.0
+		if (lineEnd.position.y > bottomLevel):
 			lineEnd.position.y = bottomLevel
 
 		var sz = path_Sn.points.size()-1
@@ -444,10 +445,9 @@ func reel(amount):
 		if lineEnd.position.y < waterLevel + hookOffsetY:
 			print("hook is above water... resetting")
 			resetPhases()
-	else:
+	elif (lineEnd.position.distance_to(Vector2(0,0)) < data.length):
 		lineEnd.position.x /= reelMultiplier
 		lineEnd.position.y /= reelMultiplier
-
 
 # func populate_line():
 # 	for i in range(segmentCount):

@@ -8,6 +8,7 @@ var lastBirdActivation = 0
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	Input.set_custom_mouse_cursor(load("res://art/cursor/pointy.png"), Input.CURSOR_POINTING_HAND)
 	$loadingScreen.play("default")
 	if (randi_range(0, 1000) == 0):
 		$player.get_node("Sprite2D").texture = load("res://art/otter/megafrown.png")
@@ -37,7 +38,7 @@ func _process(delta):
 
 
 func bird_anim():
-	if not birdsActive and Time.get_ticks_msec() - lastBirdActivation > 10000:
+	if not birdsActive and Time.get_ticks_msec() - lastBirdActivation > 20000:
 		lastBirdActivation = Time.get_ticks_msec()
 		if randi_range(0, 5) < 3:
 			return

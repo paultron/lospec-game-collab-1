@@ -33,6 +33,7 @@ window/size/viewport_height=256
 window/size/window_width_override=512
 window/size/window_height_override=512
 window/stretch/mode="viewport"
+mouse_cursor/custom_image="res://art/cursor/arrow.png"
 
 [dotnet]
 

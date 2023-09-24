@@ -10,6 +10,8 @@ var attraction: Node2D = null
 enum State { idle, swimLeft, swimRight, attracted, hooked}
 enum HookState { struggle, rest, caught}
 
+func _ready():
+	play("default")
 
 func _process(delta: float):
 	if state == State.hooked:

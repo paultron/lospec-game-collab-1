@@ -4,6 +4,7 @@ var reeling = false
 var lettingOut = false
 @onready var line: FishingLine = $Line
 signal casted
+signal powerApplied(power: float)
 
 var space_pressed = false # Added variable to track space key state
 
@@ -22,7 +23,6 @@ func _input(event):
 				if !line.cast:
 					line.castingTime = 0.0
 			elif !event.pressed:
-				print("space released @ " + str(int(line.castingDistance)))
 				space_pressed = false
 				casted.emit()
 				$Sprite2D.play("cast")
@@ -41,18 +41,15 @@ func _physics_process(delta):
 		elif lettingOut:
 			line.reel(-delta)
 	else:
-		if space_pressed:  # Check if the space key is not pressed
-			# line._draw_rod()
+		if space_pressed:
 			line.castingTime += delta
-			line.castingRatio = line.castingTime / line.maxCastingTime
-			line.castingDistance = clamp(line.castingRatio * line.maxCastingDistance, 0.0, line.maxCastingDistance)
+			powerApplied.emit(line.castingTime)
+			line.castingDistance = clamp(get_parent().get_node("Power").actual_power * line.maxCastingDistance, 0.0, line.maxCastingDistance)
 
 func on_animation_finished():
 	if $Sprite2D.animation == "cast":
 		$Sprite2D.play("idle")
-		var ratio = (line.castingDistance / line.maxCastingDistance)
-		print("cast ratio: " + str(ratio))
-		line.applyCastPower(ratio)
+		line.applyCastPower(get_parent().get_node("Power").actual_power)
 		line.cast = true
 		reeling = false
 		lettingOut = false

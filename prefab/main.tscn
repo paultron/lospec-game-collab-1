@@ -39,7 +39,7 @@
 [ext_resource type="FontFile" uid="uid://b24ts2555dqqf" path="res://font/pixhobo.ttf" id="37_3am8l"]
 [ext_resource type="Texture2D" uid="uid://4bui7aej3dny" path="res://art/icon/worm.png" id="38_xxsof"]
 [ext_resource type="Texture2D" uid="uid://bri3p5h84nst7" path="res://art/ui/bar/tension-empty.png" id="39_0gpu0"]
-[ext_resource type="Script" path="res://script/Bar.gd" id="40_uiktv"]
+[ext_resource type="Script" path="res://script/PowerBar.gd" id="40_c1ow5"]
 [ext_resource type="Texture2D" uid="uid://c66vlyopy44kr" path="res://art/ui/bar/tension-yellow.png" id="41_v1msm"]
 [ext_resource type="Texture2D" uid="uid://va7u101cvy6m" path="res://art/ui/bar/tension-level.png" id="42_w30l6"]
 
@@ -1013,11 +1013,12 @@ horizontal_alignment = 2
 position = Vector2(8, 57)
 texture = ExtResource("39_0gpu0")
 centered = false
-script = ExtResource("40_uiktv")
+script = ExtResource("40_c1ow5")
 
 [node name="Mask" type="ColorRect" parent="Power"]
 clip_children = 1
 offset_right = 24.0
+offset_bottom = 4.0
 
 [node name="Juice" type="Sprite2D" parent="Power/Mask"]
 texture = ExtResource("41_v1msm")
@@ -1041,6 +1042,7 @@ texture = ExtResource("42_w30l6")
 [connection signal="pressed" from="buttons/Inventory" to="Tacklebox" method="open"]
 [connection signal="pressed" from="buttons/Shop" to="Shop" method="open"]
 [connection signal="casted" from="player" to="." method="on_cast"]
+[connection signal="powerApplied" from="player" to="Power" method="on_power_applied"]
 [connection signal="animation_finished" from="player/Sprite2D" to="player" method="on_animation_finished"]
 [connection signal="animation_finished" from="Camera2D/AnimationPlayer" to="." method="on_pan_finish"]
 [connection signal="animation_finished" from="Tacklebox" to="Tacklebox" method="on_closed"]

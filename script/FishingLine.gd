@@ -103,18 +103,12 @@ var path_Wn = BezierCurve.new(
 
 var cast := false
 var castingTime := 0.0
-var castingRatio := 0.0
-var maxCastingTime := 3.0
 var castingDistance := 0.0
-var maxCastingDistance := 200.0
+@onready var maxCastingDistance: float = data.length
 var reelMultiplier := 0.99
 var reelPhaseMultiplier := 1.03 
 
 var castingPhase := 0
-
-# phase 1 - charging up
-var phase1Ratio := 0.0
-var phase1DeltaMultiplier := 0.6 # charging speed
 
 # phase 2 - casting
 var phase2Ratio := 0.0
@@ -131,12 +125,6 @@ var phase4DeltaMultiplier := 0.03 # sinking speed
 # phase 5 - reeling in the fish (or the hook)
 var phase5Ratio := 0.0
 var phase5DeltaMultiplier := 0.9  # reeling speed
-
-# the fishing rod
-var avg_pt = Vector2(
-	(path_An.points[0].x + path_Bn.points[0].x) / 2, 
-	(path_An.points[0].y + path_Bn.points[0].y) / 2
-)
 
 # the line above the water
 var main_line_bez = BezierCurve.new(
@@ -205,36 +193,17 @@ func draw_bezier(bez: BezierCurve, drawOutline: bool = false):
 		draw_rect(rect, rectColor)
 
 func applyCastPower(ratio: float):
+	print("Power is " + str(ratio))
 	phase2Ratio = 1 - ratio
 	castingPhase = 2
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	#if !cast:
-		#return
-
 	var i = 0
 
 	if castingPhase == 0: # idle
 		lineEnd.position.x = path_Bn.points[0].x + hookOffsetX
 		lineEnd.position.y = path_Bn.points[0].y + hookOffsetY
 		# return
-
-	if castingPhase == 1: # powering up the cast
-		phase1Ratio = phase1Ratio + (delta * phase1DeltaMultiplier)
-		#print(phase1Ratio)
-		if(phase1Ratio > 1):
-			# finished powering up... entering phase 2
-			phase1Ratio = 0
-			castingPhase = 2
-			print("Casting Phase 2")
-		#print(phase1Ratio)
-		var b1n_size = path_Bn.points.size() - 1
-		#print(b1n_size)
-		i = int(easing.inQuad(phase1Ratio) * b1n_size)
-		#print("phase1Ratio: [" + str(i) + "]" + str(phase1Ratio))
-		# lineEnd.position.x = path_Bn.points[i].x + hookOffsetX
-		# lineEnd.position.y = path_Bn.points[i].y + hookOffsetY
 
 	if castingPhase == 2: # casting
 		phase2Ratio = phase2Ratio + (delta * phase2DeltaMultiplier)
@@ -287,7 +256,6 @@ func _process(delta):
 		)
 
 	if castingPhase == 4: # waiting for the fish to bite
-
 		phase4Ratio = phase4Ratio + (delta * phase4DeltaMultiplier)
 		if phase4Ratio > 1:
 			phase4Ratio = 0.99
@@ -361,7 +329,6 @@ func _process(delta):
 
 func resetPhases():
 	castingPhase = 0
-	phase1Ratio = 0
 	phase2Ratio = 0
 	phase3Ratio = 0
 	phase4Ratio = 0

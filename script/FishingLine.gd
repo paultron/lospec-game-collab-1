@@ -23,6 +23,7 @@ var rod: Curve2D
 # globals that dont belong here lol
 var waterLevel = 21
 var bottomLevel = 150
+var rightLevel = 200
 var hookOffsetX = 6 # hook offset x
 var hookOffsetY = 4 # hook offset y
 
@@ -129,7 +130,7 @@ var phase4DeltaMultiplier := 0.03 # sinking speed
 
 # phase 5 - reeling in the fish (or the hook)
 var phase5Ratio := 0.0
-var phase5DeltaMultiplier := 0.9 # reeling speed
+var phase5DeltaMultiplier := 0.9  # reeling speed
 
 # the fishing rod
 var avg_pt = Vector2(
@@ -349,7 +350,13 @@ func _process(delta):
 			subAvgPt, # TODO: tween this over time
 			pt_hook
 		)
-
+	if castingPhase == 5: # reeling in the line
+		phase5Ratio = phase5Ratio + (delta * phase5DeltaMultiplier)
+		if phase5Ratio < 10:
+			lineEnd.position = lineEnd.position.lerp(Vector2(path_Bn.points[0].x + hookOffsetX, path_Bn.points[0].y + hookOffsetY), phase5Ratio)
+		else:
+			resetPhases()
+		
 	queue_redraw()
 
 func resetPhases():
@@ -364,15 +371,19 @@ func resetPhases():
 	cast = false
 
 func reel(amount):
-	if amount > 0:
-		lineEnd.position.x *= reelMultiplier
-		lineEnd.position.y *= reelMultiplier
-		phase4Ratio *= reelPhaseMultiplier
-		if lineEnd.position.x < pt_B1.x + hookOffsetX:
-			lineEnd.position.x = pt_B1.x + hookOffsetX
-		if lineEnd.position.y < waterLevel + hookOffsetY:
-			print("hook is above water... resetting")
-			resetPhases()
-	elif (lineEnd.position.distance_to(Vector2(0,0)) < data.length):
-		lineEnd.position.x /= reelMultiplier
-		lineEnd.position.y /= reelMultiplier
+	if castingPhase ==4:
+		if amount > 0:
+			lineEnd.position.x *= reelMultiplier
+			lineEnd.position.y *= reelMultiplier
+			phase4Ratio *= reelPhaseMultiplier
+			if (lineEnd.position.x < pt_B1.x + hookOffsetX):
+				lineEnd.position.x = pt_B1.x + hookOffsetX
+			if (lineEnd.position.y <= waterLevel + hookOffsetY):
+				castingPhase = 5
+				print("hook is above water... resetting")
+				#resetPhases()
+		elif (lineEnd.position.distance_to(Vector2(0,0)) < data.length):
+			if (lineEnd.position.x < rightLevel):
+				lineEnd.position.x /= reelMultiplier
+			lineEnd.position.y /= reelMultiplier
+		print(lineEnd.position)

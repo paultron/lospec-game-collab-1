@@ -44,7 +44,7 @@ radius = 29.0172
 
 [node name="medium" type="AnimatedSprite2D"]
 sprite_frames = SubResource("SpriteFrames_f6umw")
-frame_progress = 0.163421
+frame_progress = 0.736654
 centered = false
 offset = Vector2(-3, -23)
 script = ExtResource("2_16e0u")

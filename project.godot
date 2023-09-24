@@ -30,10 +30,10 @@ gdscript/warnings/integer_division=0
 
 window/size/viewport_width=256
 window/size/viewport_height=256
-window/size/extend_to_title=true
-window/size/window_width_override=1024
-window/size/window_height_override=1024
+window/size/window_width_override=512
+window/size/window_height_override=512
 window/stretch/mode="viewport"
+mouse_cursor/custom_image="res://art/cursor/arrow.png"
 
 [dotnet]
 

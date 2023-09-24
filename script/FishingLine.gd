@@ -138,40 +138,6 @@ var avg_pt = Vector2(
 	(path_An.points[0].y + path_Bn.points[0].y) / 2
 )
 
-# set the fishing rod colors
-var rod_handle_color = ColorPalette.colors[12]
-var rod_hilt_color = ColorPalette.colors[20]
-var rod_pole_color1 = ColorPalette.colors[14]
-var rod_pole_color2 = ColorPalette.colors[13]
-var rod_colors: Array[Color] = [ 
-	rod_handle_color, # <-- handle
-	rod_hilt_color,
-	rod_pole_color1, # <-- pole start
-	rod_pole_color2,
-	rod_pole_color1,
-	rod_pole_color2,
-	rod_pole_color1,
-	rod_pole_color2,
-	rod_pole_color1,
-	rod_pole_color2,
-	rod_pole_color1,
-	rod_pole_color2,
-	rod_pole_color1,
-	rod_pole_color2 # <-- pole end
-]
-var rod_sizes: Array[int] = [3,2,1]
-var rod_bez = BezierCurve.new(
-	path_An.points[0],
-	avg_pt,
-	avg_pt,
-	path_Bn.points[0],
-	rod_colors.size(), # the number of segments
-	rod_colors,
-	rod_sizes # the size of each segment
-);
-
-# the last one gets repeated to match the number of colors
-
 # the line above the water
 var main_line_bez = BezierCurve.new(
 	Vector2(0,0), 
@@ -191,19 +157,8 @@ var sub_line_bez = BezierCurve.new(
 	lineSteps,
 	[ColorPalette.colors[15]]
 )
-
-# Called when the node enters the scene tree for the first time.
-func _ready():
-	pass
 	
 func _draw():
-
-	if false: # debug
-		draw_bezier(path_An)
-
-	if true:	
-		draw_bezier(rod_bez, true)
-
 	if castingPhase > 2:	
 		draw_bezier(main_line_bez)
 		draw_bezier(sub_line_bez)
@@ -263,7 +218,7 @@ func _process(delta):
 	if castingPhase == 0: # idle
 		lineEnd.position.x = path_Bn.points[0].x + hookOffsetX
 		lineEnd.position.y = path_Bn.points[0].y + hookOffsetY
-		#return
+		# return
 
 	if castingPhase == 1: # powering up the cast
 		phase1Ratio = phase1Ratio + (delta * phase1DeltaMultiplier)
@@ -278,17 +233,8 @@ func _process(delta):
 		#print(b1n_size)
 		i = int(easing.inQuad(phase1Ratio) * b1n_size)
 		#print("phase1Ratio: [" + str(i) + "]" + str(phase1Ratio))
-		lineEnd.position.x = path_Bn.points[i].x + hookOffsetX
-		lineEnd.position.y = path_Bn.points[i].y + hookOffsetY
-		var avgX = (path_An.points[i].x + path_Bn.points[i].x) / 2
-		var avgY = (path_An.points[i].y + path_Bn.points[i].y) / 2
-		var avgPt = Vector2(avgX, avgY)
-		rod_bez.recalc(
-			path_An.points[i],
-			avgPt,
-			avgPt,
-			path_Bn.points[i]
-		)
+		# lineEnd.position.x = path_Bn.points[i].x + hookOffsetX
+		# lineEnd.position.y = path_Bn.points[i].y + hookOffsetY
 
 	if castingPhase == 2: # casting
 		phase2Ratio = phase2Ratio + (delta * phase2DeltaMultiplier)
@@ -308,15 +254,6 @@ func _process(delta):
 		#print("phase2Ratio: [" + str(i) + "]" + str(phase2Ratio))
 		lineEnd.position.x = path_Bn.points[i].x + hookOffsetX
 		lineEnd.position.y = path_Bn.points[i].y + hookOffsetY
-		var avgX = (path_An.points[i].x + path_Bn.points[i].x) / 2
-		var avgY = (path_An.points[i].y + path_Bn.points[i].y) / 2
-		var avgPt = Vector2(avgX, avgY)
-		rod_bez.recalc(
-			path_An.points[i],
-			avgPt,
-			avgPt,
-			path_Bn.points[i]
-		)
 
 	if castingPhase == 3: # waiting for the line to hit the water
 		phase3Ratio = phase3Ratio + (delta * phase3DeltaMultiplier)
@@ -338,15 +275,6 @@ func _process(delta):
 		
 		lineEnd.position.x = path_Ln.points[i].x + hookOffsetX
 		lineEnd.position.y = path_Ln.points[i].y + hookOffsetY
-		var avgX = (path_An.points[0].x + path_Bn.points[0].x) / 2
-		var avgY = (path_An.points[0].y + path_Bn.points[0].y) / 2
-		var avgPt = Vector2(avgX, avgY)
-		rod_bez.recalc(
-			path_An.points[0],
-			avgPt,
-			avgPt,
-			path_Bn.points[0]
-		)
 		pt_Lcp1 = Vector2(
 			lerp(pt_B1.x, path_Ln.points[sz-i].x, phase3Ratio),
 			lerp(pt_B1.y, path_Ln.points[sz-i].y, phase3Ratio)
@@ -459,9 +387,3 @@ func reel(amount):
 				lineEnd.position.x /= reelMultiplier
 			lineEnd.position.y /= reelMultiplier
 		print(lineEnd.position)
-
-# func populate_line():
-# 	for i in range(segmentCount):
-# 		var segment = load("res://prefab/segment.tscn").instantiate()
-# 		segments.append(segment)
-# 		add_child(segment)

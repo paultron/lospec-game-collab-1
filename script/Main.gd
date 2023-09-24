@@ -4,11 +4,14 @@ const waterLevel: int = 34
 var birdsActive = false
 var lastBirdActivation = 0
 
+@onready var clouds = $bg.get_node("clouds")
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	Input.set_custom_mouse_cursor(load("res://art/cursor/pointy.png"), Input.CURSOR_POINTING_HAND)
 	$loadingScreen.play("default")
-	if (randi_range(0, 1000) == 0):
-		$player.get_node("Sprite2D").texture = load("res://art/otter/megafrown.png")
+	# if (randi_range(0, 1000) == 0):
+	# 	$player.get_node("Sprite2D").texture = load("res://art/otter/megafrown.png")
 	# wait 3 seconds
 	await get_tree().create_timer(3).timeout
 	$loadingScreen.queue_free()
@@ -29,12 +32,13 @@ func _unhandled_input(event):
 				splash.position = mousePos
 				z_index = -1
 
-func _process(_delta):
+func _process(delta):
 	bird_anim()
+	cloud_anim(delta)
 
 
 func bird_anim():
-	if not birdsActive and Time.get_ticks_msec() - lastBirdActivation > 10000:
+	if not birdsActive and Time.get_ticks_msec() - lastBirdActivation > 20000:
 		lastBirdActivation = Time.get_ticks_msec()
 		if randi_range(0, 5) < 3:
 			return
@@ -53,5 +57,21 @@ func bird_anim():
 					if bird is AnimatedSprite2D:
 						bird.stop()
 		)
+
+func cloud_anim(delta: float):
+	clouds.position.x -= delta * 10
+	if clouds.position.x <= -768:
+		clouds.position.x = 0
+
+func on_cast():
+	pass
+
+func on_pan_finish(anim):
+	if anim == "pan":
+		$Power.hide()
+		$Bait.hide()
+	if anim == "panUp":
+		$Power.show()
+		$Bait.show()
 			
 

@@ -15,7 +15,7 @@ var rects: Array[Rect2] = []
 var rectStepIdx: Array[int] = []
 var sizes: Array[int] = []
 
-func _init(_xy0: Vector2, _cp0: Vector2, _cp1: Vector2, _xy1: Vector2, _steps: int, _colors: Array[Color] = [], _sizes: Array[int] = []):
+func _init(_xy0: Vector2 = Vector2(0,0), _cp0: Vector2 = Vector2(0,0), _cp1: Vector2 = Vector2(0,0), _xy1: Vector2 = Vector2(0,0), _steps: int = 0, _colors: Array[Color] = [], _sizes: Array[int] = []):
 	xy0 = _xy0
 	cp0 = _cp0
 	cp1 = _cp1

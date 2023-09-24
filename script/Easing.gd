@@ -42,10 +42,10 @@ func outCirc(x):
 	return sqrt(1 - pow(x - 1, 2))
 
 func inExpo(x):
-	return 0 if x == 0 else pow(2, 10 * x - 10)
+	return 0.0 if x == 0 else pow(2, 10 * x - 10)
 
 func outExpo(x):
-	return 1 if x == 1 else 1 - pow(2, -10 * x)
+	return 1.0 if x == 1 else 1 - pow(2, -10 * x)
 
 func inOutQuad(x):
 	return 2 * x * x if x < 0.5 else 1 - pow(-2 * x + 2, 2) / 2
@@ -70,18 +70,18 @@ func outBack(x):
 	return 1 + c3 * pow(x - 1, 3) + c1 * pow(x - 1, 2)
 
 func inOutExpo(x):
-	return 0 if x == 0 else 1 if x == 1 else pow(2, 20 * x - 10) / 2 if x < 0.5 else (2 - pow(2, -20 * x + 10)) / 2
+	return 0.0 if x == 0 else 1.0 if x == 1 else pow(2, 20 * x - 10) / 2 if x < 0.5 else (2 - pow(2, -20 * x + 10)) / 2
 
 func inOutCirc(x):
 	return (1 - sqrt(1 - pow(2 * x, 2))) / 2 if x < 0.5 else (sqrt(1 - pow(-2 * x + 2, 2)) + 1) / 2
 
 func outElastic(x):
 	var c4 = (2 * PI) / 3
-	return 0 if x == 0 else 1 if x == 1 else pow(2, -10 * x) * sin((x * 10 - 0.75) * c4) + 1
+	return 0.0 if x == 0 else 1.0 if x == 1 else pow(2, -10 * x) * sin((x * 10 - 0.75) * c4) + 1
 
 func inElastic(x):
 	var c4 = (2 * PI) / 3
-	return 0 if x == 0 else 1 if x == 1 else -pow(2, 10 * x - 10) * sin((x * 10 - 10.75) * c4)
+	return 0.0 if x == 0 else 1.0 if x == 1 else -pow(2, 10 * x - 10) * sin((x * 10 - 10.75) * c4)
 
 func inOutBack(x):
 	var c1 = 1.70158

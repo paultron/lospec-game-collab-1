@@ -213,8 +213,8 @@ func draw_bezier(bez: BezierCurve, drawOutline: bool = false):
 		for i in range(bez.rects.size()):
 			var rect = bez.rects[i]
 			#print(rect)
-			var rectStepIdx = bez.rectStepIdx[i]
-			var rectColor = bez.colors[rectStepIdx]
+			#var rectStepIdx = bez.rectStepIdx[i]
+			#var rectColor = bez.colors[rectStepIdx]
 			var pt2 = Vector2(
 				rect.position.x - 1,
 				rect.position.y
@@ -230,8 +230,8 @@ func draw_bezier(bez: BezierCurve, drawOutline: bool = false):
 		for i in range(bez.rects.size()):
 			var rect = bez.rects[i]
 			#print(rect)
-			var rectStepIdx = bez.rectStepIdx[i]
-			var rectColor = bez.colors[rectStepIdx]
+			#var rectStepIdx = bez.rectStepIdx[i]
+			#var rectColor = bez.colors[rectStepIdx]
 			var pt2 = Vector2(
 				rect.position.x,
 				rect.position.y - 1
@@ -347,7 +347,7 @@ func _process(delta):
 			avgPt,
 			path_Bn.points[0]
 		)
-		var pt_Lcp1 = Vector2(
+		pt_Lcp1 = Vector2(
 			lerp(pt_B1.x, path_Ln.points[sz-i].x, phase3Ratio),
 			lerp(pt_B1.y, path_Ln.points[sz-i].y, phase3Ratio)
 		)

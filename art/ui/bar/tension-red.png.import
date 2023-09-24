@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dpg1rgtnaowb5"
-path="res://.godot/imported/hook.png-2c14a535698c73cc177d101c2798806f.ctex"
+uid="uid://bt4r6k72duyfq"
+path="res://.godot/imported/tension-red.png-a299c3ad83d45f9085721b614b21fb18.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://art/hook.png"
-dest_files=["res://.godot/imported/hook.png-2c14a535698c73cc177d101c2798806f.ctex"]
+source_file="res://art/ui/bar/tension-red.png"
+dest_files=["res://.godot/imported/tension-red.png-a299c3ad83d45f9085721b614b21fb18.ctex"]
 
 [params]
 

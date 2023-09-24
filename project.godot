@@ -30,6 +30,7 @@ gdscript/warnings/integer_division=0
 
 window/size/viewport_width=256
 window/size/viewport_height=256
+window/size/extend_to_title=true
 window/size/window_width_override=1024
 window/size/window_height_override=1024
 window/stretch/mode="viewport"
@@ -76,6 +77,7 @@ textures/canvas_textures/default_texture_filter=0
 renderer/rendering_method="gl_compatibility"
 renderer/rendering_method.mobile="gl_compatibility"
 textures/default_filters/use_nearest_mipmap_filter=true
+textures/default_filters/anisotropic_filtering_level=0
 textures/decals/filter=0
 textures/light_projectors/filter=0
 2d/snap/snap_2d_transforms_to_pixel=true

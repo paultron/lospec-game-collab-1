@@ -29,7 +29,6 @@ func _input(event):
 				line.cast = true
 				reeling = false
 				lettingOut = false
-				line.populate_line()
 				get_tree().root.get_node("main/Camera2D/AnimationPlayer").play("pan")
 				space_pressed = false
 		elif event.keycode == KEY_Z and line.cast:

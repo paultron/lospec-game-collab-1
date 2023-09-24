@@ -1,13 +1,50 @@
-[gd_scene load_steps=4 format=3 uid="uid://b23urof7kb88m"]
+[gd_scene load_steps=9 format=3 uid="uid://b23urof7kb88m"]
 
-[ext_resource type="Texture2D" uid="uid://dokajwsmd31qa" path="res://art/fish/silhouette/medium.png" id="1_h7cnc"]
+[ext_resource type="Texture2D" uid="uid://cfbatdls6l321" path="res://art/fish/silhouette/mediumFish.png" id="1_wix7v"]
 [ext_resource type="Script" path="res://script/Fish.gd" id="2_16e0u"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8ujvy"]
+atlas = ExtResource("1_wix7v")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gysg4"]
+atlas = ExtResource("1_wix7v")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bqgse"]
+atlas = ExtResource("1_wix7v")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6ijh1"]
+atlas = ExtResource("1_wix7v")
+region = Rect2(96, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_f6umw"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8ujvy")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gysg4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bqgse")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6ijh1")
+}],
+"loop": true,
+"name": &"default",
+"speed": 6.0
+}]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_mvhfu"]
 radius = 29.0172
 
-[node name="medium" type="Sprite2D"]
-texture = ExtResource("1_h7cnc")
+[node name="medium" type="AnimatedSprite2D"]
+sprite_frames = SubResource("SpriteFrames_f6umw")
+frame_progress = 0.163421
 centered = false
 offset = Vector2(-3, -23)
 script = ExtResource("2_16e0u")

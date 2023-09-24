@@ -7,7 +7,6 @@ const lineWidth = 1.5
 
 # preload("res://script/Bezier.gd") var Bezier = load("res://script/Bezier.gd")
 
-var segments: Array[Segment] = []
 var line: Array[Vector2] = []
 var points: Array[Vector2] = []
 
@@ -450,8 +449,8 @@ func reel(amount):
 		lineEnd.position.y /= reelMultiplier
 
 
-func populate_line():
-	for i in range(segmentCount):
-		var segment = load("res://prefab/segment.tscn").instantiate()
-		segments.append(segment)
-		add_child(segment)
+# func populate_line():
+# 	for i in range(segmentCount):
+# 		var segment = load("res://prefab/segment.tscn").instantiate()
+# 		segments.append(segment)
+# 		add_child(segment)

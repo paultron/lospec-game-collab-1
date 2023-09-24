@@ -12,7 +12,7 @@ script = ExtResource("1_lauf4")
 [node name="LineEnd" type="Sprite2D" parent="."]
 texture = ExtResource("2_5uw1s")
 centered = false
-offset = Vector2(-7, -6)
+offset = Vector2(-13, -9)
 
 [node name="Area2D" type="Area2D" parent="LineEnd"]
 position = Vector2(4, 4)

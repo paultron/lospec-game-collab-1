@@ -10,6 +10,29 @@ func quadratic_bezier(p0: Vector2, p1: Vector2, p2: Vector2, segments:int):
 		points.append(r)
 	return points
 
+func cubic_bezier(xy0: Vector2, cp0: Vector2, cp1: Vector2, xy1: Vector2, segments: int):
+	var points: Array[Vector2] = []
+	for n in range(segments):
+		var t = float(n) / float(segments)
+		var t2 = t * t
+		var t3 = t2 * t
+		var u = 1.0 - t
+		var u2 = u * u
+		var u3 = u2 * u
+		
+		var term1 = u3
+		var term2 = 3.0 * u2 * t
+		var term3 = 3.0 * u * t2
+		var term4 = t3
+		
+		var x = term1 * xy0.x + term2 * cp0.x + term3 * cp1.x + term4 * xy1.x
+		var y = term1 * xy0.y + term2 * cp0.y + term3 * cp1.y + term4 * xy1.y
+		
+		points.append(Vector2(x, y))
+		
+	return points
+	
+
 func makeLineV0(x0, y0, x1, y1):
 	var dx = abs(x1 - x0)
 	var sx = 1 if x0 < x1 else -1

@@ -31,7 +31,7 @@ func _unhandled_input(event):
 
 func _process(_delta):
 	bird_anim()
-	
+
 
 func bird_anim():
 	if not birdsActive and Time.get_ticks_msec() - lastBirdActivation > 10000:

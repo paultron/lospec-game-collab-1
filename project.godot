@@ -18,6 +18,9 @@ config/icon="res://art/icon.svg"
 [autoload]
 
 Util="*res://script/Util.gd"
+ColorPalette="*res://script/ColorPalette.gd"
+Bezier="*res://script/Bezier.gd"
+Easing="*res://script/Easing.gd"
 
 [debug]
 

@@ -122,7 +122,4 @@ func plotLine(x0, y0, x1, y1):
 	#end if
 	#drawPoints(pts,col)
 	return pts
-	
-func drawPoints(p,col):
-	for point in p:
-		draw_rect(Rect2(point,Vector2(1,1)),col)
+

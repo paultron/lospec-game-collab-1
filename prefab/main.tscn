@@ -1040,7 +1040,6 @@ texture = ExtResource("42_w30l6")
 
 [connection signal="pressed" from="buttons/Inventory" to="Tacklebox" method="open"]
 [connection signal="pressed" from="buttons/Shop" to="Shop" method="open"]
-[connection signal="casted" from="player" to="." method="on_cast"]
 [connection signal="animation_finished" from="player/Sprite2D" to="player" method="on_animation_finished"]
 [connection signal="animation_finished" from="Camera2D/AnimationPlayer" to="." method="on_pan_finish"]
 [connection signal="animation_finished" from="Tacklebox" to="Tacklebox" method="on_closed"]

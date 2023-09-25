@@ -36,7 +36,7 @@ var hookUnderwater = false
 
 # const start and end points
 const pt_A1: Vector2 = Vector2(0,0)
-const pt_B1: Vector2 = Vector2(24,-14)
+const pt_B1: Vector2 = Vector2(27,-13)
 
 const pt_A2: Vector2 = Vector2(-9,-8)
 const pt_B2: Vector2 = Vector2(-31,-14)
@@ -196,11 +196,6 @@ func draw_bezier(bez: BezierCurve, drawOutline: bool = false):
 		var rectColor = bez.colors[rectStepIdx % bez.colors.size()]
 		draw_rect(rect, rectColor)
 
-func applyCastPower(ratio: float):
-	print("Power is " + str(ratio))
-	phase2Ratio = 1 - ratio
-	castingPhase = 2
-
 func _process(delta):
 	var i = 0
 
@@ -332,8 +327,16 @@ func resetPhases():
 	castingTime = 0
 	cast = false
 
+func get_fish() -> FishData:
+	if hooked == null:
+		return null
+	hooked.queue_free()
+	var fishData = hooked.data
+	hooked = null
+	return fishData
+
 func reel(amount):
-	if castingPhase ==4:
+	if castingPhase == 4:
 		if amount > 0:
 			lineEnd.position.x *= reelMultiplier
 			lineEnd.position.y *= reelMultiplier
@@ -342,7 +345,7 @@ func reel(amount):
 				lineEnd.position.x = pt_B1.x + hookOffsetX
 			if (lineEnd.position.y <= waterLevel + hookOffsetY):
 				castingPhase = 5
-				emit_signal("reeling")
+				reeling.emit()
 				print("hook is above water... resetting")
 				#resetPhases()
 		elif (lineEnd.position.distance_to(Vector2(0,0)) < data.length):

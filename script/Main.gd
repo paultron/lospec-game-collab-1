@@ -74,5 +74,16 @@ func on_pan_finish(anim):
 	if anim == "panUp":
 		$Power.show()
 		$Bait.show()
+		catching = false
+		$player.get_node("Line").resetPhases()
+		$player.get_node("Line").lineEnd.hide()
+
+func on_reeling():
+	catching = true
+	get_node("Camera2D/AnimationPlayer").play("panUp")
+	$Power.power = 0
+	$Power.get_node("Mask").size.y = $Power.top
+	$Power.get_node("Mask/Cap").hide()
+	$player.get_node("Line").get_fish()
 			
 

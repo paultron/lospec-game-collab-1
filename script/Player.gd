@@ -13,6 +13,8 @@ var space_pressed = false # Added variable to track space key state
 # When Z_KEY is held, reel in line
 # When X_KEY is held, let out line
 func _input(event):
+	if get_parent().catching:
+		return
 	if event is InputEventKey:
 		if event.keycode == KEY_SPACE:
 			if event.pressed and !space_pressed and line.castingPhase == 0:  # Check if the space key is pressed
@@ -48,9 +50,11 @@ func _physics_process(delta):
 
 func on_animation_finished():
 	if $Sprite2D.animation == "cast":
-		$Sprite2D.play("idle")
-		line.applyCastPower(get_parent().get_node("Power").actual_power)
+		$Sprite2D.play("recovery")
+		line.castingPhase = 2
 		line.cast = true
 		reeling = false
 		lettingOut = false
 		get_tree().root.get_node("main/Camera2D/AnimationPlayer").play("pan")
+	elif $Sprite2D.animation == "recovery":
+		$Sprite2D.play("idle")

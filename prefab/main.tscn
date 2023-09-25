@@ -1,4 +1,4 @@
-[gd_scene load_steps=137 format=3 uid="uid://les7xuur0g8p"]
+[gd_scene load_steps=138 format=3 uid="uid://les7xuur0g8p"]
 
 [ext_resource type="Script" path="res://script/Player.gd" id="1_ger0m"]
 [ext_resource type="Script" path="res://script/Main.gd" id="1_lfam6"]
@@ -429,14 +429,6 @@ region = Rect2(600, 0, 100, 100)
 atlas = ExtResource("22_sq5w4")
 region = Rect2(700, 0, 100, 100)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_m1lan"]
-atlas = ExtResource("22_sq5w4")
-region = Rect2(800, 0, 100, 100)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_joxqv"]
-atlas = ExtResource("22_sq5w4")
-region = Rect2(900, 0, 100, 100)
-
 [sub_resource type="AtlasTexture" id="AtlasTexture_tltcw"]
 atlas = ExtResource("23_6t20m")
 region = Rect2(0, 0, 100, 100)
@@ -525,6 +517,18 @@ region = Rect2(2000, 0, 100, 100)
 atlas = ExtResource("23_6t20m")
 region = Rect2(2100, 0, 100, 100)
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_ipd7g"]
+atlas = ExtResource("22_sq5w4")
+region = Rect2(700, 0, 100, 100)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8cvar"]
+atlas = ExtResource("22_sq5w4")
+region = Rect2(800, 0, 100, 100)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8c2ns"]
+atlas = ExtResource("22_sq5w4")
+region = Rect2(900, 0, 100, 100)
+
 [sub_resource type="SpriteFrames" id="SpriteFrames_ofr86"]
 animations = [{
 "frames": [{
@@ -551,12 +555,6 @@ animations = [{
 }, {
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_h17vn")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_m1lan")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_joxqv")
 }],
 "loop": false,
 "name": &"cast",
@@ -632,6 +630,20 @@ animations = [{
 "loop": true,
 "name": &"idle",
 "speed": 12.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ipd7g")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8cvar")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8c2ns")
+}],
+"loop": false,
+"name": &"recovery",
+"speed": 12.0
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_oon0p"]
@@ -679,7 +691,6 @@ tracks/0/keys = {
 
 [sub_resource type="Animation" id="Animation_cnh6f"]
 resource_name = "panUp"
-length = 3.0
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -687,7 +698,7 @@ tracks/0/path = NodePath(".:position")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 3),
+"times": PackedFloat32Array(0, 1),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
 "values": [Vector2(2.08165e-12, 128), Vector2(2.08165e-12, 2.08165e-12)]
@@ -910,8 +921,7 @@ script = ExtResource("1_ger0m")
 [node name="Sprite2D" type="AnimatedSprite2D" parent="player"]
 position = Vector2(-11, -19)
 sprite_frames = SubResource("SpriteFrames_ofr86")
-animation = &"idle"
-frame_progress = 0.0556238
+animation = &"recovery"
 centered = false
 
 [node name="hand" type="Sprite2D" parent="player"]
@@ -1044,6 +1054,7 @@ texture = ExtResource("42_w30l6")
 [connection signal="casted" from="player" to="." method="on_cast"]
 [connection signal="powerApplied" from="player" to="Power" method="on_power_applied"]
 [connection signal="animation_finished" from="player/Sprite2D" to="player" method="on_animation_finished"]
+[connection signal="reeling" from="player/Line" to="." method="on_reeling"]
 [connection signal="animation_finished" from="Camera2D/AnimationPlayer" to="." method="on_pan_finish"]
 [connection signal="animation_finished" from="Tacklebox" to="Tacklebox" method="on_closed"]
 [connection signal="animation_finished" from="Tacklebox" to="Tacklebox" method="on_opened"]

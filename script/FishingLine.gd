@@ -34,12 +34,12 @@ var easing = Ease.new()
 
 var hookUnderwater = false
 
-# static start and end points
-var pt_A1: Vector2 = Vector2(0,0)
-var pt_B1: Vector2 = Vector2(24,-24)
+# const start and end points
+const pt_A1: Vector2 = Vector2(0,0)
+const pt_B1: Vector2 = Vector2(24,-14)
 
-var pt_A2: Vector2 = Vector2(-9,-8)
-var pt_B2: Vector2 = Vector2(-31,-14)
+const pt_A2: Vector2 = Vector2(-9,-8)
+const pt_B2: Vector2 = Vector2(-31,-14)
 
 var pt_L1: Vector2 = pt_B1
 
@@ -57,11 +57,11 @@ var pt_S2: Vector2 = Vector2(0,0)
 var pt_Acp1: Vector2 = Vector2(pt_A1.x,pt_A2.y)
 var pt_Acp2: Vector2 = Vector2(pt_A1.x,pt_A2.y)
 
-var pt_Bcp1: Vector2 = Vector2(2,-57)
-var pt_Bcp2: Vector2 = Vector2(-41,-21)
+const pt_Bcp1: Vector2 = Vector2(2,-57)
+const pt_Bcp2: Vector2 = Vector2(-41,-21)
 
-var pt_Tcp1: Vector2 = Vector2(-27,-34)
-var pt_Tcp2: Vector2 = Vector2(26,-30)
+const pt_Tcp1: Vector2 = Vector2(-27,-34)
+const pt_Tcp2: Vector2 = Vector2(26,-30)
 
 var pt_Lcp1: Vector2 = Vector2(92,-45)
 var pt_Lcp2: Vector2 = Vector2(104,-16)
@@ -77,7 +77,6 @@ var lineSteps = 200
 var hookSteps = 200
 
 # static paths
-var path_An = BezierCurve.new(pt_A1, pt_Acp1, pt_Acp2, pt_A2, phaseSteps)
 var path_Bn = BezierCurve.new(pt_B1, pt_Bcp1, pt_Bcp2, pt_B2, phaseSteps)
 var path_Tn = BezierCurve.new(pt_T1, pt_Tcp1, pt_Tcp2, pt_T2, phaseSteps)
 
@@ -211,23 +210,14 @@ func _process(delta):
 		# return
 
 	if castingPhase == 2: # casting
-		phase2Ratio = phase2Ratio + (delta * phase2DeltaMultiplier)
-		if(phase2Ratio > 1):
-			# finished casting... entering phase 3
-			phase2Ratio = 0
-			castingPhase = 3
-			var pt_L2 = Vector2(castingDistance, waterLevel)
-			pt_Lcp1 = Vector2(castingDistance, pt_Lcp1.y)
-			pt_Lcp2 = Vector2(castingDistance, pt_Lcp2.y)
-			#print("will hit the water at: "+str(pt_L2))
-			path_Ln = BezierCurve.new(pt_L1, pt_Lcp1, pt_Lcp2, pt_L2, hookSteps)
-			print("Casting Phase 3")
-		#i = int(Easing[phase2Easing](1 - phase2Ratio) * path_Bn.points.size())
-		var b1n_size = path_Bn.points.size() - 1
-		i = int(clamp(easing.inQuad(1 - phase2Ratio),0,1.0) * b1n_size)
-		#print("phase2Ratio: [" + str(i) + "]" + str(phase2Ratio))
-		lineEnd.position.x = path_Bn.points[i].x + hookOffsetX
-		lineEnd.position.y = path_Bn.points[i].y + hookOffsetY
+		lineEnd.show();
+		castingPhase = 3
+		var pt_L2 = Vector2(castingDistance, waterLevel)
+		pt_Lcp1 = Vector2(castingDistance, pt_Lcp1.y)
+		pt_Lcp2 = Vector2(castingDistance, pt_Lcp2.y)
+		path_Ln = BezierCurve.new(pt_L1, pt_Lcp1, pt_Lcp2, pt_L2, hookSteps)
+		print("Casting Phase 3")
+
 
 	if castingPhase == 3: # waiting for the line to hit the water
 		phase3Ratio = phase3Ratio + (delta * phase3DeltaMultiplier)

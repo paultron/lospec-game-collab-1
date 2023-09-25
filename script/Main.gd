@@ -3,6 +3,7 @@ extends Node2D
 const waterLevel: int = 34
 var birdsActive = false
 var lastBirdActivation = 0
+var catching := false
 
 @onready var clouds = $bg.get_node("clouds")
 

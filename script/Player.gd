@@ -15,14 +15,14 @@ var space_pressed = false # Added variable to track space key state
 func _input(event):
 	if event is InputEventKey:
 		if event.keycode == KEY_SPACE:
-			if event.pressed and !space_pressed:  # Check if the space key is pressed
+			if event.pressed and !space_pressed and line.castingPhase == 0:  # Check if the space key is pressed
 				line.resetPhases()
 				space_pressed = true
 				line.castingPhase = 1
 				print("Casting Phase 1")
 				if !line.cast:
 					line.castingTime = 0.0
-			elif !event.pressed:
+			elif !event.pressed and line.castingPhase == 1:
 				space_pressed = false
 				casted.emit()
 				$Sprite2D.play("cast")

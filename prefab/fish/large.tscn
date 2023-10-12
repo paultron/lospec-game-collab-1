@@ -46,21 +46,18 @@ radius = 31.0161
 [node name="large" type="AnimatedSprite2D"]
 sprite_frames = SubResource("SpriteFrames_2swjj")
 frame_progress = 0.942065
-centered = false
-offset = Vector2(-4, -34)
 script = ExtResource("2_42mp0")
 data = ExtResource("3_38nb4")
 
 [node name="Awareness" type="Area2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Awareness"]
-position = Vector2(20, -11)
 shape = SubResource("CircleShape2D_8roca")
 
 [node name="mouthLeft" type="Marker2D" parent="."]
-position = Vector2(1, 0)
+position = Vector2(-21, 6)
 
 [node name="mouthRight" type="Marker2D" parent="."]
-position = Vector2(39, 0)
+position = Vector2(21, 6)
 
 [connection signal="area_entered" from="Awareness" to="." method="on_awareness_entered"]

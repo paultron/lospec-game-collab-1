@@ -15,20 +15,20 @@ func _ready():
 
 func _process(delta: float):
 	if state == State.hooked:
-		var mouth = $mouthRight if flip_h else $mouthLeft
+		flip_h = false
+		var mouth = $mouthLeft
 		# Set position such that the mouth is at the hook
-		global_position = attraction.global_position - mouth.global_position + global_position
-		return
+		global_position = attraction.global_position + (global_position - mouth.global_position) + Vector2.LEFT * 6
 	if position.x < -20 or position.x > 280:
 		queue_free()
 	if state == State.attracted:
 		var mouth = $mouthRight if flip_h else $mouthLeft
 		# Get direction to attraction
 		var dir = (attraction.global_position - mouth.global_position).normalized()
-		if dir.x < 0:
+		if dir.x < 0 and attraction.global_position.x < global_position.x:
 			flip_h = false
 			mouth = $mouthLeft
-		else:
+		elif dir.x > 0 and attraction.global_position.x > global_position.x:
 			flip_h = true
 			mouth = $mouthRight
 		# Move such that the mouth moves towards the attraction

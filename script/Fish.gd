@@ -16,9 +16,9 @@ func _ready():
 func _process(delta: float):
 	if state == State.hooked:
 		flip_h = false
-		var mouth = $mouthLeft
 		# Set position such that the mouth is at the hook
-		global_position = attraction.global_position + (global_position - mouth.global_position) + Vector2.LEFT * 6
+		global_position = attraction.global_position
+		return
 	if position.x < -20 or position.x > 280:
 		queue_free()
 	if state == State.attracted:
@@ -85,4 +85,8 @@ func bite():
 		return
 	print("HIT!")
 	state = State.hooked
+	# Set all other attracted fish to idle
+	for fish in get_tree().get_nodes_in_group("fish"):
+		if fish.state == State.attracted:
+			fish.state = State.idle
 	attraction.get_parent().get_parent().hooked = self

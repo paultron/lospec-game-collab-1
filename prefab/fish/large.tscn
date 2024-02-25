@@ -43,7 +43,7 @@ animations = [{
 [sub_resource type="CircleShape2D" id="CircleShape2D_8roca"]
 radius = 31.0161
 
-[node name="large" type="AnimatedSprite2D"]
+[node name="large" type="AnimatedSprite2D" groups=["fish"]]
 sprite_frames = SubResource("SpriteFrames_2swjj")
 frame_progress = 0.942065
 script = ExtResource("2_42mp0")

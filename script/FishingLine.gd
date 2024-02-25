@@ -18,7 +18,7 @@ var hooked: Fish = null
 
 @onready var lineEnd: Sprite2D = $LineEnd
  
-signal reeling
+signal reeling(fish: FishData)
 
 var rod: Curve2D
 
@@ -345,16 +345,14 @@ func reel(amount):
 				lineEnd.position.x = pt_B1.x + hookOffsetX
 			if (lineEnd.position.y <= waterLevel + hookOffsetY):
 				castingPhase = 5
-				reeling.emit()
-				print("hook is above water... resetting")
+				reeling.emit(hooked.data if hooked != null else null)
 				#resetPhases()
 		elif (lineEnd.position.distance_to(Vector2(0,0)) < data.length):
 			if (lineEnd.position.x < rightLevel):
 				lineEnd.position.x /= reelMultiplier
 			lineEnd.position.y /= reelMultiplier
-		print(lineEnd.position)
 
 func drawPoints(p, col):
 	for point in p:
-		draw_rect(Rect2(point,Vector2(1,1)),col)
+		draw_rect(Rect2(point, Vector2(1,1)), col)
 

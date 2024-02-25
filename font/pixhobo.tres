@@ -1,0 +1,9 @@
+[gd_resource type="LabelSettings" load_steps=2 format=3 uid="uid://bmphhggfo5sf5"]
+
+[ext_resource type="FontFile" uid="uid://b24ts2555dqqf" path="res://font/pixhobo.ttf" id="1_k0mud"]
+
+[resource]
+font = ExtResource("1_k0mud")
+font_size = 14
+outline_size = 8
+outline_color = Color(0.286275, 0.333333, 0.533333, 1)

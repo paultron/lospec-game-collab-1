@@ -12,3 +12,4 @@ enum Size {
 @export_multiline var catchText: String
 @export var name: String
 @export var size: Size
+@export var rarity: String = "Epic"

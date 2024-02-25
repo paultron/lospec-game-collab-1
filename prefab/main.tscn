@@ -1,4 +1,4 @@
-[gd_scene load_steps=137 format=3 uid="uid://les7xuur0g8p"]
+[gd_scene load_steps=145 format=3 uid="uid://les7xuur0g8p"]
 
 [ext_resource type="Script" path="res://script/Player.gd" id="1_ger0m"]
 [ext_resource type="Script" path="res://script/Main.gd" id="1_lfam6"]
@@ -29,7 +29,7 @@
 [ext_resource type="Texture2D" uid="uid://dfx88vhg1megw" path="res://art/icon/bucket.png" id="28_5f4xm"]
 [ext_resource type="Texture2D" uid="uid://ddxq0jpkllw1i" path="res://art/icon/shop.png" id="29_x64km"]
 [ext_resource type="Script" path="res://script/Tacklebox.gd" id="30_a4onl"]
-[ext_resource type="Texture2D" uid="uid://bqui2fn2d1ni3" path="res://art/icon/back.png" id="31_6njhk"]
+[ext_resource type="Texture2D" uid="uid://dw57xfa0l3x4n" path="res://art/icon/back.png" id="31_6njhk"]
 [ext_resource type="Texture2D" uid="uid://box7vxwwds30x" path="res://art/icon/backClicked.png" id="32_7y100"]
 [ext_resource type="Texture2D" uid="uid://bpj62j6vckq2p" path="res://art/bg/shop.png" id="33_rqh4v"]
 [ext_resource type="Script" path="res://script/Shop.gd" id="34_ceurk"]
@@ -40,7 +40,13 @@
 [ext_resource type="Texture2D" uid="uid://bri3p5h84nst7" path="res://art/ui/bar/tension-empty.png" id="39_0gpu0"]
 [ext_resource type="Script" path="res://script/PowerBar.gd" id="40_c1ow5"]
 [ext_resource type="Texture2D" uid="uid://c66vlyopy44kr" path="res://art/ui/bar/tension-yellow.png" id="41_v1msm"]
+[ext_resource type="Texture2D" uid="uid://gvqx0oqg5ibe" path="res://art/ui/bucket/bucket.png" id="42_plguu"]
 [ext_resource type="Texture2D" uid="uid://va7u101cvy6m" path="res://art/ui/bar/tension-level.png" id="42_w30l6"]
+[ext_resource type="Script" path="res://script/Bucket.gd" id="43_umrp6"]
+[ext_resource type="Texture2D" uid="uid://dculf6od26jhk" path="res://art/ui/caughtfishbg.png" id="44_gjrl8"]
+[ext_resource type="LabelSettings" uid="uid://bmphhggfo5sf5" path="res://font/pixhobo.tres" id="45_fcifn"]
+[ext_resource type="Script" path="res://script/BucketCell.gd" id="45_ghbw5"]
+[ext_resource type="FontFile" uid="uid://c8cwbrwvceqbx" path="res://font/04B.TTF" id="46_hkiul"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_hx5ne"]
 atlas = ExtResource("2_ctlxb")
@@ -756,18 +762,31 @@ animations = [{
 [sub_resource type="LabelSettings" id="LabelSettings_ktolv"]
 font = ExtResource("37_3am8l")
 font_size = 14
-outline_size = 4
+outline_size = 8
 outline_color = Color(0.231373, 0.172549, 0.290196, 1)
 
 [sub_resource type="LabelSettings" id="LabelSettings_xsbrm"]
 font = ExtResource("37_3am8l")
 font_size = 14
 font_color = Color(0.603922, 0.905882, 0.788235, 1)
-outline_size = 4
+outline_size = 8
 outline_color = Color(0.231373, 0.172549, 0.290196, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_untlq"]
+font = ExtResource("46_hkiul")
+font_size = 8
+font_color = Color(0.945098, 0.545098, 0.411765, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_hefx5"]
+font = ExtResource("37_3am8l")
+font_size = 14
+font_color = Color(0.815686, 0.254902, 0.32549, 1)
+outline_color = Color(0.286275, 0.333333, 0.533333, 1)
 
 [node name="main" type="Node2D"]
 script = ExtResource("1_lfam6")
+metadata/_edit_vertical_guides_ = [23.0, 236.0]
+metadata/_edit_horizontal_guides_ = [22.0]
 
 [node name="loadingScreen" type="AnimatedSprite2D" parent="."]
 visible = false
@@ -862,27 +881,27 @@ offset_bottom = 40.0
 [node name="Inventory" type="TextureButton" parent="buttons"]
 layout_mode = 0
 offset_left = 8.0
-offset_top = 8.0
+offset_top = 7.0
 offset_right = 40.0
-offset_bottom = 40.0
+offset_bottom = 39.0
 mouse_default_cursor_shape = 2
 texture_normal = ExtResource("27_vm4sn")
 
 [node name="Fish" type="TextureButton" parent="buttons"]
 layout_mode = 0
 offset_left = 48.0
-offset_top = 8.0
+offset_top = 7.0
 offset_right = 80.0
-offset_bottom = 40.0
+offset_bottom = 39.0
 mouse_default_cursor_shape = 2
 texture_normal = ExtResource("28_5f4xm")
 
 [node name="Shop" type="TextureButton" parent="buttons"]
 layout_mode = 0
 offset_left = 88.0
-offset_top = 8.0
+offset_top = 7.0
 offset_right = 120.0
-offset_bottom = 40.0
+offset_bottom = 39.0
 mouse_default_cursor_shape = 2
 texture_normal = ExtResource("29_x64km")
 
@@ -900,6 +919,7 @@ animation = &"idle"
 centered = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="skeddle"]
+visible = false
 position = Vector2(17, 14)
 shape = SubResource("RectangleShape2D_o7kr4")
 
@@ -921,6 +941,8 @@ script = ExtResource("1_ger0m")
 position = Vector2(-11, -19)
 sprite_frames = SubResource("SpriteFrames_ofr86")
 animation = &"recovery"
+frame = 2
+frame_progress = 1.0
 centered = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="player"]
@@ -987,7 +1009,7 @@ texture_normal = ExtResource("31_6njhk")
 texture_pressed = ExtResource("32_7y100")
 
 [node name="Coin" type="Sprite2D" parent="."]
-position = Vector2(232, 8)
+position = Vector2(228, 15)
 texture = ExtResource("36_w3ojc")
 centered = false
 
@@ -1044,15 +1066,511 @@ grow_horizontal = 2
 grow_vertical = 0
 texture = ExtResource("42_w30l6")
 
+[node name="Bucket" type="Sprite2D" parent="."]
+visible = false
+z_index = 2
+position = Vector2(53, 47)
+texture = ExtResource("42_plguu")
+centered = false
+script = ExtResource("43_umrp6")
+
+[node name="back" type="TextureButton" parent="Bucket"]
+offset_left = -43.0
+offset_top = -37.0
+offset_right = -16.0
+offset_bottom = -10.0
+mouse_default_cursor_shape = 2
+texture_normal = ExtResource("31_6njhk")
+texture_pressed = ExtResource("32_7y100")
+
+[node name="Warning" type="Label" parent="Bucket/back"]
+visible = false
+layout_mode = 0
+offset_left = 34.0
+offset_right = 181.0
+offset_bottom = 25.0
+text = "Throw away"
+label_settings = ExtResource("45_fcifn")
+
+[node name="Margins" type="Control" parent="Bucket"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 1.0
+offset_bottom = 1.0
+metadata/_edit_lock_ = true
+
+[node name="LeftMargin" type="Control" parent="Bucket/Margins"]
+layout_mode = 3
+anchors_preset = 0
+offset_left = 1.0
+offset_top = 23.0
+offset_right = 25.0
+offset_bottom = 169.0
+metadata/_edit_lock_ = true
+
+[node name="TopMargin" type="Control" parent="Bucket/Margins"]
+layout_mode = 3
+anchors_preset = 0
+offset_left = 1.0
+offset_top = 23.0
+offset_right = 146.0
+offset_bottom = 45.0
+metadata/_edit_lock_ = true
+
+[node name="RightMargin" type="Control" parent="Bucket/Margins"]
+layout_mode = 3
+anchors_preset = 0
+offset_left = 126.0
+offset_top = 23.0
+offset_right = 150.0
+offset_bottom = 169.0
+metadata/_edit_lock_ = true
+
+[node name="BottomMargin" type="Control" parent="Bucket/Margins"]
+layout_mode = 3
+anchors_preset = 0
+offset_left = 1.0
+offset_top = 146.0
+offset_right = 146.0
+offset_bottom = 168.0
+metadata/_edit_lock_ = true
+
+[node name="Grid" type="Control" parent="Bucket"]
+layout_mode = 3
+anchors_preset = 0
+metadata/_edit_lock_ = true
+
+[node name="00" type="Control" parent="Bucket/Grid"]
+layout_mode = 3
+anchors_preset = 0
+offset_left = 26.0
+offset_top = 46.0
+offset_right = 45.0
+offset_bottom = 65.0
+script = ExtResource("45_ghbw5")
+metadata/_edit_lock_ = true
+
+[node name="01" type="Control" parent="Bucket/Grid"]
+layout_mode = 3
+anchors_preset = 0
+offset_left = 26.0
+offset_top = 66.0
+offset_right = 45.0
+offset_bottom = 85.0
+script = ExtResource("45_ghbw5")
+y = 1
+metadata/_edit_lock_ = true
+
+[node name="02" type="Control" parent="Bucket/Grid"]
+layout_mode = 3
+anchors_preset = 0
+offset_left = 26.0
+offset_top = 86.0
+offset_right = 45.0
+offset_bottom = 105.0
+script = ExtResource("45_ghbw5")
+y = 2
+metadata/_edit_lock_ = true
+
+[node name="03" type="Control" parent="Bucket/Grid"]
+layout_mode = 3
+anchors_preset = 0
+offset_left = 26.0
+offset_top = 106.0
+offset_right = 45.0
+offset_bottom = 125.0
+script = ExtResource("45_ghbw5")
+y = 3
+metadata/_edit_lock_ = true
+
+[node name="04" type="Control" parent="Bucket/Grid"]
+layout_mode = 3
+anchors_preset = 0
+offset_left = 26.0
+offset_top = 126.0
+offset_right = 45.0
+offset_bottom = 145.0
+script = ExtResource("45_ghbw5")
+y = 4
+metadata/_edit_lock_ = true
+
+[node name="10" type="Control" parent="Bucket/Grid"]
+layout_mode = 3
+anchors_preset = 0
+offset_left = 46.0
+offset_top = 46.0
+offset_right = 65.0
+offset_bottom = 65.0
+script = ExtResource("45_ghbw5")
+x = 1
+metadata/_edit_lock_ = true
+
+[node name="11" type="Control" parent="Bucket/Grid"]
+layout_mode = 3
+anchors_preset = 0
+offset_left = 46.0
+offset_top = 66.0
+offset_right = 65.0
+offset_bottom = 85.0
+script = ExtResource("45_ghbw5")
+x = 1
+y = 1
+metadata/_edit_lock_ = true
+
+[node name="12" type="Control" parent="Bucket/Grid"]
+layout_mode = 3
+anchors_preset = 0
+offset_left = 46.0
+offset_top = 86.0
+offset_right = 65.0
+offset_bottom = 105.0
+script = ExtResource("45_ghbw5")
+x = 1
+y = 2
+metadata/_edit_lock_ = true
+
+[node name="13" type="Control" parent="Bucket/Grid"]
+layout_mode = 3
+anchors_preset = 0
+offset_left = 46.0
+offset_top = 106.0
+offset_right = 65.0
+offset_bottom = 125.0
+script = ExtResource("45_ghbw5")
+x = 1
+y = 3
+metadata/_edit_lock_ = true
+
+[node name="14" type="Control" parent="Bucket/Grid"]
+layout_mode = 3
+anchors_preset = 0
+offset_left = 46.0
+offset_top = 126.0
+offset_right = 65.0
+offset_bottom = 145.0
+script = ExtResource("45_ghbw5")
+x = 1
+y = 4
+metadata/_edit_lock_ = true
+
+[node name="20" type="Control" parent="Bucket/Grid"]
+layout_mode = 3
+anchors_preset = 0
+offset_left = 66.0
+offset_top = 46.0
+offset_right = 85.0
+offset_bottom = 65.0
+script = ExtResource("45_ghbw5")
+x = 2
+metadata/_edit_lock_ = true
+
+[node name="21" type="Control" parent="Bucket/Grid"]
+layout_mode = 3
+anchors_preset = 0
+offset_left = 66.0
+offset_top = 66.0
+offset_right = 85.0
+offset_bottom = 85.0
+script = ExtResource("45_ghbw5")
+x = 2
+y = 1
+metadata/_edit_lock_ = true
+
+[node name="22" type="Control" parent="Bucket/Grid"]
+layout_mode = 3
+anchors_preset = 0
+offset_left = 66.0
+offset_top = 86.0
+offset_right = 85.0
+offset_bottom = 105.0
+script = ExtResource("45_ghbw5")
+x = 2
+y = 2
+metadata/_edit_lock_ = true
+
+[node name="23" type="Control" parent="Bucket/Grid"]
+layout_mode = 3
+anchors_preset = 0
+offset_left = 66.0
+offset_top = 106.0
+offset_right = 85.0
+offset_bottom = 125.0
+script = ExtResource("45_ghbw5")
+x = 2
+y = 3
+metadata/_edit_lock_ = true
+
+[node name="24" type="Control" parent="Bucket/Grid"]
+layout_mode = 3
+anchors_preset = 0
+offset_left = 66.0
+offset_top = 126.0
+offset_right = 85.0
+offset_bottom = 145.0
+script = ExtResource("45_ghbw5")
+x = 2
+y = 4
+metadata/_edit_lock_ = true
+
+[node name="30" type="Control" parent="Bucket/Grid"]
+layout_mode = 3
+anchors_preset = 0
+offset_left = 86.0
+offset_top = 46.0
+offset_right = 105.0
+offset_bottom = 65.0
+script = ExtResource("45_ghbw5")
+x = 3
+metadata/_edit_lock_ = true
+
+[node name="31" type="Control" parent="Bucket/Grid"]
+layout_mode = 3
+anchors_preset = 0
+offset_left = 86.0
+offset_top = 66.0
+offset_right = 105.0
+offset_bottom = 85.0
+script = ExtResource("45_ghbw5")
+x = 3
+y = 1
+metadata/_edit_lock_ = true
+
+[node name="32" type="Control" parent="Bucket/Grid"]
+layout_mode = 3
+anchors_preset = 0
+offset_left = 86.0
+offset_top = 86.0
+offset_right = 105.0
+offset_bottom = 105.0
+script = ExtResource("45_ghbw5")
+x = 3
+y = 2
+metadata/_edit_lock_ = true
+
+[node name="33" type="Control" parent="Bucket/Grid"]
+layout_mode = 3
+anchors_preset = 0
+offset_left = 86.0
+offset_top = 106.0
+offset_right = 105.0
+offset_bottom = 125.0
+script = ExtResource("45_ghbw5")
+x = 3
+y = 3
+metadata/_edit_lock_ = true
+
+[node name="34" type="Control" parent="Bucket/Grid"]
+layout_mode = 3
+anchors_preset = 0
+offset_left = 86.0
+offset_top = 126.0
+offset_right = 105.0
+offset_bottom = 145.0
+script = ExtResource("45_ghbw5")
+x = 3
+y = 4
+metadata/_edit_lock_ = true
+
+[node name="40" type="Control" parent="Bucket/Grid"]
+layout_mode = 3
+anchors_preset = 0
+offset_left = 106.0
+offset_top = 46.0
+offset_right = 125.0
+offset_bottom = 65.0
+script = ExtResource("45_ghbw5")
+x = 4
+metadata/_edit_lock_ = true
+
+[node name="41" type="Control" parent="Bucket/Grid"]
+layout_mode = 3
+anchors_preset = 0
+offset_left = 106.0
+offset_top = 66.0
+offset_right = 125.0
+offset_bottom = 85.0
+script = ExtResource("45_ghbw5")
+x = 4
+y = 1
+metadata/_edit_lock_ = true
+
+[node name="42" type="Control" parent="Bucket/Grid"]
+layout_mode = 3
+anchors_preset = 0
+offset_left = 106.0
+offset_top = 86.0
+offset_right = 125.0
+offset_bottom = 105.0
+script = ExtResource("45_ghbw5")
+x = 4
+y = 2
+metadata/_edit_lock_ = true
+
+[node name="43" type="Control" parent="Bucket/Grid"]
+layout_mode = 3
+anchors_preset = 0
+offset_left = 106.0
+offset_top = 106.0
+offset_right = 125.0
+offset_bottom = 125.0
+script = ExtResource("45_ghbw5")
+x = 4
+y = 3
+metadata/_edit_lock_ = true
+
+[node name="44" type="Control" parent="Bucket/Grid"]
+layout_mode = 3
+anchors_preset = 0
+offset_left = 106.0
+offset_top = 126.0
+offset_right = 125.0
+offset_bottom = 145.0
+script = ExtResource("45_ghbw5")
+x = 4
+y = 4
+metadata/_edit_lock_ = true
+
+[node name="FishCaught" type="Sprite2D" parent="."]
+visible = false
+z_index = 2
+position = Vector2(128, 120)
+texture = ExtResource("44_gjrl8")
+
+[node name="OneName" type="Label" parent="FishCaught"]
+offset_left = -84.0
+offset_top = -72.0
+offset_right = 85.0
+offset_bottom = -36.0
+text = "Shrimpo"
+label_settings = ExtResource("45_fcifn")
+horizontal_alignment = 1
+vertical_alignment = 1
+uppercase = true
+
+[node name="TwoName1" type="Label" parent="FishCaught"]
+visible = false
+offset_left = -84.0
+offset_top = -75.0
+offset_right = 85.0
+offset_bottom = -47.0
+text = "Shrimpo"
+label_settings = ExtResource("45_fcifn")
+horizontal_alignment = 1
+uppercase = true
+
+[node name="TwoName2" type="Label" parent="FishCaught"]
+visible = false
+offset_left = -84.0
+offset_top = -59.0
+offset_right = 85.0
+offset_bottom = -31.0
+text = "Shark"
+label_settings = ExtResource("45_fcifn")
+horizontal_alignment = 1
+uppercase = true
+
+[node name="Weight" type="Label" parent="FishCaught"]
+offset_left = -85.0
+offset_top = -14.0
+offset_right = -33.0
+offset_bottom = -3.0
+text = "Weight:"
+label_settings = SubResource("LabelSettings_untlq")
+horizontal_alignment = 1
+
+[node name="WeightValue" type="Label" parent="FishCaught"]
+offset_left = -85.0
+offset_top = -10.0
+offset_right = -33.0
+offset_bottom = 18.0
+text = "243"
+label_settings = SubResource("LabelSettings_hefx5")
+horizontal_alignment = 1
+vertical_alignment = 1
+uppercase = true
+
+[node name="lbs" type="Label" parent="FishCaught"]
+offset_left = -57.0
+offset_top = 13.0
+offset_right = -32.0
+offset_bottom = 24.0
+text = "lbs"
+label_settings = SubResource("LabelSettings_untlq")
+horizontal_alignment = 1
+
+[node name="RarityValue" type="Label" parent="FishCaught"]
+offset_left = 32.0
+offset_top = -10.0
+offset_right = 84.0
+offset_bottom = 18.0
+text = "epic"
+label_settings = SubResource("LabelSettings_hefx5")
+horizontal_alignment = 1
+vertical_alignment = 1
+uppercase = true
+
+[node name="Rarity" type="Label" parent="FishCaught"]
+offset_left = 32.0
+offset_top = -15.0
+offset_right = 84.0
+offset_bottom = -4.0
+text = "Rarity:"
+label_settings = SubResource("LabelSettings_untlq")
+horizontal_alignment = 1
+
+[node name="Description" type="Label" parent="FishCaught"]
+offset_left = -80.0
+offset_top = 42.0
+offset_right = 80.0
+offset_bottom = 64.0
+text = "Is this supposed to be a Smiling Friends reference"
+label_settings = SubResource("LabelSettings_untlq")
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 3
+
 [connection signal="pressed" from="buttons/Inventory" to="Tacklebox" method="open"]
+[connection signal="pressed" from="buttons/Fish" to="Bucket" method="open"]
 [connection signal="pressed" from="buttons/Shop" to="Shop" method="open"]
 [connection signal="casted" from="player" to="." method="on_cast"]
 [connection signal="powerApplied" from="player" to="Power" method="on_power_applied"]
 [connection signal="animation_finished" from="player/Sprite2D" to="player" method="on_animation_finished"]
 [connection signal="reeling" from="player/Line" to="." method="on_reeling"]
 [connection signal="animation_finished" from="Camera2D/AnimationPlayer" to="." method="on_pan_finish"]
-[connection signal="animation_finished" from="Tacklebox" to="Tacklebox" method="on_opened"]
 [connection signal="animation_finished" from="Tacklebox" to="Tacklebox" method="on_closed"]
+[connection signal="animation_finished" from="Tacklebox" to="Tacklebox" method="on_opened"]
 [connection signal="pressed" from="Tacklebox/back" to="Tacklebox" method="close"]
 [connection signal="pressed" from="Shop/back" to="Shop" method="close"]
 [connection signal="item_rect_changed" from="Power/Mask" to="Power" method="on_resize"]
+[connection signal="mouse_entered" from="Bucket/back" to="Bucket" method="_on_back_mouse_entered"]
+[connection signal="mouse_exited" from="Bucket/back" to="Bucket" method="_on_back_mouse_exited"]
+[connection signal="pressed" from="Bucket/back" to="Bucket" method="close"]
+[connection signal="mouse_entered" from="Bucket/Margins/LeftMargin" to="Bucket" method="cancel_hover"]
+[connection signal="mouse_entered" from="Bucket/Margins/TopMargin" to="Bucket" method="cancel_hover"]
+[connection signal="mouse_entered" from="Bucket/Margins/RightMargin" to="Bucket" method="cancel_hover"]
+[connection signal="mouse_entered" from="Bucket/Margins/BottomMargin" to="Bucket" method="cancel_hover"]
+[connection signal="mouse_entered" from="Bucket/Grid/00" to="Bucket/Grid/00" method="_on_mouse_entered"]
+[connection signal="mouse_entered" from="Bucket/Grid/01" to="Bucket/Grid/01" method="_on_mouse_entered"]
+[connection signal="mouse_entered" from="Bucket/Grid/02" to="Bucket/Grid/02" method="_on_mouse_entered"]
+[connection signal="mouse_entered" from="Bucket/Grid/03" to="Bucket/Grid/03" method="_on_mouse_entered"]
+[connection signal="mouse_entered" from="Bucket/Grid/04" to="Bucket/Grid/04" method="_on_mouse_entered"]
+[connection signal="mouse_entered" from="Bucket/Grid/10" to="Bucket/Grid/10" method="_on_mouse_entered"]
+[connection signal="mouse_entered" from="Bucket/Grid/11" to="Bucket/Grid/11" method="_on_mouse_entered"]
+[connection signal="mouse_entered" from="Bucket/Grid/12" to="Bucket/Grid/12" method="_on_mouse_entered"]
+[connection signal="mouse_entered" from="Bucket/Grid/13" to="Bucket/Grid/13" method="_on_mouse_entered"]
+[connection signal="mouse_entered" from="Bucket/Grid/14" to="Bucket/Grid/14" method="_on_mouse_entered"]
+[connection signal="mouse_entered" from="Bucket/Grid/20" to="Bucket/Grid/20" method="_on_mouse_entered"]
+[connection signal="mouse_entered" from="Bucket/Grid/21" to="Bucket/Grid/21" method="_on_mouse_entered"]
+[connection signal="mouse_entered" from="Bucket/Grid/22" to="Bucket/Grid/22" method="_on_mouse_entered"]
+[connection signal="mouse_entered" from="Bucket/Grid/23" to="Bucket/Grid/23" method="_on_mouse_entered"]
+[connection signal="mouse_entered" from="Bucket/Grid/24" to="Bucket/Grid/24" method="_on_mouse_entered"]
+[connection signal="mouse_entered" from="Bucket/Grid/30" to="Bucket/Grid/30" method="_on_mouse_entered"]
+[connection signal="mouse_entered" from="Bucket/Grid/31" to="Bucket/Grid/31" method="_on_mouse_entered"]
+[connection signal="mouse_entered" from="Bucket/Grid/32" to="Bucket/Grid/32" method="_on_mouse_entered"]
+[connection signal="mouse_entered" from="Bucket/Grid/33" to="Bucket/Grid/33" method="_on_mouse_entered"]
+[connection signal="mouse_entered" from="Bucket/Grid/34" to="Bucket/Grid/34" method="_on_mouse_entered"]
+[connection signal="mouse_entered" from="Bucket/Grid/40" to="Bucket/Grid/40" method="_on_mouse_entered"]
+[connection signal="mouse_entered" from="Bucket/Grid/41" to="Bucket/Grid/41" method="_on_mouse_entered"]
+[connection signal="mouse_entered" from="Bucket/Grid/42" to="Bucket/Grid/42" method="_on_mouse_entered"]
+[connection signal="mouse_entered" from="Bucket/Grid/43" to="Bucket/Grid/43" method="_on_mouse_entered"]
+[connection signal="mouse_entered" from="Bucket/Grid/44" to="Bucket/Grid/44" method="_on_mouse_entered"]

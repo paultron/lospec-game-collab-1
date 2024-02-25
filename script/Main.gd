@@ -19,7 +19,15 @@ func _ready():
 
 func _unhandled_input(event):
 	# If the user clicks on the water
-	if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT and event.pressed:
+	if ((event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT) or \
+		(event is InputEventKey and event.keycode == KEY_SPACE)) and event.pressed:
+		if $FishCaught.visible:
+			var fish = $FishCaught.get_node("menuFish")
+			$FishCaught.remove_child(fish)
+			$buttons.get_node("Fish").pressed.emit()
+			$Bucket.activeMenuFish = fish
+			$Bucket.add_child(fish)
+			$FishCaught.visible = false
 		# Get the mouse position
 		var mousePos = get_global_mouse_position()
 		# If the mouse is between 190 and 220
@@ -27,10 +35,10 @@ func _unhandled_input(event):
 			# If the mouse is between 190 and 220
 			if mousePos.x < 256 and mousePos.x > 60:
 				# spawn splash sprite
-				var splash = load("res://prefab/splash.tscn").instantiate()
-				get_parent().add_child(splash)
+				var splashSprite = load("res://prefab/splash.tscn").instantiate()
+				get_parent().add_child(splashSprite)
 				# move to mouse position
-				splash.position = mousePos
+				splashSprite.position = mousePos
 				z_index = -1
 
 func _process(delta):
@@ -39,7 +47,7 @@ func _process(delta):
 
 
 func bird_anim():
-	if not birdsActive and Time.get_ticks_msec() - lastBirdActivation > 20000:
+	if not birdsActive and (Time.get_ticks_msec() - lastBirdActivation) > 20000:
 		lastBirdActivation = Time.get_ticks_msec()
 		if randi_range(0, 5) < 3:
 			return
@@ -48,15 +56,18 @@ func bird_anim():
 			if bird is AnimatedSprite2D:
 				bird.frame = randi_range(0, 4)
 				bird.play("default")
+		birds.get_parent().visible = true
 		birds.play("move")
 		birdsActive = true
 		birds.animation_finished.connect(
 			func(_animation):
 				birds.stop()
+				birds.get_parent().visible = false
 				birdsActive = false
 				for bird in birds.get_parent().get_children():
 					if bird is AnimatedSprite2D:
 						bird.stop()
+				
 		)
 
 func cloud_anim(delta: float):
@@ -78,12 +89,34 @@ func on_pan_finish(anim):
 		$player.get_node("Line").resetPhases()
 		$player.get_node("Line").lineEnd.hide()
 
-func on_reeling():
+func on_reeling(data: FishData):
 	catching = true
 	get_node("Camera2D/AnimationPlayer").play("panUp")
 	$Power.power = 0
 	$Power.get_node("Mask").size.y = $Power.top
 	$Power.get_node("Mask/Cap").hide()
 	$player.get_node("Line").get_fish()
-			
+	if (data == null):
+		return
+	
+	var fish = load("res://prefab/menuFish.tscn").instantiate()
+	self.add_child(fish)
+	fish.populate(data)
+	fish.global_position = $player.get_node("Line").lineEnd.global_position
+	var tween = fish.create_tween()
+	tween.tween_property(fish, "global_position", Vector2(128 - fish.size.x / 2, 128 - fish.size.y / 2), 1)
+	tween.tween_callback(func():
+		var pos = fish.global_position
+		remove_child(fish)
+		$FishCaught.add_child(fish)
+		fish.global_position = pos
+		fish_popup(data)
+	)
 
+func fish_popup(data: FishData):
+	$FishCaught.visible = true
+	get_node("buttons").hide()
+	$FishCaught.get_node("OneName").text = data.name
+	$FishCaught.get_node("WeightValue").text = str(randi_range(2, 999))
+	$FishCaught.get_node("RarityValue").text = data.rarity
+	$FishCaught.get_node("Description").text = data.catchText

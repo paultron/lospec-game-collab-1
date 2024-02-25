@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dw57xfa0l3x4n"
-path="res://.godot/imported/back.png-ede9af5adb11c07db5d6e0a74e888a4f.ctex"
+uid="uid://dfjucpg54j10s"
+path="res://.godot/imported/bucket-fish-bg-large.png-14da16ed7de4a01f1e1ed126ae613fb0.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://art/icon/back.png"
-dest_files=["res://.godot/imported/back.png-ede9af5adb11c07db5d6e0a74e888a4f.ctex"]
+source_file="res://art/ui/bucket/bucket-fish-bg-large.png"
+dest_files=["res://.godot/imported/bucket-fish-bg-large.png-14da16ed7de4a01f1e1ed126ae613fb0.ctex"]
 
 [params]
 

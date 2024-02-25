@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dw57xfa0l3x4n"
-path="res://.godot/imported/back.png-ede9af5adb11c07db5d6e0a74e888a4f.ctex"
+uid="uid://di4gtb60trl8g"
+path="res://.godot/imported/bucket-selector-ninepatchrect.png-2e16ca2b6deb8c00c34cfea67fe50bcd.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://art/icon/back.png"
-dest_files=["res://.godot/imported/back.png-ede9af5adb11c07db5d6e0a74e888a4f.ctex"]
+source_file="res://art/ui/bucket/bucket-selector-ninepatchrect.png"
+dest_files=["res://.godot/imported/bucket-selector-ninepatchrect.png-2e16ca2b6deb8c00c34cfea67fe50bcd.ctex"]
 
 [params]
 

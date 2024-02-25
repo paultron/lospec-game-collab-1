@@ -18,9 +18,9 @@ func _ready():
 
 func _process(delta):
 	if state == State.swimLeft:
-		position.x -= 10 * delta
+		position.x = max(position.x - 10 * delta, 64)
 	elif state == State.swimRight:
-		position.x += 10 * delta
+		position.x = min(position.x + 10 * delta, 220)
 	# Every 3 seconds, 50% chance of changing state
 	if randf() < 0.5 and Time.get_ticks_msec() - lastStateChange > 3000:
 		lastStateChange = Time.get_ticks_msec()

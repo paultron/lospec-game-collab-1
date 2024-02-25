@@ -6,7 +6,9 @@ func _ready():
 	pass # Replace with function body.
 
 func open():
+	get_parent().get_node("buttons").hide()
 	show()
 
 func close():
+	get_parent().get_node("buttons").show()
 	hide()

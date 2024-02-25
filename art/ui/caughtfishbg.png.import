@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dw57xfa0l3x4n"
-path="res://.godot/imported/back.png-ede9af5adb11c07db5d6e0a74e888a4f.ctex"
+uid="uid://dculf6od26jhk"
+path="res://.godot/imported/caughtfishbg.png-fa535dfbd7ada5e9e966053c56e0c748.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://art/icon/back.png"
-dest_files=["res://.godot/imported/back.png-ede9af5adb11c07db5d6e0a74e888a4f.ctex"]
+source_file="res://art/ui/caughtfishbg.png"
+dest_files=["res://.godot/imported/caughtfishbg.png-fa535dfbd7ada5e9e966053c56e0c748.ctex"]
 
 [params]
 

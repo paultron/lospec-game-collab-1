@@ -1,0 +1,11 @@
+[gd_scene load_steps=3 format=3 uid="uid://rkg55kw8n6su"]
+
+[ext_resource type="Texture2D" uid="uid://cw4vawvcpfsnu" path="res://art/fish/shrimpo.png" id="1_yc1dg"]
+[ext_resource type="Script" path="res://script/MenuFish.gd" id="2_mxqlp"]
+
+[node name="menuFish" type="TextureRect"]
+texture = ExtResource("1_yc1dg")
+script = ExtResource("2_mxqlp")
+
+[connection signal="gui_input" from="." to="." method="_on_gui_input"]
+[connection signal="mouse_entered" from="." to="." method="on_hovered"]

@@ -87,6 +87,6 @@ func bite():
 	state = State.hooked
 	# Set all other attracted fish to idle
 	for fish in get_tree().get_nodes_in_group("fish"):
-		if fish.state == State.attracted:
+		if fish.state == State.attracted and fish != self:
 			fish.state = State.idle
 	attraction.get_parent().get_parent().hooked = self

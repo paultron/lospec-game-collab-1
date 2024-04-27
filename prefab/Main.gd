@@ -97,7 +97,9 @@ func on_pan_finish(anim):
 		catching = false
 		$player.get_node("Line").resetPhases()
 		$player.get_node("Line").lineEnd.hide()
-
+		if $FishSpawner.get_child_count() < 8:
+			for i in range(0, 10 - $FishSpawner.get_child_count()):
+				$FishSpawner.spawnFish(i + randi_range(0, 10), i + randi_range(0, 10))
 func on_reeling(data: FishData):
 	catching = true
 	get_node("Camera2D/AnimationPlayer").play("panUp")

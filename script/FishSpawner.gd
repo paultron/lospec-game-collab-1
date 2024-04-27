@@ -27,11 +27,11 @@ func spawnFish(depth_hint: int, x_hint: int = 0):
 	var fish: Fish
 
 	var rand = randf()
-	if rand < 0.1:
+	if rand < 0.6:
 		lastSpawnedType = FishData.Size.SMALL
 		fish = load("res://prefab/fish/small.tscn").instantiate()
 		fish.data = small_fish[randi() % small_fish.size()]
-	elif rand < 0.2:
+	elif rand < 0.9:
 		lastSpawnedType = FishData.Size.MEDIUM
 		fish = load("res://prefab/fish/medium.tscn").instantiate()
 		fish.data = medium_fish[randi() % medium_fish.size()]

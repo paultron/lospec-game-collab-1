@@ -1,11 +1,55 @@
-[gd_scene load_steps=3 format=3 uid="uid://rkg55kw8n6su"]
+[gd_scene load_steps=5 format=3 uid="uid://rkg55kw8n6su"]
 
 [ext_resource type="Texture2D" uid="uid://cw4vawvcpfsnu" path="res://art/fish/shrimpo.png" id="1_yc1dg"]
+[ext_resource type="Texture2D" uid="uid://cro34imdjqf13" path="res://art/ui/bucket/bucket-fish-bg-small.png" id="2_b3em5"]
 [ext_resource type="Script" path="res://script/MenuFish.gd" id="2_mxqlp"]
+[ext_resource type="Texture2D" uid="uid://di4gtb60trl8g" path="res://art/ui/bucket/bucket-selector-ninepatchrect.png" id="4_n6ume"]
 
-[node name="menuFish" type="TextureRect"]
-texture = ExtResource("1_yc1dg")
+[node name="menuFish" type="MarginContainer"]
+custom_minimum_size = Vector2(23, 23)
+offset_right = 23.0
+offset_bottom = 23.0
+mouse_filter = 2
 script = ExtResource("2_mxqlp")
 
-[connection signal="gui_input" from="." to="." method="_on_gui_input"]
-[connection signal="mouse_entered" from="." to="." method="on_hovered"]
+[node name="hover" type="NinePatchRect" parent="."]
+visible = false
+z_index = 3
+layout_mode = 2
+texture = ExtResource("4_n6ume")
+region_rect = Rect2(0, 0, 24, 24)
+patch_margin_left = 5
+patch_margin_top = 5
+patch_margin_right = 5
+patch_margin_bottom = 5
+axis_stretch_horizontal = 2
+axis_stretch_vertical = 2
+
+[node name="margin" type="MarginContainer" parent="."]
+show_behind_parent = true
+layout_mode = 2
+mouse_filter = 2
+theme_override_constants/margin_left = 2
+theme_override_constants/margin_top = 2
+theme_override_constants/margin_right = 1
+theme_override_constants/margin_bottom = 1
+
+[node name="bg" type="TextureRect" parent="margin"]
+visible = false
+layout_mode = 2
+texture = ExtResource("2_b3em5")
+stretch_mode = 2
+
+[node name="margin" type="MarginContainer" parent="margin"]
+layout_mode = 2
+mouse_filter = 2
+theme_override_constants/margin_left = 2
+theme_override_constants/margin_top = 2
+theme_override_constants/margin_right = 3
+theme_override_constants/margin_bottom = 3
+
+[node name="texture" type="TextureRect" parent="margin/margin"]
+layout_mode = 2
+mouse_filter = 2
+texture = ExtResource("1_yc1dg")
+stretch_mode = 2

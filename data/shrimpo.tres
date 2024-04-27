@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="FishData" load_steps=3 format=3 uid="uid://bo0u103y8pwtn"]
+[gd_resource type="Resource" script_class="FishData" load_steps=3 format=3 uid="uid://3f8p8yqm4fl4"]
 
 [ext_resource type="Script" path="res://script/data/FishData.gd" id="1_5sof7"]
 [ext_resource type="Texture2D" uid="uid://cw4vawvcpfsnu" path="res://art/fish/shrimpo.png" id="2_7oguo"]
@@ -10,3 +10,4 @@ hookText = "Wow... this guy's got bad posture!"
 catchText = "This was a mistake..."
 name = "Shrimpo"
 size = 0
+rarity = 4

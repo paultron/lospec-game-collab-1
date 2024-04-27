@@ -2,7 +2,7 @@
 
 [ext_resource type="Texture2D" uid="uid://doe7yvs1mhkre" path="res://art/fish/silhouette/largeFish.png" id="1_eronn"]
 [ext_resource type="Script" path="res://script/Fish.gd" id="2_42mp0"]
-[ext_resource type="Resource" uid="uid://bo0u103y8pwtn" path="res://data/shrimpo.tres" id="3_38nb4"]
+[ext_resource type="Resource" uid="uid://bo0u103y8pwtn" path="res://data/1-bish.tres" id="3_38nb4"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_yvs7u"]
 atlas = ExtResource("1_eronn")

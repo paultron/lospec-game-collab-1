@@ -16,7 +16,8 @@ func _input(event):
 	if get_parent().catching:
 		return
 	if event is InputEventKey:
-		if event.keycode == KEY_SPACE and get_parent().get_node("buttons").visible == true:
+		if event.keycode == KEY_SPACE and get_parent().get_node("buttons").visible == true \
+		and not get_parent().has_node("loadingScreen"):
 			if event.pressed and !space_pressed and line.castingPhase == 0:  # Check if the space key is pressed
 				line.resetPhases()
 				space_pressed = true

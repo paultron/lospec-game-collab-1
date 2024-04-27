@@ -1,9 +1,11 @@
-[gd_scene load_steps=145 format=3 uid="uid://les7xuur0g8p"]
+[gd_scene load_steps=147 format=3 uid="uid://les7xuur0g8p"]
 
+[ext_resource type="Script" path="res://prefab/Main.gd" id="1_43rvi"]
 [ext_resource type="Script" path="res://script/Player.gd" id="1_ger0m"]
-[ext_resource type="Script" path="res://script/Main.gd" id="1_lfam6"]
 [ext_resource type="Texture2D" uid="uid://cvgnlpyhrolex" path="res://art/intro/bobberIntro.png" id="2_ctlxb"]
+[ext_resource type="Texture2D" uid="uid://cumk4k2nndjfa" path="res://art/ui/title.png" id="2_hx2bu"]
 [ext_resource type="PackedScene" uid="uid://irpcwbq21fdh" path="res://prefab/fishingLine.tscn" id="2_mysdv"]
+[ext_resource type="Script" path="res://script/titlescreen.gd" id="3_5xkj1"]
 [ext_resource type="LabelSettings" uid="uid://4ux3mhrsr1i4" path="res://font/whiteLabel.tres" id="3_lhsro"]
 [ext_resource type="Texture2D" uid="uid://belclk6k3ycut" path="res://art/flavor/bird.png" id="3_xttq3"]
 [ext_resource type="Texture2D" uid="uid://d1lg5ya0f8p2a" path="res://art/bg/bg.png" id="4_moga5"]
@@ -784,15 +786,21 @@ font_color = Color(0.815686, 0.254902, 0.32549, 1)
 outline_color = Color(0.286275, 0.333333, 0.533333, 1)
 
 [node name="main" type="Node2D"]
-script = ExtResource("1_lfam6")
+script = ExtResource("1_43rvi")
 metadata/_edit_vertical_guides_ = [23.0, 236.0]
 metadata/_edit_horizontal_guides_ = [22.0]
+
+[node name="titleScreen" type="Sprite2D" parent="."]
+visible = false
+z_index = 5
+texture = ExtResource("2_hx2bu")
+centered = false
+script = ExtResource("3_5xkj1")
 
 [node name="loadingScreen" type="AnimatedSprite2D" parent="."]
 visible = false
 z_index = 3
 sprite_frames = SubResource("SpriteFrames_jc5bo")
-frame_progress = 0.343086
 centered = false
 
 [node name="Label" type="Label" parent="loadingScreen"]
@@ -1001,9 +1009,9 @@ centered = false
 
 [node name="back" type="TextureButton" parent="Shop"]
 offset_left = 8.0
-offset_top = 231.0
-offset_right = 24.0
-offset_bottom = 247.0
+offset_top = 225.0
+offset_right = 35.0
+offset_bottom = 252.0
 mouse_default_cursor_shape = 2
 texture_normal = ExtResource("31_6njhk")
 texture_pressed = ExtResource("32_7y100")
@@ -1537,8 +1545,8 @@ autowrap_mode = 3
 [connection signal="animation_finished" from="player/Sprite2D" to="player" method="on_animation_finished"]
 [connection signal="reeling" from="player/Line" to="." method="on_reeling"]
 [connection signal="animation_finished" from="Camera2D/AnimationPlayer" to="." method="on_pan_finish"]
-[connection signal="animation_finished" from="Tacklebox" to="Tacklebox" method="on_closed"]
 [connection signal="animation_finished" from="Tacklebox" to="Tacklebox" method="on_opened"]
+[connection signal="animation_finished" from="Tacklebox" to="Tacklebox" method="on_closed"]
 [connection signal="pressed" from="Tacklebox/back" to="Tacklebox" method="close"]
 [connection signal="pressed" from="Shop/back" to="Shop" method="close"]
 [connection signal="item_rect_changed" from="Power/Mask" to="Power" method="on_resize"]
@@ -1549,28 +1557,53 @@ autowrap_mode = 3
 [connection signal="mouse_entered" from="Bucket/Margins/TopMargin" to="Bucket" method="cancel_hover"]
 [connection signal="mouse_entered" from="Bucket/Margins/RightMargin" to="Bucket" method="cancel_hover"]
 [connection signal="mouse_entered" from="Bucket/Margins/BottomMargin" to="Bucket" method="cancel_hover"]
+[connection signal="gui_input" from="Bucket/Grid/00" to="Bucket/Grid/00" method="on_click"]
 [connection signal="mouse_entered" from="Bucket/Grid/00" to="Bucket/Grid/00" method="_on_mouse_entered"]
+[connection signal="gui_input" from="Bucket/Grid/01" to="Bucket/Grid/01" method="on_click"]
 [connection signal="mouse_entered" from="Bucket/Grid/01" to="Bucket/Grid/01" method="_on_mouse_entered"]
+[connection signal="gui_input" from="Bucket/Grid/02" to="Bucket/Grid/02" method="on_click"]
 [connection signal="mouse_entered" from="Bucket/Grid/02" to="Bucket/Grid/02" method="_on_mouse_entered"]
+[connection signal="gui_input" from="Bucket/Grid/03" to="Bucket/Grid/03" method="on_click"]
 [connection signal="mouse_entered" from="Bucket/Grid/03" to="Bucket/Grid/03" method="_on_mouse_entered"]
+[connection signal="gui_input" from="Bucket/Grid/04" to="Bucket/Grid/04" method="on_click"]
 [connection signal="mouse_entered" from="Bucket/Grid/04" to="Bucket/Grid/04" method="_on_mouse_entered"]
+[connection signal="gui_input" from="Bucket/Grid/10" to="Bucket/Grid/10" method="on_click"]
 [connection signal="mouse_entered" from="Bucket/Grid/10" to="Bucket/Grid/10" method="_on_mouse_entered"]
+[connection signal="gui_input" from="Bucket/Grid/11" to="Bucket/Grid/11" method="on_click"]
 [connection signal="mouse_entered" from="Bucket/Grid/11" to="Bucket/Grid/11" method="_on_mouse_entered"]
+[connection signal="gui_input" from="Bucket/Grid/12" to="Bucket/Grid/12" method="on_click"]
 [connection signal="mouse_entered" from="Bucket/Grid/12" to="Bucket/Grid/12" method="_on_mouse_entered"]
+[connection signal="gui_input" from="Bucket/Grid/13" to="Bucket/Grid/13" method="on_click"]
 [connection signal="mouse_entered" from="Bucket/Grid/13" to="Bucket/Grid/13" method="_on_mouse_entered"]
+[connection signal="gui_input" from="Bucket/Grid/14" to="Bucket/Grid/14" method="on_click"]
 [connection signal="mouse_entered" from="Bucket/Grid/14" to="Bucket/Grid/14" method="_on_mouse_entered"]
+[connection signal="gui_input" from="Bucket/Grid/20" to="Bucket/Grid/20" method="on_click"]
 [connection signal="mouse_entered" from="Bucket/Grid/20" to="Bucket/Grid/20" method="_on_mouse_entered"]
+[connection signal="gui_input" from="Bucket/Grid/21" to="Bucket/Grid/21" method="on_click"]
 [connection signal="mouse_entered" from="Bucket/Grid/21" to="Bucket/Grid/21" method="_on_mouse_entered"]
+[connection signal="gui_input" from="Bucket/Grid/22" to="Bucket/Grid/22" method="on_click"]
 [connection signal="mouse_entered" from="Bucket/Grid/22" to="Bucket/Grid/22" method="_on_mouse_entered"]
+[connection signal="gui_input" from="Bucket/Grid/23" to="Bucket/Grid/23" method="on_click"]
 [connection signal="mouse_entered" from="Bucket/Grid/23" to="Bucket/Grid/23" method="_on_mouse_entered"]
+[connection signal="gui_input" from="Bucket/Grid/24" to="Bucket/Grid/24" method="on_click"]
 [connection signal="mouse_entered" from="Bucket/Grid/24" to="Bucket/Grid/24" method="_on_mouse_entered"]
+[connection signal="gui_input" from="Bucket/Grid/30" to="Bucket/Grid/30" method="on_click"]
 [connection signal="mouse_entered" from="Bucket/Grid/30" to="Bucket/Grid/30" method="_on_mouse_entered"]
+[connection signal="gui_input" from="Bucket/Grid/31" to="Bucket/Grid/31" method="on_click"]
 [connection signal="mouse_entered" from="Bucket/Grid/31" to="Bucket/Grid/31" method="_on_mouse_entered"]
+[connection signal="gui_input" from="Bucket/Grid/32" to="Bucket/Grid/32" method="on_click"]
 [connection signal="mouse_entered" from="Bucket/Grid/32" to="Bucket/Grid/32" method="_on_mouse_entered"]
+[connection signal="gui_input" from="Bucket/Grid/33" to="Bucket/Grid/33" method="on_click"]
 [connection signal="mouse_entered" from="Bucket/Grid/33" to="Bucket/Grid/33" method="_on_mouse_entered"]
+[connection signal="gui_input" from="Bucket/Grid/34" to="Bucket/Grid/34" method="on_click"]
 [connection signal="mouse_entered" from="Bucket/Grid/34" to="Bucket/Grid/34" method="_on_mouse_entered"]
+[connection signal="gui_input" from="Bucket/Grid/40" to="Bucket/Grid/40" method="on_click"]
 [connection signal="mouse_entered" from="Bucket/Grid/40" to="Bucket/Grid/40" method="_on_mouse_entered"]
+[connection signal="gui_input" from="Bucket/Grid/41" to="Bucket/Grid/41" method="on_click"]
 [connection signal="mouse_entered" from="Bucket/Grid/41" to="Bucket/Grid/41" method="_on_mouse_entered"]
+[connection signal="gui_input" from="Bucket/Grid/42" to="Bucket/Grid/42" method="on_click"]
 [connection signal="mouse_entered" from="Bucket/Grid/42" to="Bucket/Grid/42" method="_on_mouse_entered"]
+[connection signal="gui_input" from="Bucket/Grid/43" to="Bucket/Grid/43" method="on_click"]
 [connection signal="mouse_entered" from="Bucket/Grid/43" to="Bucket/Grid/43" method="_on_mouse_entered"]
+[connection signal="gui_input" from="Bucket/Grid/44" to="Bucket/Grid/44" method="on_click"]
 [connection signal="mouse_entered" from="Bucket/Grid/44" to="Bucket/Grid/44" method="_on_mouse_entered"]

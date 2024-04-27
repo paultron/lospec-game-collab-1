@@ -1,5 +1,7 @@
 extends Node2D
 
+class_name Main
+
 const waterLevel: int = 34
 var birdsActive = false
 var lastBirdActivation = 0
@@ -9,25 +11,32 @@ var catching := false
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	$titleScreen.show()
+	$loadingScreen.show()
 	Input.set_custom_mouse_cursor(load("res://art/cursor/pointy.png"), Input.CURSOR_POINTING_HAND)
+
+func start_loading_screen():
 	$loadingScreen.play("default")
 	# if (randi_range(0, 1000) == 0):
 	# 	$player.get_node("Sprite2D").texture = load("res://art/otter/megafrown.png")
-	# wait 3 seconds
-	await get_tree().create_timer(3).timeout
+	await get_tree().create_timer(2).timeout
 	$loadingScreen.queue_free()
 
 func _unhandled_input(event):
 	# If the user clicks on the water
 	if ((event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT) or \
 		(event is InputEventKey and event.keycode == KEY_SPACE)) and event.pressed:
+		if has_node("loadingScreen"): return
 		if $FishCaught.visible:
 			var fish = $FishCaught.get_node("menuFish")
 			$FishCaught.remove_child(fish)
 			$buttons.get_node("Fish").pressed.emit()
 			$Bucket.activeMenuFish = fish
 			$Bucket.add_child(fish)
+			$Bucket.activeMenuFish.z_index = 20
 			$FishCaught.visible = false
+			return
+		if event is InputEventKey: return
 		# Get the mouse position
 		var mousePos = get_global_mouse_position()
 		# If the mouse is between 190 and 220
@@ -118,5 +127,5 @@ func fish_popup(data: FishData):
 	get_node("buttons").hide()
 	$FishCaught.get_node("OneName").text = data.name
 	$FishCaught.get_node("WeightValue").text = str(randi_range(2, 999))
-	$FishCaught.get_node("RarityValue").text = data.rarity
+	$FishCaught.get_node("RarityValue").text = FishData.Rarity.keys()[data.rarity]
 	$FishCaught.get_node("Description").text = data.catchText

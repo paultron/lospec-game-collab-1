@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dav4eyfg755nc"
-path="res://.godot/imported/mermaid2.png-163dd6ab4c226210cc3f51873628835d.ctex"
+uid="uid://b46cw7m1gxas8"
+path="res://.godot/imported/moonfish.png-be22e9b7ffa6df74144eee0f67d05d24.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://art/fish/mermaid2.png"
-dest_files=["res://.godot/imported/mermaid2.png-163dd6ab4c226210cc3f51873628835d.ctex"]
+source_file="res://art/fish/moonfish.png"
+dest_files=["res://.godot/imported/moonfish.png-be22e9b7ffa6df74144eee0f67d05d24.ctex"]
 
 [params]
 

@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="FishData" load_steps=3 format=3 uid="uid://cjxg60kapvpm1"]
+
+[ext_resource type="Script" path="res://script/data/FishData.gd" id="1_j7t01"]
+[ext_resource type="Texture2D" uid="uid://rr0r6p2nytti" path="res://art/fish/anglerfish.png" id="2_2j0wi"]
+
+[resource]
+script = ExtResource("1_j7t01")
+sprite = ExtResource("2_2j0wi")
+hookText = "Feels like a triplewart seadevil"
+catchText = "Can't take your eyes off of it..."
+name = "Anglerfish"
+size = 1
+rarity = 3

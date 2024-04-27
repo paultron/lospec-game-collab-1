@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="FishData" load_steps=3 format=3 uid="uid://bo0u103y8pwtn"]
+
+[ext_resource type="Script" path="res://script/data/FishData.gd" id="1_5sof7"]
+[ext_resource type="Texture2D" uid="uid://c8p1hv65ereca" path="res://art/fish/1-bish.png" id="2_se3bt"]
+
+[resource]
+script = ExtResource("1_5sof7")
+sprite = ExtResource("2_se3bt")
+hookText = "Feels nostalgic..."
+catchText = "A relic of prehistory. Thought these guys were extinct!"
+name = "1-Bish"
+size = 2
+rarity = 2

@@ -1,6 +1,6 @@
 [gd_scene load_steps=4 format=3 uid="uid://irpcwbq21fdh"]
 
-[ext_resource type="Script" path="res://script/FishingLine.gd" id="1_lauf4"]
+[ext_resource type="Script" uid="uid://clxtabyrul3ul" path="res://script/FishingLine.gd" id="1_lauf4"]
 [ext_resource type="Texture2D" uid="uid://dpg1rgtnaowb5" path="res://art/rod/hook.png" id="2_m4h3h"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_i4lsd"]

@@ -61,6 +61,9 @@ func open():
 	show()
 
 func close():
+	if activeMenuFish:
+		activeMenuFish.queue_free()
+	activeMenuFish = null
 	get_parent().get_node("buttons").show()
 	hide()
 

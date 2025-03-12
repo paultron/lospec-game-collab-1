@@ -1,0 +1,146 @@
+[gd_scene load_steps=22 format=3 uid="uid://cpjx01pirc8ay"]
+
+[ext_resource type="Texture2D" uid="uid://cyk75tpr27ogh" path="res://art/flavor/splish.png" id="1_406ke"]
+[ext_resource type="Script" uid="uid://8g64xsc7t47t" path="res://script/oneshot.gd" id="2_5jooq"]
+[ext_resource type="Texture2D" uid="uid://o5ycuw6n0e60" path="res://art/flavor/inversesplash.png" id="3_v20nn"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mh2ot"]
+atlas = ExtResource("1_406ke")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_u8v5e"]
+atlas = ExtResource("1_406ke")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kmo8p"]
+atlas = ExtResource("1_406ke")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vx1ue"]
+atlas = ExtResource("1_406ke")
+region = Rect2(96, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_oef5e"]
+atlas = ExtResource("1_406ke")
+region = Rect2(128, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7meb7"]
+atlas = ExtResource("1_406ke")
+region = Rect2(160, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1v3s2"]
+atlas = ExtResource("1_406ke")
+region = Rect2(192, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_5q04k"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mh2ot")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_u8v5e")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kmo8p")
+}, {
+"duration": 1.5,
+"texture": SubResource("AtlasTexture_vx1ue")
+}, {
+"duration": 2.0,
+"texture": SubResource("AtlasTexture_oef5e")
+}, {
+"duration": 2.5,
+"texture": SubResource("AtlasTexture_7meb7")
+}, {
+"duration": 3.0,
+"texture": SubResource("AtlasTexture_1v3s2")
+}],
+"loop": false,
+"name": &"default",
+"speed": 20.0
+}]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_t550j"]
+atlas = ExtResource("3_v20nn")
+region = Rect2(0, 0, 28, 20)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kmal1"]
+atlas = ExtResource("3_v20nn")
+region = Rect2(28, 0, 28, 20)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2ocyk"]
+atlas = ExtResource("3_v20nn")
+region = Rect2(56, 0, 28, 20)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8d4gb"]
+atlas = ExtResource("3_v20nn")
+region = Rect2(84, 0, 28, 20)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7jc2r"]
+atlas = ExtResource("3_v20nn")
+region = Rect2(112, 0, 28, 20)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dm03l"]
+atlas = ExtResource("3_v20nn")
+region = Rect2(140, 0, 28, 20)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0yi1q"]
+atlas = ExtResource("3_v20nn")
+region = Rect2(168, 0, 28, 20)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_urd8a"]
+atlas = ExtResource("3_v20nn")
+region = Rect2(196, 0, 28, 20)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_irqw2"]
+atlas = ExtResource("3_v20nn")
+region = Rect2(224, 0, 28, 20)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_vqblt"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_t550j")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kmal1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2ocyk")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8d4gb")
+}, {
+"duration": 1.5,
+"texture": SubResource("AtlasTexture_7jc2r")
+}, {
+"duration": 2.0,
+"texture": SubResource("AtlasTexture_dm03l")
+}, {
+"duration": 3.0,
+"texture": SubResource("AtlasTexture_0yi1q")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_urd8a")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_irqw2")
+}],
+"loop": false,
+"name": &"default",
+"speed": 20.0
+}]
+
+[node name="splish" type="AnimatedSprite2D"]
+sprite_frames = SubResource("SpriteFrames_5q04k")
+frame_progress = 0.221087
+script = ExtResource("2_5jooq")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(0, 17)
+sprite_frames = SubResource("SpriteFrames_vqblt")
+frame = 8
+frame_progress = 1.0
+
+[connection signal="animation_finished" from="." to="." method="_on_AnimatedSprite2D_animation_finished"]

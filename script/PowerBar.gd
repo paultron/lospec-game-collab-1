@@ -20,7 +20,6 @@ func on_resize():
 
 func on_power_applied(applied: float):
 	power = applied
-	print(power)
 	
 	var mask: ColorRect = $Mask
 	mask.size.y = clamp(int(actual_power * bottom), top, bottom)

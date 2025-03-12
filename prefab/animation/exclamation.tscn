@@ -1,0 +1,66 @@
+[gd_scene load_steps=10 format=3 uid="uid://blu7rhoqt4brv"]
+
+[ext_resource type="Texture2D" uid="uid://cc2i13la8t7ij" path="res://art/flavor/exclamation.png" id="1_uyore"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ssg31"]
+atlas = ExtResource("1_uyore")
+region = Rect2(0, 0, 10, 10)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fd0iy"]
+atlas = ExtResource("1_uyore")
+region = Rect2(10, 0, 10, 10)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qna4m"]
+atlas = ExtResource("1_uyore")
+region = Rect2(20, 0, 10, 10)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dc3v6"]
+atlas = ExtResource("1_uyore")
+region = Rect2(0, 10, 10, 10)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qkbey"]
+atlas = ExtResource("1_uyore")
+region = Rect2(10, 10, 10, 10)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4ehyx"]
+atlas = ExtResource("1_uyore")
+region = Rect2(20, 10, 10, 10)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bvl5m"]
+atlas = ExtResource("1_uyore")
+region = Rect2(0, 20, 10, 10)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_jghbk"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ssg31")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fd0iy")
+}, {
+"duration": 2.0,
+"texture": SubResource("AtlasTexture_qna4m")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dc3v6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qkbey")
+}, {
+"duration": 2.0,
+"texture": SubResource("AtlasTexture_4ehyx")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bvl5m")
+}],
+"loop": false,
+"name": &"default",
+"speed": 40.0
+}]
+
+[node name="Exclamation" type="AnimatedSprite2D"]
+sprite_frames = SubResource("SpriteFrames_jghbk")
+frame = 6
+frame_progress = 1.0
+centered = false

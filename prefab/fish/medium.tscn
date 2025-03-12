@@ -1,7 +1,8 @@
-[gd_scene load_steps=9 format=3 uid="uid://b23urof7kb88m"]
+[gd_scene load_steps=10 format=3 uid="uid://b23urof7kb88m"]
 
 [ext_resource type="Texture2D" uid="uid://cfbatdls6l321" path="res://art/fish/silhouette/mediumFish.png" id="1_wix7v"]
-[ext_resource type="Script" path="res://script/Fish.gd" id="2_16e0u"]
+[ext_resource type="Script" uid="uid://kqjiux4yki0c" path="res://script/Fish.gd" id="2_16e0u"]
+[ext_resource type="PackedScene" uid="uid://blu7rhoqt4brv" path="res://prefab/animation/exclamation.tscn" id="3_sbksm"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_8ujvy"]
 atlas = ExtResource("1_wix7v")
@@ -57,5 +58,15 @@ position = Vector2(-13, 4)
 
 [node name="mouthRight" type="Marker2D" parent="."]
 position = Vector2(13, 4)
+
+[node name="Exclamation" parent="." instance=ExtResource("3_sbksm")]
+visible = false
+position = Vector2(2, -11)
+
+[node name="exLeft" type="Marker2D" parent="."]
+position = Vector2(-12, -11)
+
+[node name="exRight" type="Marker2D" parent="."]
+position = Vector2(2, -11)
 
 [connection signal="area_entered" from="Awareness" to="." method="on_awareness_entered"]

@@ -134,7 +134,7 @@ var main_line_bez = BezierCurve.new(
 	Vector2(0,0), 
 	Vector2(0,0),
 	lineSteps,
-	[ColorPalette.colors[16]]
+	[ColorSet.colors[16]]
 )
 
 # the line below the water
@@ -144,10 +144,11 @@ var sub_line_bez = BezierCurve.new(
 	Vector2(0,0), 
 	Vector2(0,0),
 	lineSteps,
-	[ColorPalette.colors[15]]
+	[ColorSet.colors[15]]
 )
 	
 func _draw():
+	# draw_circle(Vector2(castingDistance, waterLevel), 5, Color("red"))
 	if castingPhase < 5 and castingPhase > 2:	
 		draw_bezier(main_line_bez)
 		draw_bezier(sub_line_bez)
@@ -159,9 +160,6 @@ func draw_bezier(bez: BezierCurve, drawOutline: bool = false):
 	if drawOutline:
 		for i in range(bez.rects.size()):
 			var rect = bez.rects[i]
-			#print(rect)
-			#var rectStepIdx = bez.rectStepIdx[i]
-			#var rectColor = bez.colors[rectStepIdx]
 			var pt2 = Vector2(
 				rect.position.x - 1,
 				rect.position.y
@@ -176,9 +174,6 @@ func draw_bezier(bez: BezierCurve, drawOutline: bool = false):
 		# draw left and right 
 		for i in range(bez.rects.size()):
 			var rect = bez.rects[i]
-			#print(rect)
-			#var rectStepIdx = bez.rectStepIdx[i]
-			#var rectColor = bez.colors[rectStepIdx]
 			var pt2 = Vector2(
 				rect.position.x,
 				rect.position.y - 1
@@ -222,6 +217,11 @@ func _process(delta):
 			castingPhase = 4
 			pt_W1 = Vector2(castingDistance, waterLevel)
 			pt_W2 = Vector2(pt_B1.x, waterLevel)
+
+			# spawn a splish
+			var splish = load("res://prefab/animation/splish.tscn").instantiate()
+			splish.global_position = pt_W1 - Vector2(0, 5)
+			add_child(splish)
 			
 			var avgX = (pt_B1.x + pt_W1.x) / 2
 			var avgPt = Vector2(avgX, waterLevel)
@@ -355,4 +355,3 @@ func reel(amount):
 func drawPoints(p, col):
 	for point in p:
 		draw_rect(Rect2(point, Vector2(1,1)), col)
-

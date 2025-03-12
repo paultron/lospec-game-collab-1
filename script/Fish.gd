@@ -12,10 +12,17 @@ enum HookState { struggle, rest, caught}
 
 func _ready():
 	play("default")
+	var isLeft = randf() > 0.5
+	if isLeft:
+		flip(false)
+		state = State.swimRight
+	else:
+		flip(true)
+		state = State.swimLeft
 
 func _process(delta: float):
 	if state == State.hooked:
-		flip_h = false
+		flip(false)
 		# Set position such that the mouth is at the hook
 		global_position = attraction.global_position
 		return
@@ -26,10 +33,10 @@ func _process(delta: float):
 		# Get direction to attraction
 		var dir = (attraction.global_position - mouth.global_position).normalized()
 		if dir.x < 0 and attraction.global_position.x < global_position.x:
-			flip_h = false
+			flip(false)
 			mouth = $mouthLeft
 		elif dir.x > 0 and attraction.global_position.x > global_position.x:
-			flip_h = true
+			flip(true)
 			mouth = $mouthRight
 		# Move such that the mouth moves towards the attraction
 		position += mouth.global_position.direction_to(attraction.global_position) * 10 * delta
@@ -40,10 +47,10 @@ func _process(delta: float):
 		lastMoved = Time.get_ticks_msec()
 		if state == State.idle and randf() > 0.5:
 			if randf() > 0.5:
-				flip_h = true
+				flip(true)
 				state = State.swimRight
 			else:
-				flip_h = false
+				flip(false)
 				state = State.swimLeft
 		elif randf() > 0.2:
 			state = State.idle
@@ -54,6 +61,15 @@ func _process(delta: float):
 	elif state == State.swimRight:
 		position.x += 10 * delta
 
+func flip(boolean: bool):
+	flip_h = boolean
+	if boolean:
+		$Exclamation.flip_h = true
+		$Exclamation.position = $exRight.position
+	else:
+		$Exclamation.flip_h = false
+		$Exclamation.position = $exLeft.position
+
 func on_awareness_entered(other: Area2D):
 	if state == State.hooked:
 		return
@@ -61,17 +77,30 @@ func on_awareness_entered(other: Area2D):
 		# swim away from the other fish
 		if other.position.x > position.x:
 			state = State.swimLeft
-			flip_h = false
+			flip(false)
 		else:
 			state = State.swimRight
-			flip_h = true
+			flip(true)
 		lastMoved = Time.get_ticks_msec()
 	elif other.get_parent().name == "LineEnd" and other.get_parent().get_parent().hooked == null:
 		print("attracted")
 		# swim towards the line end
 		state = State.attracted
 		attraction = other
-		flip_h = false
+		flip(false)
+
+		$Exclamation.show()
+		$Exclamation.play("default")
+		$Exclamation.animation_finished.connect(func(): 
+			var timer = Timer.new()
+			timer.wait_time = 0.5
+			timer.one_shot = true
+			add_child(timer)
+			timer.start()
+			await timer.timeout
+			$Exclamation.hide()
+			timer.queue_free()
+		)
 	else:
 		state = State.idle
 

@@ -1,7 +1,8 @@
-[gd_scene load_steps=9 format=3 uid="uid://bg342ws58wkce"]
+[gd_scene load_steps=10 format=3 uid="uid://bg342ws58wkce"]
 
 [ext_resource type="Texture2D" uid="uid://obwdjhpga1su" path="res://art/fish/silhouette/smallFish.png" id="1_4s867"]
-[ext_resource type="Script" path="res://script/Fish.gd" id="1_t1oyf"]
+[ext_resource type="Script" uid="uid://kqjiux4yki0c" path="res://script/Fish.gd" id="1_t1oyf"]
+[ext_resource type="PackedScene" uid="uid://blu7rhoqt4brv" path="res://prefab/animation/exclamation.tscn" id="3_em2xe"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_26jnw"]
 atlas = ExtResource("1_4s867")
@@ -48,6 +49,7 @@ flip_h = true
 script = ExtResource("1_t1oyf")
 
 [node name="Awareness" type="Area2D" parent="."]
+metadata/_edit_lock_ = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Awareness"]
 shape = SubResource("CircleShape2D_vy6hw")
@@ -57,5 +59,15 @@ position = Vector2(-7, 1)
 
 [node name="mouthRight" type="Marker2D" parent="."]
 position = Vector2(7, 1)
+
+[node name="Exclamation" parent="." instance=ExtResource("3_em2xe")]
+visible = false
+position = Vector2(2, -11)
+
+[node name="exLeft" type="Marker2D" parent="."]
+position = Vector2(-12, -11)
+
+[node name="exRight" type="Marker2D" parent="."]
+position = Vector2(2, -11)
 
 [connection signal="area_entered" from="Awareness" to="." method="on_awareness_entered"]

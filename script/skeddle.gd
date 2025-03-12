@@ -29,17 +29,19 @@ func _process(delta):
 				if randf() < 0.5 && position.x > 60:
 					state = State.swimLeft
 					sprite.flip_h = true
-					$fart.flip_h = true
+					$fart.flip_h = false
 					$fart.position.x = 14
 					sprite.play("move")
 				elif randf() < 0.5 && position.x < 180:
 					state = State.swimRight
 					sprite.flip_h = false
-					$fart.flip_h = false
+					$fart.flip_h = true
 					$fart.position.x = -7
 					sprite.play("move")
-				elif randf() < 0.1:
+				elif randf() > 0.99:
 					fart()
+				elif randf() > 0.95:
+					quack()
 			State.swimLeft:
 				state = State.idle
 				sprite.play("idle")
@@ -56,3 +58,6 @@ func _process(delta):
 
 func fart():
 	$fart.play("default")
+
+func quack():
+	$quack.play()

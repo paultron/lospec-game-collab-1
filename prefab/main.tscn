@@ -1,11 +1,11 @@
-[gd_scene load_steps=147 format=3 uid="uid://les7xuur0g8p"]
+[gd_scene load_steps=148 format=3 uid="uid://les7xuur0g8p"]
 
-[ext_resource type="Script" path="res://prefab/Main.gd" id="1_43rvi"]
-[ext_resource type="Script" path="res://script/Player.gd" id="1_ger0m"]
+[ext_resource type="Script" uid="uid://ju52ynuomeq8" path="res://script/Player.gd" id="1_ger0m"]
+[ext_resource type="Script" uid="uid://bxlom2oo5xrje" path="res://script/Main.gd" id="1_v4y1k"]
 [ext_resource type="Texture2D" uid="uid://cvgnlpyhrolex" path="res://art/intro/bobberIntro.png" id="2_ctlxb"]
 [ext_resource type="Texture2D" uid="uid://cumk4k2nndjfa" path="res://art/ui/title.png" id="2_hx2bu"]
 [ext_resource type="PackedScene" uid="uid://irpcwbq21fdh" path="res://prefab/fishingLine.tscn" id="2_mysdv"]
-[ext_resource type="Script" path="res://script/titlescreen.gd" id="3_5xkj1"]
+[ext_resource type="Script" uid="uid://dsmjk2acfvqs1" path="res://script/titlescreen.gd" id="3_5xkj1"]
 [ext_resource type="LabelSettings" uid="uid://4ux3mhrsr1i4" path="res://font/whiteLabel.tres" id="3_lhsro"]
 [ext_resource type="Texture2D" uid="uid://belclk6k3ycut" path="res://art/flavor/bird.png" id="3_xttq3"]
 [ext_resource type="Texture2D" uid="uid://d1lg5ya0f8p2a" path="res://art/bg/bg.png" id="4_moga5"]
@@ -16,38 +16,39 @@
 [ext_resource type="Texture2D" uid="uid://7kqeevyjhvnj" path="res://art/skeddle/skeddles_angry.png" id="6_vmkxi"]
 [ext_resource type="Texture2D" uid="uid://slhtxw3cw3j5" path="res://art/bg/lighthouse.png" id="7_34sf3"]
 [ext_resource type="Texture2D" uid="uid://cgmkwpae72ryn" path="res://art/bubble/bubbles3.png" id="7_lm5dq"]
-[ext_resource type="Script" path="res://script/skeddle.gd" id="7_mgtrt"]
+[ext_resource type="Script" uid="uid://bfc2jmucgr1be" path="res://script/skeddle.gd" id="7_mgtrt"]
 [ext_resource type="Texture2D" uid="uid://gx8gytjvbpem" path="res://art/bg/waterline.png" id="8_5t5l7"]
 [ext_resource type="Texture2D" uid="uid://dmr6drk8jma55" path="res://art/bg/pier.png" id="9_0f1o4"]
 [ext_resource type="Texture2D" uid="uid://bopb0uj0uqhkb" path="res://art/bg/floor1.png" id="10_4v3uk"]
 [ext_resource type="Texture2D" uid="uid://cps42o0lpcx5f" path="res://art/bg/floor2.png" id="11_n31q0"]
-[ext_resource type="Script" path="res://script/FishSpawner.gd" id="12_lg32k"]
-[ext_resource type="Script" path="res://script/data/LineData.gd" id="15_6s3wo"]
-[ext_resource type="Script" path="res://script/data/RodData.gd" id="16_4p6su"]
+[ext_resource type="Script" uid="uid://soxm7bfl0xo6" path="res://script/FishSpawner.gd" id="12_lg32k"]
+[ext_resource type="Script" uid="uid://bpwl3nqrnaqgm" path="res://script/data/LineData.gd" id="15_6s3wo"]
+[ext_resource type="Script" uid="uid://dylfgy6nhf7dh" path="res://script/data/RodData.gd" id="16_4p6su"]
 [ext_resource type="Texture2D" uid="uid://clniae2tm0oq1" path="res://art/ui/tacklebox.png" id="16_enqpu"]
 [ext_resource type="Texture2D" uid="uid://b1l6mfxtnylyb" path="res://art/otter/casting.png" id="22_sq5w4"]
 [ext_resource type="Texture2D" uid="uid://dyi30uk12r2hl" path="res://art/otter/idle.png" id="23_6t20m"]
+[ext_resource type="AudioStream" uid="uid://d1artckit8au8" path="res://audio/quack.wav" id="23_ujgsq"]
 [ext_resource type="Texture2D" uid="uid://c4scgyfvoykan" path="res://art/icon/tacklebox.png" id="27_vm4sn"]
 [ext_resource type="Texture2D" uid="uid://dfx88vhg1megw" path="res://art/icon/bucket.png" id="28_5f4xm"]
 [ext_resource type="Texture2D" uid="uid://ddxq0jpkllw1i" path="res://art/icon/shop.png" id="29_x64km"]
-[ext_resource type="Script" path="res://script/Tacklebox.gd" id="30_a4onl"]
+[ext_resource type="Script" uid="uid://crpbe8pp64v3b" path="res://script/Tacklebox.gd" id="30_a4onl"]
 [ext_resource type="Texture2D" uid="uid://dw57xfa0l3x4n" path="res://art/icon/back.png" id="31_6njhk"]
 [ext_resource type="Texture2D" uid="uid://box7vxwwds30x" path="res://art/icon/backClicked.png" id="32_7y100"]
 [ext_resource type="Texture2D" uid="uid://bpj62j6vckq2p" path="res://art/bg/shop.png" id="33_rqh4v"]
-[ext_resource type="Script" path="res://script/Shop.gd" id="34_ceurk"]
+[ext_resource type="Script" uid="uid://cduugemj0ggpr" path="res://script/Shop.gd" id="34_ceurk"]
 [ext_resource type="Texture2D" uid="uid://dngci54u625vp" path="res://art/shop/shopkeeper01.png" id="35_cx4b4"]
 [ext_resource type="Texture2D" uid="uid://cjvocmrnb6srv" path="res://art/icon/coin.png" id="36_w3ojc"]
 [ext_resource type="FontFile" uid="uid://b24ts2555dqqf" path="res://font/pixhobo.ttf" id="37_3am8l"]
 [ext_resource type="Texture2D" uid="uid://4bui7aej3dny" path="res://art/icon/worm.png" id="38_xxsof"]
 [ext_resource type="Texture2D" uid="uid://bri3p5h84nst7" path="res://art/ui/bar/tension-empty.png" id="39_0gpu0"]
-[ext_resource type="Script" path="res://script/PowerBar.gd" id="40_c1ow5"]
+[ext_resource type="Script" uid="uid://ds0vkyu1737qs" path="res://script/PowerBar.gd" id="40_c1ow5"]
 [ext_resource type="Texture2D" uid="uid://c66vlyopy44kr" path="res://art/ui/bar/tension-yellow.png" id="41_v1msm"]
 [ext_resource type="Texture2D" uid="uid://gvqx0oqg5ibe" path="res://art/ui/bucket/bucket.png" id="42_plguu"]
 [ext_resource type="Texture2D" uid="uid://va7u101cvy6m" path="res://art/ui/bar/tension-level.png" id="42_w30l6"]
-[ext_resource type="Script" path="res://script/Bucket.gd" id="43_umrp6"]
+[ext_resource type="Script" uid="uid://dduyjimdvh4br" path="res://script/Bucket.gd" id="43_umrp6"]
 [ext_resource type="Texture2D" uid="uid://dculf6od26jhk" path="res://art/ui/caughtfishbg.png" id="44_gjrl8"]
 [ext_resource type="LabelSettings" uid="uid://bmphhggfo5sf5" path="res://font/pixhobo.tres" id="45_fcifn"]
-[ext_resource type="Script" path="res://script/BucketCell.gd" id="45_ghbw5"]
+[ext_resource type="Script" uid="uid://ud8sn4y27n2b" path="res://script/BucketCell.gd" id="45_ghbw5"]
 [ext_resource type="FontFile" uid="uid://c8cwbrwvceqbx" path="res://font/04B.TTF" id="46_hkiul"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_hx5ne"]
@@ -239,8 +240,8 @@ tracks/0/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_l5xph"]
 _data = {
-"RESET": SubResource("Animation_ngkxj"),
-"move": SubResource("Animation_dng2k")
+&"RESET": SubResource("Animation_ngkxj"),
+&"move": SubResource("Animation_dng2k")
 }
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_jyjxr"]
@@ -713,9 +714,9 @@ tracks/0/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_3mby8"]
 _data = {
-"RESET": SubResource("Animation_bmu2q"),
-"pan": SubResource("Animation_16mmd"),
-"panUp": SubResource("Animation_cnh6f")
+&"RESET": SubResource("Animation_bmu2q"),
+&"pan": SubResource("Animation_16mmd"),
+&"panUp": SubResource("Animation_cnh6f")
 }
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_bsxsd"]
@@ -786,7 +787,7 @@ font_color = Color(0.815686, 0.254902, 0.32549, 1)
 outline_color = Color(0.286275, 0.333333, 0.533333, 1)
 
 [node name="main" type="Node2D"]
-script = ExtResource("1_43rvi")
+script = ExtResource("1_v4y1k")
 metadata/_edit_vertical_guides_ = [23.0, 236.0]
 metadata/_edit_horizontal_guides_ = [22.0]
 
@@ -877,7 +878,7 @@ centered = false
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="bg/BirdSquad"]
 libraries = {
-"": SubResource("AnimationLibrary_l5xph")
+&"": SubResource("AnimationLibrary_l5xph")
 }
 
 [node name="buttons" type="Control" parent="."]
@@ -939,6 +940,10 @@ frame = 7
 frame_progress = 1.0
 centered = false
 
+[node name="quack" type="AudioStreamPlayer2D" parent="skeddle"]
+stream = ExtResource("23_ujgsq")
+volume_db = -30.0
+
 [node name="player" type="CharacterBody2D" parent="."]
 z_index = 2
 position = Vector2(5, 161)
@@ -969,7 +974,7 @@ metadata/_edit_lock_ = true
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Camera2D"]
 libraries = {
-"": SubResource("AnimationLibrary_3mby8")
+&"": SubResource("AnimationLibrary_3mby8")
 }
 
 [node name="FishSpawner" type="Node2D" parent="."]
@@ -1545,8 +1550,8 @@ autowrap_mode = 3
 [connection signal="animation_finished" from="player/Sprite2D" to="player" method="on_animation_finished"]
 [connection signal="reeling" from="player/Line" to="." method="on_reeling"]
 [connection signal="animation_finished" from="Camera2D/AnimationPlayer" to="." method="on_pan_finish"]
-[connection signal="animation_finished" from="Tacklebox" to="Tacklebox" method="on_opened"]
 [connection signal="animation_finished" from="Tacklebox" to="Tacklebox" method="on_closed"]
+[connection signal="animation_finished" from="Tacklebox" to="Tacklebox" method="on_opened"]
 [connection signal="pressed" from="Tacklebox/back" to="Tacklebox" method="close"]
 [connection signal="pressed" from="Shop/back" to="Shop" method="close"]
 [connection signal="item_rect_changed" from="Power/Mask" to="Power" method="on_resize"]

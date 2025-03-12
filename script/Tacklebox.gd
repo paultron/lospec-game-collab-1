@@ -12,7 +12,6 @@ func open():
 
 func on_opened():
 	if (frame == 0): return
-	print("opened");
 
 func close():
 	play_backwards("open")

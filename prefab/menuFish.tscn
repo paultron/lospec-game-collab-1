@@ -2,7 +2,7 @@
 
 [ext_resource type="Texture2D" uid="uid://cw4vawvcpfsnu" path="res://art/fish/shrimpo.png" id="1_yc1dg"]
 [ext_resource type="Texture2D" uid="uid://cro34imdjqf13" path="res://art/ui/bucket/bucket-fish-bg-small.png" id="2_b3em5"]
-[ext_resource type="Script" path="res://script/MenuFish.gd" id="2_mxqlp"]
+[ext_resource type="Script" uid="uid://dw1i4kf3otoon" path="res://script/MenuFish.gd" id="2_mxqlp"]
 [ext_resource type="Texture2D" uid="uid://di4gtb60trl8g" path="res://art/ui/bucket/bucket-selector-ninepatchrect.png" id="4_n6ume"]
 
 [node name="menuFish" type="MarginContainer"]

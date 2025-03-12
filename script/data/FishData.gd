@@ -21,3 +21,4 @@ enum Rarity {
 @export var name: String
 @export var size: Size
 @export var rarity: Rarity = Rarity.LAME
+@export var tags: Array[String] = []

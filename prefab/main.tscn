@@ -1036,7 +1036,7 @@ label_settings = SubResource("LabelSettings_ktolv")
 horizontal_alignment = 2
 
 [node name="Bait" type="Sprite2D" parent="."]
-position = Vector2(232, 232)
+position = Vector2(228, 232)
 texture = ExtResource("38_xxsof")
 centered = false
 

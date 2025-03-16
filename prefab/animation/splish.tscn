@@ -134,12 +134,14 @@ animations = [{
 
 [node name="splish" type="AnimatedSprite2D"]
 sprite_frames = SubResource("SpriteFrames_5q04k")
+autoplay = "default"
 frame_progress = 0.221087
 script = ExtResource("2_5jooq")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(0, 17)
 sprite_frames = SubResource("SpriteFrames_vqblt")
+autoplay = "default"
 frame = 8
 frame_progress = 1.0
 

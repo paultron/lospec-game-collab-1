@@ -189,129 +189,129 @@ func draw_bezier(bez: BezierCurve, drawOutline: bool = false):
 
 func _process(delta):
 	var i = 0
+	
+	match castingPhase:
+		0: # idle
+			lineEnd.position.x = path_Bn.points[0].x + hookOffsetX
+			lineEnd.position.y = path_Bn.points[0].y + hookOffsetY
+			# return
+		2: # casting
+			lineEnd.show();
+			castingPhase = 3
+			var pt_L2 = Vector2(castingDistance, waterLevel)
+			pt_Lcp1 = Vector2(castingDistance, pt_Lcp1.y)
+			pt_Lcp2 = Vector2(castingDistance, pt_Lcp2.y)
+			path_Ln = BezierCurve.new(pt_L1, pt_Lcp1, pt_Lcp2, pt_L2, hookSteps)
+			print("Casting Phase 3")
+		3: # waiting for the line to hit the water
+			phase3Ratio = phase3Ratio + (delta * phase3DeltaMultiplier)
+			if(phase3Ratio > 1):
+				# the line has hit the water... entering phase 4
+				phase3Ratio = 0.99
+				castingPhase = 4
+				pt_W1 = Vector2(castingDistance, waterLevel)
+				pt_W2 = Vector2(pt_B1.x, waterLevel)
 
-	if castingPhase == 0: # idle
-		lineEnd.position.x = path_Bn.points[0].x + hookOffsetX
-		lineEnd.position.y = path_Bn.points[0].y + hookOffsetY
-		# return
+				# spawn a splish
+				var splish = load("res://prefab/animation/splish.tscn").instantiate()
+				splish.global_position = pt_W1 - Vector2(0, 5)
+				add_child(splish)
+				
+				var avgX = (pt_B1.x + pt_W1.x) / 2
+				var avgPt = Vector2(avgX, waterLevel)
+				path_Sn = BezierCurve.new(pt_W1, pt_Scp1, pt_Scp2, pt_S1, hookSteps)
+				path_Wn = BezierCurve.new(pt_W1, avgPt, avgPt, pt_W2, hookSteps)
+				print("Casting Phase 4")
 
-	if castingPhase == 2: # casting
-		lineEnd.show();
-		castingPhase = 3
-		var pt_L2 = Vector2(castingDistance, waterLevel)
-		pt_Lcp1 = Vector2(castingDistance, pt_Lcp1.y)
-		pt_Lcp2 = Vector2(castingDistance, pt_Lcp2.y)
-		path_Ln = BezierCurve.new(pt_L1, pt_Lcp1, pt_Lcp2, pt_L2, hookSteps)
-		print("Casting Phase 3")
-
-
-	if castingPhase == 3: # waiting for the line to hit the water
-		phase3Ratio = phase3Ratio + (delta * phase3DeltaMultiplier)
-		if(phase3Ratio > 1):
-			# the line has hit the water... entering phase 4
-			phase3Ratio = 0.99
-			castingPhase = 4
-			pt_W1 = Vector2(castingDistance, waterLevel)
-			pt_W2 = Vector2(pt_B1.x, waterLevel)
-
-			# spawn a splish
-			var splish = load("res://prefab/animation/splish.tscn").instantiate()
-			splish.global_position = pt_W1 - Vector2(0, 5)
-			add_child(splish)
+			var sz = path_Ln.points.size()-1
+			i = int(phase3Ratio * sz)
 			
+			lineEnd.position.x = path_Ln.points[i].x + hookOffsetX
+			lineEnd.position.y = path_Ln.points[i].y + hookOffsetY
+			pt_Lcp1 = Vector2(
+				lerp(pt_B1.x, path_Ln.points[sz-i].x, phase3Ratio),
+				lerp(pt_B1.y, path_Ln.points[sz-i].y, phase3Ratio)
+			)
+			var sprite: AnimatedSprite2D = get_parent().get_node("Sprite2D")
+			var start_modifier = Vector2(0, 0) if sprite.animation != "recovery" else Vector2(6, 16) if sprite.frame == 0 else Vector2(4, 15) if sprite.frame == 1 else Vector2(4, 8) if sprite.frame == 2 else Vector2(0, 0)
+			main_line_bez.recalc(
+				path_Ln.points[0] + start_modifier,
+				pt_Lcp1,
+				pt_Lcp1,
+				path_Ln.points[i]
+			)
+		4: # waiting for the fish to bite
+			phase4Ratio = phase4Ratio + (delta * phase4DeltaMultiplier)
+			if phase4Ratio > 1:
+				phase4Ratio = 0.99
+			hookUnderwater = true
+			
+			if (lineEnd.position.distance_to(Vector2(0,0)) < data.length):
+				lineEnd.position.y += delta * 10.0
+			if (lineEnd.position.y > bottomLevel):
+				lineEnd.position.y = bottomLevel
+
+			var sz = path_Sn.points.size()-1
+			i = int(phase4Ratio * sz)
+			
+			var pt_hook = Vector2(
+				lineEnd.position.x - 6,
+				lineEnd.position.y - 5
+			)
+			#point where the line crosses water
+			var pt_W:Vector2 = Vector2(lerp(pt_B1.x, pt_hook.x, 0.75), waterLevel)
+			#path_Wn.points[i % path_Wn.points.size()]
+
 			var avgX = (pt_B1.x + pt_W1.x) / 2
-			var avgPt = Vector2(avgX, waterLevel)
-			path_Sn = BezierCurve.new(pt_W1, pt_Scp1, pt_Scp2, pt_S1, hookSteps)
-			path_Wn = BezierCurve.new(pt_W1, avgPt, avgPt, pt_W2, hookSteps)
-			print("Casting Phase 4")
+			var avgY = (pt_B1.y + pt_W1.y) / 2
+			var avgPt = Vector2(avgX, avgY)
 
-		var sz = path_Ln.points.size()-1
-		i = int(phase3Ratio * sz)
-		
-		lineEnd.position.x = path_Ln.points[i].x + hookOffsetX
-		lineEnd.position.y = path_Ln.points[i].y + hookOffsetY
-		pt_Lcp1 = Vector2(
-			lerp(pt_B1.x, path_Ln.points[sz-i].x, phase3Ratio),
-			lerp(pt_B1.y, path_Ln.points[sz-i].y, phase3Ratio)
-		)
-		var sprite: AnimatedSprite2D = get_parent().get_node("Sprite2D")
-		var start_modifier = Vector2(0, 0) if sprite.animation != "recovery" else Vector2(6, 16) if sprite.frame == 0 else Vector2(4, 15) if sprite.frame == 1 else Vector2(4, 8) if sprite.frame == 2 else Vector2(0, 0)
-		main_line_bez.recalc(
-			path_Ln.points[0] + start_modifier,
-			pt_Lcp1,
-			pt_Lcp1,
-			path_Ln.points[i]
-		)
+			
+			var subAvgX = (pt_W.x + lineEnd.position.x) / 2
+			var subAvgY = (pt_W.y + lineEnd.position.y) / 2
+			var subAvgPt = Vector2(subAvgX, subAvgY)
 
-	if castingPhase == 4: # waiting for the fish to bite
-		phase4Ratio = phase4Ratio + (delta * phase4DeltaMultiplier)
-		if phase4Ratio > 1:
-			phase4Ratio = 0.99
-		hookUnderwater = true
-		
-		if (lineEnd.position.distance_to(Vector2(0,0)) < data.length):
-			lineEnd.position.y += delta * 10.0
-		if (lineEnd.position.y > bottomLevel):
-			lineEnd.position.y = bottomLevel
+			pt_Scp1 = Vector2(
+				pt_W.x,
+				bottomLevel
+			)
+			pt_Scp2 = pt_Scp1 # TODO: tween this over time
 
-		var sz = path_Sn.points.size()-1
-		i = int(phase4Ratio * sz)
-
-		var pt_W = path_Wn.points[i % path_Wn.points.size()]
-
-		var avgX = (pt_B1.x + pt_W1.x) / 2
-		var avgY = (pt_B1.y + pt_W1.y) / 2
-		var avgPt = Vector2(avgX, avgY)
-
-		
-		var subAvgX = (pt_W.x + lineEnd.position.x) / 2
-		var subAvgY = (pt_W.y + lineEnd.position.y) / 2
-		var subAvgPt = Vector2(subAvgX, subAvgY)
-
-		pt_Scp1 = Vector2(
-			pt_W.x,
-			bottomLevel
-		)
-		pt_Scp2 = pt_Scp1 # TODO: tween this over time
-
-		var pt_hook = Vector2(
-			lineEnd.position.x - 6,
-			lineEnd.position.y - 5
-		)
-		path_Ln.recalc(
-			pt_B1,
-			avgPt, # TODO: tween this over time
-			avgPt, # TODO: tween this over time
-			pt_W
-		)
-		path_Sn.recalc(
-			pt_W,
-			pt_Scp1, # TODO: tween this over time
-			pt_Scp2, # TODO: tween this over time
-			pt_hook
-		)
-		pt_Lcp2 = Vector2(
-			pt_B1.x,
-			waterLevel
-		)
-		main_line_bez.recalc(
-			pt_B1,
-			pt_Lcp2, # TODO: tween this over time
-			pt_Lcp2, # TODO: tween this over time
-			pt_W
-		)
-		sub_line_bez.recalc(
-			pt_W,
-			subAvgPt, # TODO: tween this over time
-			subAvgPt, # TODO: tween this over time
-			pt_hook
-		)
-	if castingPhase == 5: # reeling in the line
-		phase5Ratio = phase5Ratio + (delta * phase5DeltaMultiplier)
-		if phase5Ratio < 10:
-			lineEnd.position = lineEnd.position.lerp(Vector2(path_Bn.points[0].x + hookOffsetX, path_Bn.points[0].y + hookOffsetY), phase5Ratio)
-		else:
-			resetPhases()
+			
+			path_Ln.recalc(
+				pt_B1,
+				avgPt, # TODO: tween this over time
+				avgPt, # TODO: tween this over time
+				pt_W
+			)
+			path_Sn.recalc(
+				pt_W,
+				pt_Scp1, # TODO: tween this over time
+				pt_Scp2, # TODO: tween this over time
+				pt_hook
+			)
+			pt_Lcp2 = Vector2(
+				pt_B1.x,
+				waterLevel
+			)
+			main_line_bez.recalc(
+				pt_B1,
+				pt_Lcp2, # TODO: tween this over time
+				pt_Lcp2, # TODO: tween this over time
+				pt_W
+			)
+			sub_line_bez.recalc(
+				pt_W,
+				subAvgPt, # TODO: tween this over time
+				subAvgPt, # TODO: tween this over time
+				pt_hook
+			)
+		5: # reeling in the line
+			phase5Ratio = phase5Ratio + (delta * phase5DeltaMultiplier)
+			if phase5Ratio < 10:
+				lineEnd.position = lineEnd.position.lerp(Vector2(path_Bn.points[0].x + hookOffsetX, path_Bn.points[0].y + hookOffsetY), phase5Ratio)
+			else:
+				resetPhases()
 		
 	queue_redraw()
 

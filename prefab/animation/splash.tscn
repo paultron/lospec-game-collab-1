@@ -94,6 +94,7 @@ size = Vector2(48, 20)
 [node name="splash" type="AnimatedSprite2D"]
 z_index = -1
 sprite_frames = SubResource("SpriteFrames_reubw")
+autoplay = "default"
 frame = 10
 frame_progress = 1.0
 centered = false

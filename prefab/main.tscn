@@ -925,6 +925,7 @@ script = ExtResource("7_mgtrt")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="skeddle"]
 sprite_frames = SubResource("SpriteFrames_sedr3")
 animation = &"idle"
+autoplay = "idle"
 centered = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="skeddle"]
@@ -956,6 +957,7 @@ sprite_frames = SubResource("SpriteFrames_ofr86")
 animation = &"recovery"
 frame = 2
 frame_progress = 1.0
+animation = &"idle"
 centered = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="player"]
@@ -1550,8 +1552,8 @@ autowrap_mode = 3
 [connection signal="animation_finished" from="player/Sprite2D" to="player" method="on_animation_finished"]
 [connection signal="reeling" from="player/Line" to="." method="on_reeling"]
 [connection signal="animation_finished" from="Camera2D/AnimationPlayer" to="." method="on_pan_finish"]
-[connection signal="animation_finished" from="Tacklebox" to="Tacklebox" method="on_closed"]
 [connection signal="animation_finished" from="Tacklebox" to="Tacklebox" method="on_opened"]
+[connection signal="animation_finished" from="Tacklebox" to="Tacklebox" method="on_closed"]
 [connection signal="pressed" from="Tacklebox/back" to="Tacklebox" method="close"]
 [connection signal="pressed" from="Shop/back" to="Shop" method="close"]
 [connection signal="item_rect_changed" from="Power/Mask" to="Power" method="on_resize"]

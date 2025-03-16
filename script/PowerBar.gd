@@ -23,4 +23,3 @@ func on_power_applied(applied: float):
 	
 	var mask: ColorRect = $Mask
 	mask.size.y = clamp(int(actual_power * bottom), top, bottom)
-

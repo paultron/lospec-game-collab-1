@@ -20,5 +20,3 @@ func on_closed():
 	if (frame != 0): return
 	get_parent().get_node("buttons").show()
 	hide()
-
-

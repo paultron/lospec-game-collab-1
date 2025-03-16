@@ -1,4 +1,4 @@
-extends Node2D
+extends Node
 
 func quadratic_bezier(p0: Vector2, p1: Vector2, p2: Vector2, segments:int):
 	var points: Array[Vector2] = []
@@ -122,4 +122,3 @@ func plotLine(x0, y0, x1, y1):
 	#end if
 	#drawPoints(pts,col)
 	return pts
-

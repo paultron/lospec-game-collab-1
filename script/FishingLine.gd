@@ -35,8 +35,7 @@ var easing = Ease.new()
 var hookUnderwater = false
 
 # const start and end points
-const pt_A1: Vector2 = Vector2(0,0)
-const pt_B1: Vector2 = Vector2(27,-13)
+const pt_B1: Vector2 = Vector2(27,-14)
 
 const pt_A2: Vector2 = Vector2(-9,-8)
 const pt_B2: Vector2 = Vector2(-31,-14)
@@ -52,10 +51,6 @@ var pt_W2: Vector2 = Vector2(0,0)
 var pt_S1: Vector2 = Vector2(0,0)
 var pt_S2: Vector2 = Vector2(0,0)
 
-
-# static control points
-var pt_Acp1: Vector2 = Vector2(pt_A1.x,pt_A2.y)
-var pt_Acp2: Vector2 = Vector2(pt_A1.x,pt_A2.y)
 
 const pt_Bcp1: Vector2 = Vector2(2,-57)
 const pt_Bcp2: Vector2 = Vector2(-41,-21)
@@ -148,10 +143,11 @@ var sub_line_bez = BezierCurve.new(
 )
 	
 func _draw():
-	# draw_circle(Vector2(castingDistance, waterLevel), 5, Color("red"))
+	# draw_circle(pt_B1, 5, Color("red"))
 	if castingPhase < 5 and castingPhase > 2:	
 		draw_bezier(main_line_bez)
-		draw_bezier(sub_line_bez)
+		if castingPhase == 4:
+			draw_bezier(sub_line_bez)
 	if castingPhase == 5:
 		var pts = Util.plotLine(path_Bn.points[0].x, path_Bn.points[0].y, lineEnd.position.x - hookOffsetX, lineEnd.position.y)
 		drawPoints(pts,Color("white"))
@@ -238,8 +234,10 @@ func _process(delta):
 			lerp(pt_B1.x, path_Ln.points[sz-i].x, phase3Ratio),
 			lerp(pt_B1.y, path_Ln.points[sz-i].y, phase3Ratio)
 		)
+		var sprite: AnimatedSprite2D = get_parent().get_node("Sprite2D")
+		var start_modifier = Vector2(0, 0) if sprite.animation != "recovery" else Vector2(6, 16) if sprite.frame == 0 else Vector2(4, 15) if sprite.frame == 1 else Vector2(4, 8) if sprite.frame == 2 else Vector2(0, 0)
 		main_line_bez.recalc(
-			path_Ln.points[0],
+			path_Ln.points[0] + start_modifier,
 			pt_Lcp1,
 			pt_Lcp1,
 			path_Ln.points[i]

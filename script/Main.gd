@@ -11,8 +11,13 @@ var catching := false
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	$titleScreen.show()
-	$loadingScreen.show()
+	# Only show title screen and loading screen when not in dev
+	if OS.get_name() == "HTML5":
+		$titleScreen.show()
+		$loadingScreen.show()
+	else:
+		$titleScreen.queue_free()
+		$loadingScreen.queue_free()
 	Input.set_custom_mouse_cursor(load("res://art/cursor/pointy.png"), Input.CURSOR_POINTING_HAND)
 
 func start_loading_screen():
@@ -44,7 +49,7 @@ func _unhandled_input(event):
 			# If the mouse is between 190 and 220
 			if mousePos.x < 256 and mousePos.x > 60:
 				# spawn splash sprite
-				var splashSprite = load("res://prefab/splash.tscn").instantiate()
+				var splashSprite = load("res://prefab/animation/splash.tscn").instantiate()
 				get_parent().add_child(splashSprite)
 				# move to mouse position
 				splashSprite.position = mousePos

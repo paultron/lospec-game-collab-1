@@ -855,27 +855,29 @@ libraries = {
 &"": SubResource("AnimationLibrary_l5xph")
 }
 
-[node name="buttons" type="MarginContainer" parent="."]
+[node name="TopButtons" type="MarginContainer" parent="."]
+unique_name_in_owner = true
 offset_right = 128.0
 offset_bottom = 40.0
 theme_override_constants/margin_left = 8
 theme_override_constants/margin_top = 7
 
-[node name="HBoxContainer" type="HBoxContainer" parent="buttons"]
+[node name="HBoxContainer" type="HBoxContainer" parent="TopButtons"]
 layout_mode = 2
 theme_override_constants/separation = 8
 
-[node name="Inventory" type="TextureButton" parent="buttons/HBoxContainer"]
+[node name="Inventory" type="TextureButton" parent="TopButtons/HBoxContainer"]
 layout_mode = 2
 mouse_default_cursor_shape = 2
 texture_normal = ExtResource("27_vm4sn")
 
-[node name="Fish" type="TextureButton" parent="buttons/HBoxContainer"]
+[node name="Fish" type="TextureButton" parent="TopButtons/HBoxContainer"]
+unique_name_in_owner = true
 layout_mode = 2
 mouse_default_cursor_shape = 2
 texture_normal = ExtResource("28_5f4xm")
 
-[node name="Shop" type="TextureButton" parent="buttons/HBoxContainer"]
+[node name="Shop" type="TextureButton" parent="TopButtons/HBoxContainer"]
 layout_mode = 2
 mouse_default_cursor_shape = 2
 texture_normal = ExtResource("29_x64km")
@@ -948,7 +950,6 @@ sprite_frames = SubResource("SpriteFrames_jfm7e")
 animation = &"open"
 centered = false
 script = ExtResource("30_a4onl")
-metadata/_edit_lock_ = true
 
 [node name="back" type="TextureButton" parent="Tacklebox"]
 offset_left = 14.0
@@ -1503,9 +1504,9 @@ texture = ExtResource("2_hx2bu")
 centered = false
 script = ExtResource("3_5xkj1")
 
-[connection signal="pressed" from="buttons/HBoxContainer/Inventory" to="Tacklebox" method="open"]
-[connection signal="pressed" from="buttons/HBoxContainer/Fish" to="BucketScreen" method="open"]
-[connection signal="pressed" from="buttons/HBoxContainer/Shop" to="Shop" method="open"]
+[connection signal="pressed" from="TopButtons/HBoxContainer/Inventory" to="Tacklebox" method="open"]
+[connection signal="pressed" from="TopButtons/HBoxContainer/Fish" to="BucketScreen" method="open"]
+[connection signal="pressed" from="TopButtons/HBoxContainer/Shop" to="Shop" method="open"]
 [connection signal="casted" from="Player" to="." method="on_cast"]
 [connection signal="powerApplied" from="Player" to="PowerBar" method="on_power_applied"]
 [connection signal="animation_finished" from="Player/Sprite2D" to="Player" method="on_animation_finished"]

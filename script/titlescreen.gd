@@ -10,6 +10,6 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _unhandled_input(_event):
-	if Input.is_action_just_pressed("accept"):
+	if visible and Input.is_action_just_pressed("accept"):
 		click.emit()
 		queue_free()

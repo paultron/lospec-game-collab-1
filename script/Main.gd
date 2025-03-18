@@ -46,7 +46,7 @@ func _unhandled_input(event:InputEvent):
 		if fish_caught_screen.visible:
 			var fish = fish_caught_screen.get_node("menuFish")
 			fish_caught_screen.remove_child(fish)
-			$buttons.get_node("Fish").pressed.emit()
+			%Fish.pressed.emit()
 			bucket_screen.activeMenuFish = fish
 			bucket_screen.add_child(fish)
 			bucket_screen.activeMenuFish.z_index = 20
@@ -144,7 +144,7 @@ func on_reeling(data: FishData):
 
 func fish_popup(data: FishData):
 	fish_caught_screen.visible = true
-	get_node("buttons").hide()
+	%TopButtons.hide()
 	fish_caught_screen.get_node("OneName").text = data.name
 	fish_caught_screen.get_node("WeightValue").text = str(randi_range(2, 999))
 	fish_caught_screen.get_node("RarityValue").text = FishData.Rarity.keys()[data.rarity]

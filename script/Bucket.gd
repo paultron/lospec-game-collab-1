@@ -57,14 +57,14 @@ func onCellClicked():
 	print("click!")	
 
 func open():
-	get_parent().get_node("buttons").hide()
+	%TopButtons.hide()
 	show()
 
 func close():
 	if activeMenuFish:
 		activeMenuFish.queue_free()
 	activeMenuFish = null
-	get_parent().get_node("buttons").show()
+	%TopButtons.show()
 	hide()
 
 func _on_back_mouse_entered():

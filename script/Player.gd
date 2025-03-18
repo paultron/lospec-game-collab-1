@@ -1,10 +1,13 @@
-extends CharacterBody2D
+extends Node2D
+
+signal casted
+signal powerApplied(power: float)
 
 var reeling = false
 var lettingOut = false
+
 @onready var line: FishingLine = $Line
-signal casted
-signal powerApplied(power: float)
+@onready var power_bar: PowerBar = %PowerBar
 
 var space_pressed = false # Added variable to track space key state
 
@@ -47,7 +50,7 @@ func _physics_process(delta):
 		if space_pressed:
 			line.castingTime += delta
 			powerApplied.emit(line.castingTime)
-			line.castingDistance = clamp(get_parent().get_node("Power").actual_power * line.maxCastingDistance, 0.0, line.maxCastingDistance)
+			line.castingDistance = clamp(power_bar.actual_power * line.maxCastingDistance, 0.0, line.maxCastingDistance)
 
 func on_animation_finished():
 	if $Sprite2D.animation == "cast":

@@ -60,15 +60,11 @@ func _process(delta: float):
 		position.x -= 10 * delta
 	elif state == State.swimRight:
 		position.x += 10 * delta
-
-func flip(boolean: bool):
-	flip_h = boolean
-	if boolean:
-		$Exclamation.flip_h = true
-		$Exclamation.position = $exRight.position
-	else:
-		$Exclamation.flip_h = false
-		$Exclamation.position = $exLeft.position
+	
+func flip(is_flipped: bool):
+	flip_h = is_flipped
+	$Exclamation.flip_h = is_flipped
+	$Exclamation.position = $exRight.position if is_flipped else $exLeft.position
 
 func on_awareness_entered(other: Area2D):
 	if state == State.hooked:
@@ -92,14 +88,8 @@ func on_awareness_entered(other: Area2D):
 		$Exclamation.show()
 		$Exclamation.play("default")
 		$Exclamation.animation_finished.connect(func(): 
-			var timer = Timer.new()
-			timer.wait_time = 0.5
-			timer.one_shot = true
-			add_child(timer)
-			timer.start()
-			await timer.timeout
+			await get_tree().create_timer(0.5).timeout
 			$Exclamation.hide()
-			timer.queue_free()
 		)
 	else:
 		state = State.idle

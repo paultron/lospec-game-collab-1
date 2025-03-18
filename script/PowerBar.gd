@@ -9,11 +9,11 @@ var actual_power: float:
 const top := 4
 const bottom := 92
 
+@onready var cap: TextureRect = $Mask/Cap
+
 func on_resize():
-	var cap = $Mask.get_node("Cap")
-	if cap.position.y < 9:
-		cap.hide()
-	elif cap.position.y > 82:
+	# var cap = $Mask.get_node("Cap")
+	if cap.position.y < 9 or cap.position.y > 82:
 		cap.hide()
 	else:
 		cap.show()

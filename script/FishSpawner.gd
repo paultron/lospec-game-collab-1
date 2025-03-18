@@ -23,7 +23,7 @@ func _ready():
 		spawnFish(i, i)
 
 func spawnFish(depth_hint: int, x_hint: int = 0):
-	# 50 % chance of small, 30 % chance of medium, 20 % chance of large
+	# 60 % chance of small, 30 % chance of medium, 10 % chance of large
 	var fish: Fish
 
 	var rand = randf()
@@ -49,5 +49,3 @@ func spawnFish(depth_hint: int, x_hint: int = 0):
 	# Clamp position to at least 48 pixels from the top
 	fish.position.y = max(fish.position.y, 48)
 	add_child(fish)
-
-

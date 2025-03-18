@@ -1,4 +1,4 @@
-[gd_scene load_steps=148 format=3 uid="uid://les7xuur0g8p"]
+[gd_scene load_steps=146 format=3 uid="uid://les7xuur0g8p"]
 
 [ext_resource type="Script" uid="uid://ju52ynuomeq8" path="res://script/Player.gd" id="1_ger0m"]
 [ext_resource type="Script" uid="uid://bxlom2oo5xrje" path="res://script/Main.gd" id="1_v4y1k"]
@@ -8,7 +8,6 @@
 [ext_resource type="Script" uid="uid://dsmjk2acfvqs1" path="res://script/titlescreen.gd" id="3_5xkj1"]
 [ext_resource type="LabelSettings" uid="uid://4ux3mhrsr1i4" path="res://font/whiteLabel.tres" id="3_lhsro"]
 [ext_resource type="Texture2D" uid="uid://belclk6k3ycut" path="res://art/flavor/bird.png" id="3_xttq3"]
-[ext_resource type="Texture2D" uid="uid://d1lg5ya0f8p2a" path="res://art/bg/bg.png" id="4_moga5"]
 [ext_resource type="Texture2D" uid="uid://308uau5upppc" path="res://art/skeddle/skidle.png" id="4_pab6w"]
 [ext_resource type="Texture2D" uid="uid://dr7rkewq7g73m" path="res://art/bg/sky.png" id="5_ajwgm"]
 [ext_resource type="Texture2D" uid="uid://dporu3stct4m0" path="res://art/skeddle/skeddlebird.png" id="5_uurcx"]
@@ -50,119 +49,6 @@
 [ext_resource type="LabelSettings" uid="uid://bmphhggfo5sf5" path="res://font/pixhobo.tres" id="45_fcifn"]
 [ext_resource type="Script" uid="uid://ud8sn4y27n2b" path="res://script/BucketCell.gd" id="45_ghbw5"]
 [ext_resource type="FontFile" uid="uid://c8cwbrwvceqbx" path="res://font/04B.TTF" id="46_hkiul"]
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_hx5ne"]
-atlas = ExtResource("2_ctlxb")
-region = Rect2(0, 0, 256, 256)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_mlskd"]
-atlas = ExtResource("2_ctlxb")
-region = Rect2(256, 0, 256, 256)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_qwkih"]
-atlas = ExtResource("2_ctlxb")
-region = Rect2(512, 0, 256, 256)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_kidma"]
-atlas = ExtResource("2_ctlxb")
-region = Rect2(768, 0, 256, 256)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_soj78"]
-atlas = ExtResource("2_ctlxb")
-region = Rect2(1024, 0, 256, 256)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_h4jdu"]
-atlas = ExtResource("2_ctlxb")
-region = Rect2(1280, 0, 256, 256)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_lbbmj"]
-atlas = ExtResource("2_ctlxb")
-region = Rect2(1536, 0, 256, 256)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_87tbb"]
-atlas = ExtResource("2_ctlxb")
-region = Rect2(1792, 0, 256, 256)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_18hdn"]
-atlas = ExtResource("2_ctlxb")
-region = Rect2(2048, 0, 256, 256)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_m2e04"]
-atlas = ExtResource("2_ctlxb")
-region = Rect2(2304, 0, 256, 256)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_6v3bx"]
-atlas = ExtResource("2_ctlxb")
-region = Rect2(2560, 0, 256, 256)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_x5ptr"]
-atlas = ExtResource("2_ctlxb")
-region = Rect2(2816, 0, 256, 256)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_2iuj1"]
-atlas = ExtResource("2_ctlxb")
-region = Rect2(3072, 0, 256, 256)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_4esvu"]
-atlas = ExtResource("2_ctlxb")
-region = Rect2(3328, 0, 256, 256)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_gpxk4"]
-atlas = ExtResource("2_ctlxb")
-region = Rect2(3584, 0, 256, 256)
-
-[sub_resource type="SpriteFrames" id="SpriteFrames_jc5bo"]
-animations = [{
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_hx5ne")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_mlskd")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_qwkih")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_kidma")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_soj78")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_h4jdu")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_lbbmj")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_87tbb")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_18hdn")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_m2e04")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_6v3bx")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_x5ptr")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_2iuj1")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_4esvu")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_gpxk4")
-}],
-"loop": true,
-"name": &"default",
-"speed": 12.0
-}]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_nd1fw"]
 atlas = ExtResource("3_xttq3")
@@ -654,9 +540,6 @@ animations = [{
 "speed": 12.0
 }]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_oon0p"]
-size = Vector2(31, 40)
-
 [sub_resource type="Resource" id="Resource_a7d1s"]
 script = ExtResource("15_6s3wo")
 length = 200
@@ -786,37 +669,126 @@ font_size = 14
 font_color = Color(0.815686, 0.254902, 0.32549, 1)
 outline_color = Color(0.286275, 0.333333, 0.533333, 1)
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_hx5ne"]
+atlas = ExtResource("2_ctlxb")
+region = Rect2(0, 0, 256, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mlskd"]
+atlas = ExtResource("2_ctlxb")
+region = Rect2(256, 0, 256, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qwkih"]
+atlas = ExtResource("2_ctlxb")
+region = Rect2(512, 0, 256, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kidma"]
+atlas = ExtResource("2_ctlxb")
+region = Rect2(768, 0, 256, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_soj78"]
+atlas = ExtResource("2_ctlxb")
+region = Rect2(1024, 0, 256, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_h4jdu"]
+atlas = ExtResource("2_ctlxb")
+region = Rect2(1280, 0, 256, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lbbmj"]
+atlas = ExtResource("2_ctlxb")
+region = Rect2(1536, 0, 256, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_87tbb"]
+atlas = ExtResource("2_ctlxb")
+region = Rect2(1792, 0, 256, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_18hdn"]
+atlas = ExtResource("2_ctlxb")
+region = Rect2(2048, 0, 256, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_m2e04"]
+atlas = ExtResource("2_ctlxb")
+region = Rect2(2304, 0, 256, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6v3bx"]
+atlas = ExtResource("2_ctlxb")
+region = Rect2(2560, 0, 256, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_x5ptr"]
+atlas = ExtResource("2_ctlxb")
+region = Rect2(2816, 0, 256, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2iuj1"]
+atlas = ExtResource("2_ctlxb")
+region = Rect2(3072, 0, 256, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4esvu"]
+atlas = ExtResource("2_ctlxb")
+region = Rect2(3328, 0, 256, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gpxk4"]
+atlas = ExtResource("2_ctlxb")
+region = Rect2(3584, 0, 256, 256)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_jc5bo"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hx5ne")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mlskd")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qwkih")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kidma")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_soj78")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_h4jdu")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lbbmj")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_87tbb")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_18hdn")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_m2e04")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6v3bx")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_x5ptr")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2iuj1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4esvu")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gpxk4")
+}],
+"loop": true,
+"name": &"default",
+"speed": 12.0
+}]
+
 [node name="main" type="Node2D"]
 script = ExtResource("1_v4y1k")
 metadata/_edit_vertical_guides_ = [23.0, 236.0]
-metadata/_edit_horizontal_guides_ = [22.0]
+metadata/_edit_horizontal_guides_ = [22.0, 336.0]
 
-[node name="titleScreen" type="Sprite2D" parent="."]
-visible = false
-z_index = 5
-texture = ExtResource("2_hx2bu")
-centered = false
-script = ExtResource("3_5xkj1")
-
-[node name="loadingScreen" type="AnimatedSprite2D" parent="."]
-visible = false
-z_index = 3
-sprite_frames = SubResource("SpriteFrames_jc5bo")
-centered = false
-
-[node name="Label" type="Label" parent="loadingScreen"]
-offset_top = 215.0
-offset_right = 256.0
-offset_bottom = 256.0
-text = "Loading..."
-label_settings = ExtResource("3_lhsro")
-horizontal_alignment = 1
-vertical_alignment = 1
-
-[node name="bg" type="Sprite2D" parent="."]
+[node name="bg" type="Node2D" parent="."]
 z_index = -2
-texture = ExtResource("4_moga5")
-centered = false
 metadata/_edit_lock_ = true
 
 [node name="sky" type="Sprite2D" parent="bg"]
@@ -824,11 +796,11 @@ position = Vector2(2.08165e-12, 2.08165e-12)
 texture = ExtResource("5_ajwgm")
 centered = false
 
-[node name="clouds" type="Sprite2D" parent="bg"]
+[node name="Clouds" type="Sprite2D" parent="bg"]
 texture = ExtResource("6_re7k2")
 centered = false
 
-[node name="clouds" type="Sprite2D" parent="bg/clouds"]
+[node name="clouds" type="Sprite2D" parent="bg/Clouds"]
 position = Vector2(768, 0)
 texture = ExtResource("6_re7k2")
 centered = false
@@ -856,12 +828,14 @@ texture = ExtResource("11_n31q0")
 centered = false
 
 [node name="BirdSquad" type="Node2D" parent="bg"]
+unique_name_in_owner = true
 position = Vector2(254, 37)
 
 [node name="bird" type="AnimatedSprite2D" parent="bg/BirdSquad"]
 position = Vector2(7, 0)
 sprite_frames = SubResource("SpriteFrames_8rkwk")
-frame_progress = 0.719713
+frame = 4
+frame_progress = 0.192768
 centered = false
 
 [node name="bird2" type="AnimatedSprite2D" parent="bg/BirdSquad"]
@@ -881,36 +855,28 @@ libraries = {
 &"": SubResource("AnimationLibrary_l5xph")
 }
 
-[node name="buttons" type="Control" parent="."]
-layout_mode = 3
-anchors_preset = 0
-offset_right = 120.0
+[node name="buttons" type="MarginContainer" parent="."]
+offset_right = 128.0
 offset_bottom = 40.0
+theme_override_constants/margin_left = 8
+theme_override_constants/margin_top = 7
 
-[node name="Inventory" type="TextureButton" parent="buttons"]
-layout_mode = 0
-offset_left = 8.0
-offset_top = 7.0
-offset_right = 40.0
-offset_bottom = 39.0
+[node name="HBoxContainer" type="HBoxContainer" parent="buttons"]
+layout_mode = 2
+theme_override_constants/separation = 8
+
+[node name="Inventory" type="TextureButton" parent="buttons/HBoxContainer"]
+layout_mode = 2
 mouse_default_cursor_shape = 2
 texture_normal = ExtResource("27_vm4sn")
 
-[node name="Fish" type="TextureButton" parent="buttons"]
-layout_mode = 0
-offset_left = 48.0
-offset_top = 7.0
-offset_right = 80.0
-offset_bottom = 39.0
+[node name="Fish" type="TextureButton" parent="buttons/HBoxContainer"]
+layout_mode = 2
 mouse_default_cursor_shape = 2
 texture_normal = ExtResource("28_5f4xm")
 
-[node name="Shop" type="TextureButton" parent="buttons"]
-layout_mode = 0
-offset_left = 88.0
-offset_top = 7.0
-offset_right = 120.0
-offset_bottom = 39.0
+[node name="Shop" type="TextureButton" parent="buttons/HBoxContainer"]
+layout_mode = 2
 mouse_default_cursor_shape = 2
 texture_normal = ExtResource("29_x64km")
 
@@ -929,7 +895,6 @@ autoplay = "idle"
 centered = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="skeddle"]
-visible = false
 position = Vector2(17, 14)
 shape = SubResource("RectangleShape2D_o7kr4")
 
@@ -945,27 +910,19 @@ centered = false
 stream = ExtResource("23_ujgsq")
 volume_db = -30.0
 
-[node name="player" type="CharacterBody2D" parent="."]
+[node name="Player" type="Node2D" parent="."]
 z_index = 2
 position = Vector2(5, 161)
-safe_margin = 1.0
 script = ExtResource("1_ger0m")
 
-[node name="Sprite2D" type="AnimatedSprite2D" parent="player"]
+[node name="Sprite2D" type="AnimatedSprite2D" parent="Player"]
 position = Vector2(-11, -19)
 sprite_frames = SubResource("SpriteFrames_ofr86")
-animation = &"recovery"
-frame = 2
-frame_progress = 1.0
-animation = &"idle"
+animation = &"cast"
 centered = false
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="player"]
-visible = false
-position = Vector2(32.5, 40)
-shape = SubResource("RectangleShape2D_oon0p")
-
-[node name="Line" parent="player" instance=ExtResource("2_mysdv")]
+[node name="Line" parent="Player" instance=ExtResource("2_mysdv")]
+unique_name_in_owner = true
 position = Vector2(37, 40)
 data = SubResource("Resource_a7d1s")
 rodData = SubResource("Resource_e7872")
@@ -1051,22 +1008,23 @@ text = "16"
 label_settings = SubResource("LabelSettings_xsbrm")
 horizontal_alignment = 2
 
-[node name="Power" type="Sprite2D" parent="."]
+[node name="PowerBar" type="Sprite2D" parent="."]
+unique_name_in_owner = true
 position = Vector2(8, 57)
 texture = ExtResource("39_0gpu0")
 centered = false
 script = ExtResource("40_c1ow5")
 
-[node name="Mask" type="ColorRect" parent="Power"]
+[node name="Mask" type="ColorRect" parent="PowerBar"]
 clip_children = 1
 offset_right = 24.0
 offset_bottom = 4.0
 
-[node name="Juice" type="Sprite2D" parent="Power/Mask"]
+[node name="Juice" type="Sprite2D" parent="PowerBar/Mask"]
 texture = ExtResource("41_v1msm")
 centered = false
 
-[node name="Cap" type="TextureRect" parent="Power/Mask"]
+[node name="Cap" type="TextureRect" parent="PowerBar/Mask"]
 visible = false
 layout_mode = 1
 anchors_preset = 7
@@ -1081,7 +1039,7 @@ grow_horizontal = 2
 grow_vertical = 0
 texture = ExtResource("42_w30l6")
 
-[node name="Bucket" type="Sprite2D" parent="."]
+[node name="BucketScreen" type="Sprite2D" parent="."]
 visible = false
 z_index = 2
 position = Vector2(53, 47)
@@ -1089,7 +1047,7 @@ texture = ExtResource("42_plguu")
 centered = false
 script = ExtResource("43_umrp6")
 
-[node name="back" type="TextureButton" parent="Bucket"]
+[node name="back" type="TextureButton" parent="BucketScreen"]
 offset_left = -43.0
 offset_top = -37.0
 offset_right = -16.0
@@ -1098,7 +1056,7 @@ mouse_default_cursor_shape = 2
 texture_normal = ExtResource("31_6njhk")
 texture_pressed = ExtResource("32_7y100")
 
-[node name="Warning" type="Label" parent="Bucket/back"]
+[node name="Warning" type="Label" parent="BucketScreen/back"]
 visible = false
 layout_mode = 0
 offset_left = 34.0
@@ -1107,14 +1065,14 @@ offset_bottom = 25.0
 text = "Throw away"
 label_settings = ExtResource("45_fcifn")
 
-[node name="Margins" type="Control" parent="Bucket"]
+[node name="Margins" type="Control" parent="BucketScreen"]
 layout_mode = 3
 anchors_preset = 0
 offset_right = 1.0
 offset_bottom = 1.0
 metadata/_edit_lock_ = true
 
-[node name="LeftMargin" type="Control" parent="Bucket/Margins"]
+[node name="LeftMargin" type="Control" parent="BucketScreen/Margins"]
 layout_mode = 3
 anchors_preset = 0
 offset_left = 1.0
@@ -1123,7 +1081,7 @@ offset_right = 25.0
 offset_bottom = 169.0
 metadata/_edit_lock_ = true
 
-[node name="TopMargin" type="Control" parent="Bucket/Margins"]
+[node name="TopMargin" type="Control" parent="BucketScreen/Margins"]
 layout_mode = 3
 anchors_preset = 0
 offset_left = 1.0
@@ -1132,7 +1090,7 @@ offset_right = 146.0
 offset_bottom = 45.0
 metadata/_edit_lock_ = true
 
-[node name="RightMargin" type="Control" parent="Bucket/Margins"]
+[node name="RightMargin" type="Control" parent="BucketScreen/Margins"]
 layout_mode = 3
 anchors_preset = 0
 offset_left = 126.0
@@ -1141,7 +1099,7 @@ offset_right = 150.0
 offset_bottom = 169.0
 metadata/_edit_lock_ = true
 
-[node name="BottomMargin" type="Control" parent="Bucket/Margins"]
+[node name="BottomMargin" type="Control" parent="BucketScreen/Margins"]
 layout_mode = 3
 anchors_preset = 0
 offset_left = 1.0
@@ -1150,12 +1108,12 @@ offset_right = 146.0
 offset_bottom = 168.0
 metadata/_edit_lock_ = true
 
-[node name="Grid" type="Control" parent="Bucket"]
+[node name="Grid" type="Control" parent="BucketScreen"]
 layout_mode = 3
 anchors_preset = 0
 metadata/_edit_lock_ = true
 
-[node name="00" type="Control" parent="Bucket/Grid"]
+[node name="00" type="Control" parent="BucketScreen/Grid"]
 layout_mode = 3
 anchors_preset = 0
 offset_left = 26.0
@@ -1163,9 +1121,8 @@ offset_top = 46.0
 offset_right = 45.0
 offset_bottom = 65.0
 script = ExtResource("45_ghbw5")
-metadata/_edit_lock_ = true
 
-[node name="01" type="Control" parent="Bucket/Grid"]
+[node name="01" type="Control" parent="BucketScreen/Grid"]
 layout_mode = 3
 anchors_preset = 0
 offset_left = 26.0
@@ -1174,9 +1131,8 @@ offset_right = 45.0
 offset_bottom = 85.0
 script = ExtResource("45_ghbw5")
 y = 1
-metadata/_edit_lock_ = true
 
-[node name="02" type="Control" parent="Bucket/Grid"]
+[node name="02" type="Control" parent="BucketScreen/Grid"]
 layout_mode = 3
 anchors_preset = 0
 offset_left = 26.0
@@ -1185,9 +1141,8 @@ offset_right = 45.0
 offset_bottom = 105.0
 script = ExtResource("45_ghbw5")
 y = 2
-metadata/_edit_lock_ = true
 
-[node name="03" type="Control" parent="Bucket/Grid"]
+[node name="03" type="Control" parent="BucketScreen/Grid"]
 layout_mode = 3
 anchors_preset = 0
 offset_left = 26.0
@@ -1196,9 +1151,8 @@ offset_right = 45.0
 offset_bottom = 125.0
 script = ExtResource("45_ghbw5")
 y = 3
-metadata/_edit_lock_ = true
 
-[node name="04" type="Control" parent="Bucket/Grid"]
+[node name="04" type="Control" parent="BucketScreen/Grid"]
 layout_mode = 3
 anchors_preset = 0
 offset_left = 26.0
@@ -1207,9 +1161,8 @@ offset_right = 45.0
 offset_bottom = 145.0
 script = ExtResource("45_ghbw5")
 y = 4
-metadata/_edit_lock_ = true
 
-[node name="10" type="Control" parent="Bucket/Grid"]
+[node name="10" type="Control" parent="BucketScreen/Grid"]
 layout_mode = 3
 anchors_preset = 0
 offset_left = 46.0
@@ -1218,9 +1171,8 @@ offset_right = 65.0
 offset_bottom = 65.0
 script = ExtResource("45_ghbw5")
 x = 1
-metadata/_edit_lock_ = true
 
-[node name="11" type="Control" parent="Bucket/Grid"]
+[node name="11" type="Control" parent="BucketScreen/Grid"]
 layout_mode = 3
 anchors_preset = 0
 offset_left = 46.0
@@ -1230,9 +1182,8 @@ offset_bottom = 85.0
 script = ExtResource("45_ghbw5")
 x = 1
 y = 1
-metadata/_edit_lock_ = true
 
-[node name="12" type="Control" parent="Bucket/Grid"]
+[node name="12" type="Control" parent="BucketScreen/Grid"]
 layout_mode = 3
 anchors_preset = 0
 offset_left = 46.0
@@ -1242,9 +1193,8 @@ offset_bottom = 105.0
 script = ExtResource("45_ghbw5")
 x = 1
 y = 2
-metadata/_edit_lock_ = true
 
-[node name="13" type="Control" parent="Bucket/Grid"]
+[node name="13" type="Control" parent="BucketScreen/Grid"]
 layout_mode = 3
 anchors_preset = 0
 offset_left = 46.0
@@ -1254,9 +1204,8 @@ offset_bottom = 125.0
 script = ExtResource("45_ghbw5")
 x = 1
 y = 3
-metadata/_edit_lock_ = true
 
-[node name="14" type="Control" parent="Bucket/Grid"]
+[node name="14" type="Control" parent="BucketScreen/Grid"]
 layout_mode = 3
 anchors_preset = 0
 offset_left = 46.0
@@ -1266,9 +1215,8 @@ offset_bottom = 145.0
 script = ExtResource("45_ghbw5")
 x = 1
 y = 4
-metadata/_edit_lock_ = true
 
-[node name="20" type="Control" parent="Bucket/Grid"]
+[node name="20" type="Control" parent="BucketScreen/Grid"]
 layout_mode = 3
 anchors_preset = 0
 offset_left = 66.0
@@ -1277,9 +1225,8 @@ offset_right = 85.0
 offset_bottom = 65.0
 script = ExtResource("45_ghbw5")
 x = 2
-metadata/_edit_lock_ = true
 
-[node name="21" type="Control" parent="Bucket/Grid"]
+[node name="21" type="Control" parent="BucketScreen/Grid"]
 layout_mode = 3
 anchors_preset = 0
 offset_left = 66.0
@@ -1289,9 +1236,8 @@ offset_bottom = 85.0
 script = ExtResource("45_ghbw5")
 x = 2
 y = 1
-metadata/_edit_lock_ = true
 
-[node name="22" type="Control" parent="Bucket/Grid"]
+[node name="22" type="Control" parent="BucketScreen/Grid"]
 layout_mode = 3
 anchors_preset = 0
 offset_left = 66.0
@@ -1301,9 +1247,8 @@ offset_bottom = 105.0
 script = ExtResource("45_ghbw5")
 x = 2
 y = 2
-metadata/_edit_lock_ = true
 
-[node name="23" type="Control" parent="Bucket/Grid"]
+[node name="23" type="Control" parent="BucketScreen/Grid"]
 layout_mode = 3
 anchors_preset = 0
 offset_left = 66.0
@@ -1313,9 +1258,8 @@ offset_bottom = 125.0
 script = ExtResource("45_ghbw5")
 x = 2
 y = 3
-metadata/_edit_lock_ = true
 
-[node name="24" type="Control" parent="Bucket/Grid"]
+[node name="24" type="Control" parent="BucketScreen/Grid"]
 layout_mode = 3
 anchors_preset = 0
 offset_left = 66.0
@@ -1325,9 +1269,8 @@ offset_bottom = 145.0
 script = ExtResource("45_ghbw5")
 x = 2
 y = 4
-metadata/_edit_lock_ = true
 
-[node name="30" type="Control" parent="Bucket/Grid"]
+[node name="30" type="Control" parent="BucketScreen/Grid"]
 layout_mode = 3
 anchors_preset = 0
 offset_left = 86.0
@@ -1336,9 +1279,8 @@ offset_right = 105.0
 offset_bottom = 65.0
 script = ExtResource("45_ghbw5")
 x = 3
-metadata/_edit_lock_ = true
 
-[node name="31" type="Control" parent="Bucket/Grid"]
+[node name="31" type="Control" parent="BucketScreen/Grid"]
 layout_mode = 3
 anchors_preset = 0
 offset_left = 86.0
@@ -1348,9 +1290,8 @@ offset_bottom = 85.0
 script = ExtResource("45_ghbw5")
 x = 3
 y = 1
-metadata/_edit_lock_ = true
 
-[node name="32" type="Control" parent="Bucket/Grid"]
+[node name="32" type="Control" parent="BucketScreen/Grid"]
 layout_mode = 3
 anchors_preset = 0
 offset_left = 86.0
@@ -1360,9 +1301,8 @@ offset_bottom = 105.0
 script = ExtResource("45_ghbw5")
 x = 3
 y = 2
-metadata/_edit_lock_ = true
 
-[node name="33" type="Control" parent="Bucket/Grid"]
+[node name="33" type="Control" parent="BucketScreen/Grid"]
 layout_mode = 3
 anchors_preset = 0
 offset_left = 86.0
@@ -1372,9 +1312,8 @@ offset_bottom = 125.0
 script = ExtResource("45_ghbw5")
 x = 3
 y = 3
-metadata/_edit_lock_ = true
 
-[node name="34" type="Control" parent="Bucket/Grid"]
+[node name="34" type="Control" parent="BucketScreen/Grid"]
 layout_mode = 3
 anchors_preset = 0
 offset_left = 86.0
@@ -1384,9 +1323,8 @@ offset_bottom = 145.0
 script = ExtResource("45_ghbw5")
 x = 3
 y = 4
-metadata/_edit_lock_ = true
 
-[node name="40" type="Control" parent="Bucket/Grid"]
+[node name="40" type="Control" parent="BucketScreen/Grid"]
 layout_mode = 3
 anchors_preset = 0
 offset_left = 106.0
@@ -1395,9 +1333,8 @@ offset_right = 125.0
 offset_bottom = 65.0
 script = ExtResource("45_ghbw5")
 x = 4
-metadata/_edit_lock_ = true
 
-[node name="41" type="Control" parent="Bucket/Grid"]
+[node name="41" type="Control" parent="BucketScreen/Grid"]
 layout_mode = 3
 anchors_preset = 0
 offset_left = 106.0
@@ -1407,9 +1344,8 @@ offset_bottom = 85.0
 script = ExtResource("45_ghbw5")
 x = 4
 y = 1
-metadata/_edit_lock_ = true
 
-[node name="42" type="Control" parent="Bucket/Grid"]
+[node name="42" type="Control" parent="BucketScreen/Grid"]
 layout_mode = 3
 anchors_preset = 0
 offset_left = 106.0
@@ -1419,9 +1355,8 @@ offset_bottom = 105.0
 script = ExtResource("45_ghbw5")
 x = 4
 y = 2
-metadata/_edit_lock_ = true
 
-[node name="43" type="Control" parent="Bucket/Grid"]
+[node name="43" type="Control" parent="BucketScreen/Grid"]
 layout_mode = 3
 anchors_preset = 0
 offset_left = 106.0
@@ -1431,9 +1366,8 @@ offset_bottom = 125.0
 script = ExtResource("45_ghbw5")
 x = 4
 y = 3
-metadata/_edit_lock_ = true
 
-[node name="44" type="Control" parent="Bucket/Grid"]
+[node name="44" type="Control" parent="BucketScreen/Grid"]
 layout_mode = 3
 anchors_preset = 0
 offset_left = 106.0
@@ -1445,13 +1379,13 @@ x = 4
 y = 4
 metadata/_edit_lock_ = true
 
-[node name="FishCaught" type="Sprite2D" parent="."]
+[node name="FishCaughtScreen" type="Sprite2D" parent="."]
 visible = false
 z_index = 2
 position = Vector2(128, 120)
 texture = ExtResource("44_gjrl8")
 
-[node name="OneName" type="Label" parent="FishCaught"]
+[node name="OneName" type="Label" parent="FishCaughtScreen"]
 offset_left = -84.0
 offset_top = -72.0
 offset_right = 85.0
@@ -1462,7 +1396,7 @@ horizontal_alignment = 1
 vertical_alignment = 1
 uppercase = true
 
-[node name="TwoName1" type="Label" parent="FishCaught"]
+[node name="TwoName1" type="Label" parent="FishCaughtScreen"]
 visible = false
 offset_left = -84.0
 offset_top = -75.0
@@ -1473,7 +1407,7 @@ label_settings = ExtResource("45_fcifn")
 horizontal_alignment = 1
 uppercase = true
 
-[node name="TwoName2" type="Label" parent="FishCaught"]
+[node name="TwoName2" type="Label" parent="FishCaughtScreen"]
 visible = false
 offset_left = -84.0
 offset_top = -59.0
@@ -1484,7 +1418,7 @@ label_settings = ExtResource("45_fcifn")
 horizontal_alignment = 1
 uppercase = true
 
-[node name="Weight" type="Label" parent="FishCaught"]
+[node name="Weight" type="Label" parent="FishCaughtScreen"]
 offset_left = -85.0
 offset_top = -14.0
 offset_right = -33.0
@@ -1493,7 +1427,7 @@ text = "Weight:"
 label_settings = SubResource("LabelSettings_untlq")
 horizontal_alignment = 1
 
-[node name="WeightValue" type="Label" parent="FishCaught"]
+[node name="WeightValue" type="Label" parent="FishCaughtScreen"]
 offset_left = -85.0
 offset_top = -10.0
 offset_right = -33.0
@@ -1504,7 +1438,7 @@ horizontal_alignment = 1
 vertical_alignment = 1
 uppercase = true
 
-[node name="lbs" type="Label" parent="FishCaught"]
+[node name="lbs" type="Label" parent="FishCaughtScreen"]
 offset_left = -57.0
 offset_top = 13.0
 offset_right = -32.0
@@ -1513,7 +1447,7 @@ text = "lbs"
 label_settings = SubResource("LabelSettings_untlq")
 horizontal_alignment = 1
 
-[node name="RarityValue" type="Label" parent="FishCaught"]
+[node name="RarityValue" type="Label" parent="FishCaughtScreen"]
 offset_left = 32.0
 offset_top = -10.0
 offset_right = 84.0
@@ -1524,7 +1458,7 @@ horizontal_alignment = 1
 vertical_alignment = 1
 uppercase = true
 
-[node name="Rarity" type="Label" parent="FishCaught"]
+[node name="Rarity" type="Label" parent="FishCaughtScreen"]
 offset_left = 32.0
 offset_top = -15.0
 offset_right = 84.0
@@ -1533,7 +1467,7 @@ text = "Rarity:"
 label_settings = SubResource("LabelSettings_untlq")
 horizontal_alignment = 1
 
-[node name="Description" type="Label" parent="FishCaught"]
+[node name="Description" type="Label" parent="FishCaughtScreen"]
 offset_left = -80.0
 offset_top = 42.0
 offset_right = 80.0
@@ -1544,73 +1478,99 @@ horizontal_alignment = 1
 vertical_alignment = 1
 autowrap_mode = 3
 
-[connection signal="pressed" from="buttons/Inventory" to="Tacklebox" method="open"]
-[connection signal="pressed" from="buttons/Fish" to="Bucket" method="open"]
-[connection signal="pressed" from="buttons/Shop" to="Shop" method="open"]
-[connection signal="casted" from="player" to="." method="on_cast"]
-[connection signal="powerApplied" from="player" to="Power" method="on_power_applied"]
-[connection signal="animation_finished" from="player/Sprite2D" to="player" method="on_animation_finished"]
-[connection signal="reeling" from="player/Line" to="." method="on_reeling"]
+[node name="loadingScreen" type="AnimatedSprite2D" parent="."]
+visible = false
+z_index = 3
+sprite_frames = SubResource("SpriteFrames_jc5bo")
+autoplay = "default"
+centered = false
+
+[node name="Label" type="Label" parent="loadingScreen"]
+offset_top = 215.0
+offset_right = 256.0
+offset_bottom = 256.0
+size_flags_horizontal = 4
+size_flags_vertical = 1
+text = "Loading..."
+label_settings = ExtResource("3_lhsro")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="titleScreen" type="Sprite2D" parent="."]
+visible = false
+z_index = 5
+texture = ExtResource("2_hx2bu")
+centered = false
+script = ExtResource("3_5xkj1")
+
+[connection signal="pressed" from="buttons/HBoxContainer/Inventory" to="Tacklebox" method="open"]
+[connection signal="pressed" from="buttons/HBoxContainer/Fish" to="BucketScreen" method="open"]
+[connection signal="pressed" from="buttons/HBoxContainer/Shop" to="Shop" method="open"]
+[connection signal="casted" from="Player" to="." method="on_cast"]
+[connection signal="powerApplied" from="Player" to="PowerBar" method="on_power_applied"]
+[connection signal="animation_finished" from="Player/Sprite2D" to="Player" method="on_animation_finished"]
+[connection signal="reeling" from="Player/Line" to="." method="on_reeling"]
 [connection signal="animation_finished" from="Camera2D/AnimationPlayer" to="." method="on_pan_finish"]
-[connection signal="animation_finished" from="Tacklebox" to="Tacklebox" method="on_opened"]
 [connection signal="animation_finished" from="Tacklebox" to="Tacklebox" method="on_closed"]
+[connection signal="animation_finished" from="Tacklebox" to="Tacklebox" method="on_opened"]
 [connection signal="pressed" from="Tacklebox/back" to="Tacklebox" method="close"]
 [connection signal="pressed" from="Shop/back" to="Shop" method="close"]
-[connection signal="item_rect_changed" from="Power/Mask" to="Power" method="on_resize"]
-[connection signal="mouse_entered" from="Bucket/back" to="Bucket" method="_on_back_mouse_entered"]
-[connection signal="mouse_exited" from="Bucket/back" to="Bucket" method="_on_back_mouse_exited"]
-[connection signal="pressed" from="Bucket/back" to="Bucket" method="close"]
-[connection signal="mouse_entered" from="Bucket/Margins/LeftMargin" to="Bucket" method="cancel_hover"]
-[connection signal="mouse_entered" from="Bucket/Margins/TopMargin" to="Bucket" method="cancel_hover"]
-[connection signal="mouse_entered" from="Bucket/Margins/RightMargin" to="Bucket" method="cancel_hover"]
-[connection signal="mouse_entered" from="Bucket/Margins/BottomMargin" to="Bucket" method="cancel_hover"]
-[connection signal="gui_input" from="Bucket/Grid/00" to="Bucket/Grid/00" method="on_click"]
-[connection signal="mouse_entered" from="Bucket/Grid/00" to="Bucket/Grid/00" method="_on_mouse_entered"]
-[connection signal="gui_input" from="Bucket/Grid/01" to="Bucket/Grid/01" method="on_click"]
-[connection signal="mouse_entered" from="Bucket/Grid/01" to="Bucket/Grid/01" method="_on_mouse_entered"]
-[connection signal="gui_input" from="Bucket/Grid/02" to="Bucket/Grid/02" method="on_click"]
-[connection signal="mouse_entered" from="Bucket/Grid/02" to="Bucket/Grid/02" method="_on_mouse_entered"]
-[connection signal="gui_input" from="Bucket/Grid/03" to="Bucket/Grid/03" method="on_click"]
-[connection signal="mouse_entered" from="Bucket/Grid/03" to="Bucket/Grid/03" method="_on_mouse_entered"]
-[connection signal="gui_input" from="Bucket/Grid/04" to="Bucket/Grid/04" method="on_click"]
-[connection signal="mouse_entered" from="Bucket/Grid/04" to="Bucket/Grid/04" method="_on_mouse_entered"]
-[connection signal="gui_input" from="Bucket/Grid/10" to="Bucket/Grid/10" method="on_click"]
-[connection signal="mouse_entered" from="Bucket/Grid/10" to="Bucket/Grid/10" method="_on_mouse_entered"]
-[connection signal="gui_input" from="Bucket/Grid/11" to="Bucket/Grid/11" method="on_click"]
-[connection signal="mouse_entered" from="Bucket/Grid/11" to="Bucket/Grid/11" method="_on_mouse_entered"]
-[connection signal="gui_input" from="Bucket/Grid/12" to="Bucket/Grid/12" method="on_click"]
-[connection signal="mouse_entered" from="Bucket/Grid/12" to="Bucket/Grid/12" method="_on_mouse_entered"]
-[connection signal="gui_input" from="Bucket/Grid/13" to="Bucket/Grid/13" method="on_click"]
-[connection signal="mouse_entered" from="Bucket/Grid/13" to="Bucket/Grid/13" method="_on_mouse_entered"]
-[connection signal="gui_input" from="Bucket/Grid/14" to="Bucket/Grid/14" method="on_click"]
-[connection signal="mouse_entered" from="Bucket/Grid/14" to="Bucket/Grid/14" method="_on_mouse_entered"]
-[connection signal="gui_input" from="Bucket/Grid/20" to="Bucket/Grid/20" method="on_click"]
-[connection signal="mouse_entered" from="Bucket/Grid/20" to="Bucket/Grid/20" method="_on_mouse_entered"]
-[connection signal="gui_input" from="Bucket/Grid/21" to="Bucket/Grid/21" method="on_click"]
-[connection signal="mouse_entered" from="Bucket/Grid/21" to="Bucket/Grid/21" method="_on_mouse_entered"]
-[connection signal="gui_input" from="Bucket/Grid/22" to="Bucket/Grid/22" method="on_click"]
-[connection signal="mouse_entered" from="Bucket/Grid/22" to="Bucket/Grid/22" method="_on_mouse_entered"]
-[connection signal="gui_input" from="Bucket/Grid/23" to="Bucket/Grid/23" method="on_click"]
-[connection signal="mouse_entered" from="Bucket/Grid/23" to="Bucket/Grid/23" method="_on_mouse_entered"]
-[connection signal="gui_input" from="Bucket/Grid/24" to="Bucket/Grid/24" method="on_click"]
-[connection signal="mouse_entered" from="Bucket/Grid/24" to="Bucket/Grid/24" method="_on_mouse_entered"]
-[connection signal="gui_input" from="Bucket/Grid/30" to="Bucket/Grid/30" method="on_click"]
-[connection signal="mouse_entered" from="Bucket/Grid/30" to="Bucket/Grid/30" method="_on_mouse_entered"]
-[connection signal="gui_input" from="Bucket/Grid/31" to="Bucket/Grid/31" method="on_click"]
-[connection signal="mouse_entered" from="Bucket/Grid/31" to="Bucket/Grid/31" method="_on_mouse_entered"]
-[connection signal="gui_input" from="Bucket/Grid/32" to="Bucket/Grid/32" method="on_click"]
-[connection signal="mouse_entered" from="Bucket/Grid/32" to="Bucket/Grid/32" method="_on_mouse_entered"]
-[connection signal="gui_input" from="Bucket/Grid/33" to="Bucket/Grid/33" method="on_click"]
-[connection signal="mouse_entered" from="Bucket/Grid/33" to="Bucket/Grid/33" method="_on_mouse_entered"]
-[connection signal="gui_input" from="Bucket/Grid/34" to="Bucket/Grid/34" method="on_click"]
-[connection signal="mouse_entered" from="Bucket/Grid/34" to="Bucket/Grid/34" method="_on_mouse_entered"]
-[connection signal="gui_input" from="Bucket/Grid/40" to="Bucket/Grid/40" method="on_click"]
-[connection signal="mouse_entered" from="Bucket/Grid/40" to="Bucket/Grid/40" method="_on_mouse_entered"]
-[connection signal="gui_input" from="Bucket/Grid/41" to="Bucket/Grid/41" method="on_click"]
-[connection signal="mouse_entered" from="Bucket/Grid/41" to="Bucket/Grid/41" method="_on_mouse_entered"]
-[connection signal="gui_input" from="Bucket/Grid/42" to="Bucket/Grid/42" method="on_click"]
-[connection signal="mouse_entered" from="Bucket/Grid/42" to="Bucket/Grid/42" method="_on_mouse_entered"]
-[connection signal="gui_input" from="Bucket/Grid/43" to="Bucket/Grid/43" method="on_click"]
-[connection signal="mouse_entered" from="Bucket/Grid/43" to="Bucket/Grid/43" method="_on_mouse_entered"]
-[connection signal="gui_input" from="Bucket/Grid/44" to="Bucket/Grid/44" method="on_click"]
-[connection signal="mouse_entered" from="Bucket/Grid/44" to="Bucket/Grid/44" method="_on_mouse_entered"]
+[connection signal="item_rect_changed" from="PowerBar/Mask" to="PowerBar" method="on_resize"]
+[connection signal="mouse_entered" from="BucketScreen/back" to="BucketScreen" method="_on_back_mouse_entered"]
+[connection signal="mouse_exited" from="BucketScreen/back" to="BucketScreen" method="_on_back_mouse_exited"]
+[connection signal="pressed" from="BucketScreen/back" to="BucketScreen" method="close"]
+[connection signal="mouse_entered" from="BucketScreen/Margins/LeftMargin" to="BucketScreen" method="cancel_hover"]
+[connection signal="mouse_entered" from="BucketScreen/Margins/TopMargin" to="BucketScreen" method="cancel_hover"]
+[connection signal="mouse_entered" from="BucketScreen/Margins/RightMargin" to="BucketScreen" method="cancel_hover"]
+[connection signal="mouse_entered" from="BucketScreen/Margins/BottomMargin" to="BucketScreen" method="cancel_hover"]
+[connection signal="gui_input" from="BucketScreen/Grid/00" to="BucketScreen/Grid/00" method="on_click"]
+[connection signal="mouse_entered" from="BucketScreen/Grid/00" to="BucketScreen/Grid/00" method="_on_mouse_entered"]
+[connection signal="gui_input" from="BucketScreen/Grid/01" to="BucketScreen/Grid/01" method="on_click"]
+[connection signal="mouse_entered" from="BucketScreen/Grid/01" to="BucketScreen/Grid/01" method="_on_mouse_entered"]
+[connection signal="gui_input" from="BucketScreen/Grid/02" to="BucketScreen/Grid/02" method="on_click"]
+[connection signal="mouse_entered" from="BucketScreen/Grid/02" to="BucketScreen/Grid/02" method="_on_mouse_entered"]
+[connection signal="gui_input" from="BucketScreen/Grid/03" to="BucketScreen/Grid/03" method="on_click"]
+[connection signal="mouse_entered" from="BucketScreen/Grid/03" to="BucketScreen/Grid/03" method="_on_mouse_entered"]
+[connection signal="gui_input" from="BucketScreen/Grid/04" to="BucketScreen/Grid/04" method="on_click"]
+[connection signal="mouse_entered" from="BucketScreen/Grid/04" to="BucketScreen/Grid/04" method="_on_mouse_entered"]
+[connection signal="gui_input" from="BucketScreen/Grid/10" to="BucketScreen/Grid/10" method="on_click"]
+[connection signal="mouse_entered" from="BucketScreen/Grid/10" to="BucketScreen/Grid/10" method="_on_mouse_entered"]
+[connection signal="gui_input" from="BucketScreen/Grid/11" to="BucketScreen/Grid/11" method="on_click"]
+[connection signal="mouse_entered" from="BucketScreen/Grid/11" to="BucketScreen/Grid/11" method="_on_mouse_entered"]
+[connection signal="gui_input" from="BucketScreen/Grid/12" to="BucketScreen/Grid/12" method="on_click"]
+[connection signal="mouse_entered" from="BucketScreen/Grid/12" to="BucketScreen/Grid/12" method="_on_mouse_entered"]
+[connection signal="gui_input" from="BucketScreen/Grid/13" to="BucketScreen/Grid/13" method="on_click"]
+[connection signal="mouse_entered" from="BucketScreen/Grid/13" to="BucketScreen/Grid/13" method="_on_mouse_entered"]
+[connection signal="gui_input" from="BucketScreen/Grid/14" to="BucketScreen/Grid/14" method="on_click"]
+[connection signal="mouse_entered" from="BucketScreen/Grid/14" to="BucketScreen/Grid/14" method="_on_mouse_entered"]
+[connection signal="gui_input" from="BucketScreen/Grid/20" to="BucketScreen/Grid/20" method="on_click"]
+[connection signal="mouse_entered" from="BucketScreen/Grid/20" to="BucketScreen/Grid/20" method="_on_mouse_entered"]
+[connection signal="gui_input" from="BucketScreen/Grid/21" to="BucketScreen/Grid/21" method="on_click"]
+[connection signal="mouse_entered" from="BucketScreen/Grid/21" to="BucketScreen/Grid/21" method="_on_mouse_entered"]
+[connection signal="gui_input" from="BucketScreen/Grid/22" to="BucketScreen/Grid/22" method="on_click"]
+[connection signal="mouse_entered" from="BucketScreen/Grid/22" to="BucketScreen/Grid/22" method="_on_mouse_entered"]
+[connection signal="gui_input" from="BucketScreen/Grid/23" to="BucketScreen/Grid/23" method="on_click"]
+[connection signal="mouse_entered" from="BucketScreen/Grid/23" to="BucketScreen/Grid/23" method="_on_mouse_entered"]
+[connection signal="gui_input" from="BucketScreen/Grid/24" to="BucketScreen/Grid/24" method="on_click"]
+[connection signal="mouse_entered" from="BucketScreen/Grid/24" to="BucketScreen/Grid/24" method="_on_mouse_entered"]
+[connection signal="gui_input" from="BucketScreen/Grid/30" to="BucketScreen/Grid/30" method="on_click"]
+[connection signal="mouse_entered" from="BucketScreen/Grid/30" to="BucketScreen/Grid/30" method="_on_mouse_entered"]
+[connection signal="gui_input" from="BucketScreen/Grid/31" to="BucketScreen/Grid/31" method="on_click"]
+[connection signal="mouse_entered" from="BucketScreen/Grid/31" to="BucketScreen/Grid/31" method="_on_mouse_entered"]
+[connection signal="gui_input" from="BucketScreen/Grid/32" to="BucketScreen/Grid/32" method="on_click"]
+[connection signal="mouse_entered" from="BucketScreen/Grid/32" to="BucketScreen/Grid/32" method="_on_mouse_entered"]
+[connection signal="gui_input" from="BucketScreen/Grid/33" to="BucketScreen/Grid/33" method="on_click"]
+[connection signal="mouse_entered" from="BucketScreen/Grid/33" to="BucketScreen/Grid/33" method="_on_mouse_entered"]
+[connection signal="gui_input" from="BucketScreen/Grid/34" to="BucketScreen/Grid/34" method="on_click"]
+[connection signal="mouse_entered" from="BucketScreen/Grid/34" to="BucketScreen/Grid/34" method="_on_mouse_entered"]
+[connection signal="gui_input" from="BucketScreen/Grid/40" to="BucketScreen/Grid/40" method="on_click"]
+[connection signal="mouse_entered" from="BucketScreen/Grid/40" to="BucketScreen/Grid/40" method="_on_mouse_entered"]
+[connection signal="gui_input" from="BucketScreen/Grid/41" to="BucketScreen/Grid/41" method="on_click"]
+[connection signal="mouse_entered" from="BucketScreen/Grid/41" to="BucketScreen/Grid/41" method="_on_mouse_entered"]
+[connection signal="gui_input" from="BucketScreen/Grid/42" to="BucketScreen/Grid/42" method="on_click"]
+[connection signal="mouse_entered" from="BucketScreen/Grid/42" to="BucketScreen/Grid/42" method="_on_mouse_entered"]
+[connection signal="gui_input" from="BucketScreen/Grid/43" to="BucketScreen/Grid/43" method="on_click"]
+[connection signal="mouse_entered" from="BucketScreen/Grid/43" to="BucketScreen/Grid/43" method="_on_mouse_entered"]
+[connection signal="gui_input" from="BucketScreen/Grid/44" to="BucketScreen/Grid/44" method="on_click"]
+[connection signal="mouse_entered" from="BucketScreen/Grid/44" to="BucketScreen/Grid/44" method="_on_mouse_entered"]
+[connection signal="click" from="titleScreen" to="." method="start_loading_screen"]

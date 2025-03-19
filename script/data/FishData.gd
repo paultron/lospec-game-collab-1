@@ -2,17 +2,17 @@ extends Resource
 class_name FishData
 
 enum Size {
-    SMALL,
-    MEDIUM,
-    LARGE
+	SMALL,
+	MEDIUM,
+	LARGE
 }
 
 enum Rarity {
-    EPIC,
-    RARE,
-    COOL,
-    OKAY,
-    LAME
+	EPIC,
+	RARE,
+	COOL,
+	OKAY,
+	LAME
 }
 
 @export var sprite: Texture2D

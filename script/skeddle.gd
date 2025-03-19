@@ -1,39 +1,39 @@
 extends Area2D
 
 @onready var sprite: AnimatedSprite2D = $AnimatedSprite2D
-var state: State = State.idle
+var state: SkedState = SkedState.idle
 var lastStateChange = 0
 
-enum State { idle, swimLeft, swimRight, upset }
+enum SkedState { idle, swimLeft, swimRight, upset }
 
 func _ready():
 	sprite.play("idle")
 	area_entered.connect(func(body: Node): 
 		if body.get_parent() is splash:
-			state = State.upset
+			state = SkedState.upset
 			sprite.offset = Vector2(0, -16)
 			sprite.play("upset")
 	)
 	pass 
 
 func _process(delta):
-	if state == State.swimLeft:
+	if state == SkedState.swimLeft:
 		position.x = max(position.x - 10 * delta, 64)
-	elif state == State.swimRight:
+	elif state == SkedState.swimRight:
 		position.x = min(position.x + 10 * delta, 220)
 	# Every 3 seconds, 50% chance of changing state
 	if randf() < 0.5 and Time.get_ticks_msec() - lastStateChange > 3000:
 		lastStateChange = Time.get_ticks_msec()
 		match state:
-			State.idle:
+			SkedState.idle:
 				if randf() < 0.5 && position.x > 60:
-					state = State.swimLeft
+					state = SkedState.swimLeft
 					sprite.flip_h = true
 					$fart.flip_h = false
 					$fart.position.x = 14
 					sprite.play("move")
 				elif randf() < 0.5 && position.x < 180:
-					state = State.swimRight
+					state = SkedState.swimRight
 					sprite.flip_h = false
 					$fart.flip_h = true
 					$fart.position.x = -7
@@ -42,16 +42,16 @@ func _process(delta):
 					fart()
 				elif randf() > 0.95:
 					quack()
-			State.swimLeft:
-				state = State.idle
+			SkedState.swimLeft:
+				state = SkedState.idle
 				sprite.play("idle")
-			State.swimRight:
-				state = State.idle
+			SkedState.swimRight:
+				state = SkedState.idle
 				sprite.play("idle")
-			State.upset:
+			SkedState.upset:
 				sprite.animation_looped.connect(func(): 
 					sprite.offset = Vector2(0, 0)
-					state = State.idle
+					state = SkedState.idle
 					sprite.play("idle")
 				)
 
